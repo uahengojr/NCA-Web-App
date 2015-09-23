@@ -187,6 +187,11 @@ ul.main-nav li{
 
 }
 
+img.globe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 /*---------------------------------------*/
 /* CONTACT US SECTION.*/
 /*---------------------------------------*/
