@@ -18,9 +18,9 @@
 <body>
 <header class="head">
     <nav  class="" >
-        <div class="nav" style="position: fixed;width: 100%">
+        <div class="nav" style="position: fixed;width: 100%;">
             <ul class="main-nav">
-                <li><a class="text" style="margin-left:40px;margin-right:20px;" href="#">Contact us</a></li>
+                <li><a class="text" style="margin-left:40px;margin-right:20px;" href="#form-main">Contact us</a></li>
                 <li><a class="text" href="#">Donation</a></li>
                 <li><a class="text" href="#">Sign up</a></li>
                 <li><a class="text" href="#">Login</a></li>
@@ -39,18 +39,18 @@
         </p>
     </div>
     <div class="rows" style="text-align: center">
-        <div class="col span-1-of-3 box wow flipInX" data-wow-delay="1s">
+        <div class="col span-1-of-3 box wow shake" data-wow-delay=".5s">
             <i class="fa fa-calendar fa-3x icon-big"></i>
             <h3>Annual Mettings</h3>
             <p>
                 Convene annual get-together of Namibians in the Americas.  </p>
         </div>
-        <div class="col span-1-of-3 box wow flipInX" data-wow-delay="1s">
+        <div class="col span-1-of-3 box wow shake" data-wow-delay=".5s">
             <i class="icon-big fa fa-users fa-3x"></i>
             <h3>Community Communications</h3>
             <p>Maintain ongoing communication among one another</p>
         </div>
-        <div class="col span-1-of-3 box wow flipInX" data-wow-delay="1s">
+        <div class="col span-1-of-3 box wow shake" data-wow-delay=".5s">
             <i class="fa fa-globe fa-3x icon-big"></i>
             <h3>Home away from Home</h3>
             <p>Be positive and active participants in Namibia&#39s development, with the idea that Namibians are valuable to Namibia and Namibia is valuable to Namibians.</p>
@@ -77,6 +77,9 @@
             With more than over 5 major ethnic groups, and over 10 languages and dialects, this country both enjoys and offers great cultural interaction as part of daily life. This infused cultural experience, set in an ever
             modernizing land, makes those from it proud to call in Home.
         </p>
+    </div>
+    <div style="margin-top: 40px">
+        <img class="globe" src="https://upload.wikimedia.org/wikipedia/commons/3/31/Namibia_on_the_globe_%28Zambia_centered%29.svg" align="middle" alt="Namibia globe" style="width:304px;height:228px;">
     </div>
 </section>
 <section class="contact">
@@ -107,14 +110,13 @@
 </script>
 <script>
     var a = $(".nav").offset().top;
-
     $(document).scroll(function(){
         if($(this).scrollTop() > 0)
         {
-            $('.nav').css({"background":"rgba(255, 255, 255, 0.95)", "transition":"background-color 0.9s"});
+            $('.nav').css({"background":"rgba(255, 255, 255, 0.95)", "border-bottom":"1px solid #eeeeee","transition":"background-color 1s"});
             $('.text').css({ "color":"gray","transition":"color 0.9s"});
         } else {
-            $('.nav').css({"background":"transparent"});
+            $('.nav').css({"background":"transparent","border":"none"});
             $('.text').css({"color":"white"});
 
         }
