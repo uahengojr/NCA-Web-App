@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="vendors/js/jquery.collagePlus.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <link rel="stylesheet" type="text/css" href="vendors/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="vendors/css/grid.css">
     <link rel="stylesheet" type="text/css" href="res/css/style.css">
+    <link rel="stylesheet" type="text/css" href="vendors/css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="vendors/css/ionicons.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">    <script src="vendors/js/jquery.collagePlus.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="social-buttons-3.css">
+
     <title>NCA</title>
 </head>
 <body>
-<header class="head rpw">
-    <nav>
-        <div class="rows">
+<header class="head">
+    <nav  class="" >
+        <div class="nav" style="position: fixed;width: 100%">
             <ul class="main-nav">
-                <li><a href="#">Contact us</a></li>
-                <li><a href="#">Donation</a></li>
-                <li><a href="#">Sign up</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a class="text" style="margin-left:40px;margin-right:20px;" href="#">Contact us</a></li>
+                <li><a class="text" href="#">Donation</a></li>
+                <li><a class="text" href="#">Sign up</a></li>
+                <li><a class="text" href="#">Login</a></li>
             </ul>
         </div>
     </nav>
@@ -34,18 +39,18 @@
         </p>
     </div>
     <div class="rows" style="text-align: center">
-        <div class="col span-1-of-3 box">
+        <div class="col span-1-of-3 box wow flipInX" data-wow-delay="1s">
             <i class="fa fa-calendar fa-3x icon-big"></i>
             <h3>Annual Mettings</h3>
             <p>
                 Convene annual get-together of Namibians in the Americas.  </p>
         </div>
-        <div class="col span-1-of-3 box">
+        <div class="col span-1-of-3 box wow flipInX" data-wow-delay="1s">
             <i class="icon-big fa fa-users fa-3x"></i>
             <h3>Community Communications</h3>
             <p>Maintain ongoing communication among one another</p>
         </div>
-        <div class="col span-1-of-3 box">
+        <div class="col span-1-of-3 box wow flipInX" data-wow-delay="1s">
             <i class="fa fa-globe fa-3x icon-big"></i>
             <h3>Home away from Home</h3>
             <p>Be positive and active participants in Namibia&#39s development, with the idea that Namibians are valuable to Namibia and Namibia is valuable to Namibians.</p>
@@ -74,17 +79,46 @@
         </p>
     </div>
 </section>
-<footer style="background-color:black">
-    <div class="rows col-md-12 container">
-        <h2 style="padding-top: 20px">Contact Us</h2>
-            <form method="post">
-                <div class="form-group">
-                    commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat
-                    massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.
-                    Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
-                     </div>
-            </form>
+<section class="contact">
+<div id="form-main">
+        <h2 style="color: white">Contact us</h2>
+    <div id="form-div">
+        <form class="form" id="form1" style="background-color:black">
+            <p class="name">
+                <input name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" placeholder="Name" id="name" />
+            </p>
+            <p class="email">
+                <input name="email" type="text" class="validate[required,custom[email]] feedback-input" id="email" placeholder="Email" />
+            </p>
+            <p class="text">
+                <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment" placeholder="Comment"></textarea>
+            </p>
+            <div class="submit">
+                <input class="wow shake" data-wow-delay="1s" type="submit" value="SEND" id="button-blue"/>
+                <div class="ease"></div>
+            </div>
+        </form>
     </div>
-</footer>
+    </div>
+</section>
+<script src="js/wow.min.js"></script>
+<script>
+    new WOW().init();
+</script>
+<script>
+    var a = $(".nav").offset().top;
+
+    $(document).scroll(function(){
+        if($(this).scrollTop() > 0)
+        {
+            $('.nav').css({"background":"rgba(255, 255, 255, 0.95)", "transition":"background-color 0.9s"});
+            $('.text').css({ "color":"gray","transition":"color 0.9s"});
+        } else {
+            $('.nav').css({"background":"transparent"});
+            $('.text').css({"color":"white"});
+
+        }
+    });
+</script>
 </body>
 </html>
