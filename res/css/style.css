@@ -201,14 +201,9 @@ img.globe {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    height: 90vh;
+    height: 100vh;
 }
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
-
-/*.contact{ background:url(http://thekitemap.com/images/feedback-img.jpg) no-repeat;*/
-    /*background-size: cover;*/
-    /*height:100%;*/
-/*}*/
 
 #feedback-page{
     text-align:left;
@@ -218,6 +213,7 @@ img.globe {
     width:100%;
     float:left;
     padding-top:0px;
+	margin-bottom: 0px;
 }
 
 #form-div {
@@ -268,7 +264,7 @@ img.globe {
     border:#30aed6 solid 3px;
 }
 
-/* Icons ---------------------------------- */
+/* Conatct Us Icons ---------------------------------- */
 #name{
     background-image: url(http://rexkirby.com/kirbyandson/images/name.svg);
     background-size: 30px 30px;
