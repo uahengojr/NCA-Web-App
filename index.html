@@ -22,8 +22,8 @@
 </head>
 <body>
 <header class="head">
-    <nav class="">
-        <div class="nav" style="position: fixed;width: 100%;">
+    <nav class="header_nav" style="position:fixed; width: 100%;">
+        <div class="nav" style="position:fixed; width: 100%;">
             <ul class="header-nav">
                 <li><a class="text contactExit" style="margin-left:40px;margin-right:20px;" href="#form-main">Contact us</a></li>
                 <li><a class="text" href="#">Donation</a></li>
@@ -32,10 +32,10 @@
                     <li><a class="text cd-signin" href="#0">Login</a></li>
                 </ul>
             </ul>
-        </div>
+		</div>
     </nav>
     <div class="hero-text-box">
-        <h1>Welcome to the Namibian Community in the Americas. </br>Welcome to your home away from home.</h1>
+        <h1>Welcome to the Namibian Community in the Americas. <br>Welcome to your home away from home.</h1>
     </div>
 </header>
 <section class="section-features">
@@ -136,13 +136,30 @@
                 </p>
 
                 <p class="fieldset">
-                    <input type="checkbox" id="remember-me" checked>
-                    <label for="remember-me">Remember me</label>
-                </p>
-
-                <p class="fieldset">
                     <input class="full-width" type="submit" value="Login">
                 </p>
+				
+				<!-- The "OR" line code for the login. -->
+				<div style="text-align: center; margin-top: 20px; color: #808080; font-variant: small-caps;">
+					<hr style="margin-bottom: -20px; height: 0; border: 0; border-top: 1px solid #e6e6e6;">
+					<div style="display: inline-block; position: relative; padding: 10px; background-color: #fff;">OR</div>
+				</div>
+				<!-- The "OR" line code for the login. -->
+				
+				
+					<!-- FACEBOOK LOGIN -->
+				<p class="fieldset" style="text-align: center;">
+					<a href="#facebook-link" class="sc-btn sc--facebook">
+					  <span class="sc-icon">
+					      <svg viewBox="0 0 33 33" width="25" height="25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							  <g><path d="M 17.996,32L 12,32 L 12,16 l-4,0 l0-5.514 l 4-0.002l-0.006-3.248C 11.993,2.737, 13.213,0, 18.512,0l 4.412,0 l0,5.515 l-2.757,0 c-2.063,0-2.163,0.77-2.163,2.209l-0.008,2.76l 4.959,0 l-0.585,5.514L 18,16L 17.996,32z"></path>
+							  </g>
+						  </svg>
+					  </span>
+					  <span class="sc-text"><b>Login via Facebook</b></span> 
+					</a>
+				</p>
+					
             </form>
 
             <p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
@@ -210,7 +227,7 @@
         <a href="#0" class="cd-close-form">Close</a>
     </div> <!-- cd-user-modal-container -->
 </div> <!-- cd-user-modal -->
-<!-- This is the end of pop-up modal code. Ask Gottlieb.-->
+<!-- This is the end of pop-up modal code. Ask Gottlieb. -->
 
 <script src="js/wow.min.js"></script>
 <script src="vendors/js/modernizr.js"></script> <!-- Modernizr JS. Gottlieb addition. -->
@@ -221,17 +238,19 @@
     new WOW().init();
 </script>
 <script>
+	//-Maybe remove the header tabe once you reach the footer section...
     var a = $(".nav").offset().top;
     $(document).scroll(function(){
-        if($(this).scrollTop() > 0)
-        {
+        if($(this).scrollTop() > 0){
+						
             $('.nav').css({"background":"rgba(255, 255, 255, 0.95)", "border-bottom":"1px solid #eeeeee","transition":"background-color 1s"});
             $('.text').css({ "color":"gray","transition":"color 0.9s"});
-        } else {
+					
+        }else{
+				
             $('.nav').css({"background":"transparent","border":"none"});
             $('.text').css({"color":"white"});
-
-        }
+		}
     });
 </script>
 </body>
