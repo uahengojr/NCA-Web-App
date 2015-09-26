@@ -1,9 +1,7 @@
 
-/* --------------------------------
-
-    sigin/signup modal popup
-
--------------------------------- */
+/* -------------------------------- */
+/*    sigin/signup modal popup		*/
+/* -------------------------------- */
 .cd-user-modal {
     position: fixed;
     top: 0;
@@ -136,7 +134,7 @@
     background-repeat: no-repeat;
     background-position: 50% 0;
 }
-.cd-form label.cd-username {
+.cd-form label.cd-fullName {
     background-image: url("icons/cd-icon-username.svg");
 }
 .cd-form label.cd-email {
@@ -331,4 +329,8 @@
 
 #cd-login.is-selected, #cd-signup.is-selected, #cd-reset-password.is-selected {
     display: block;
+}
+/* The sign up gender & terms radio buttons styling*/
+.gender, .terms {
+	text-align: center;
 }
