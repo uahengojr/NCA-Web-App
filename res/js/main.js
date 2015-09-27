@@ -32,8 +32,7 @@ jQuery(document).ready(function($){
 
     //close modal
     $('.cd-user-modal').on('click', function(event){
-        if( $(event.target).is($form_modal) || $(event.target).is('.cd-close-form') || 
-		$(event.target).is('.head') || $(event.target).is('.header_nav') || $(event.target).is('.nav') ) {
+        if( $(event.target).is($form_modal) || $(event.target).is('.cd-close-form') || $(event.target).is('.head') || $(event.target).is('.header_nav') || $(event.target).is('.nav') ) {
             $form_modal.removeClass('is-visible');
          }
     });
