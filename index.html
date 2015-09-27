@@ -23,7 +23,7 @@
 <body>
 <header class="head">
     <nav class="header_nav" style="position:fixed; width: 100%;">
-        <div class="nav" style="position:fixed; width: 100%;">
+        <div class="nav">
             <ul class="header-nav">
                 <li><a class="text contactExit" style="margin-left:40px;margin-right:20px;" href="#form-main">Contact us</a></li>
                 <li><a class="text" href="#">Donation</a></li>
@@ -229,7 +229,7 @@
 </div> <!-- cd-user-modal -->
 <!-- This is the end of pop-up modal code. Ask Gottlieb. -->
 
-<script src="js/wow.min.js"></script>
+<script src="js/wow.min.js"></script> <!-- Find out from OP what this is...-->
 <script src="vendors/js/modernizr.js"></script> <!-- Modernizr JS. Gottlieb addition. -->
 <script src="res/js/main.js"></script> <!-- Gem jQuery. Gottlieb addition. -->
 
@@ -238,20 +238,31 @@
     new WOW().init();
 </script>
 <script>
-	//-Maybe remove the header tabe once you reach the footer section...
+	// I would like to remove the "fixed" header tab once you reach the conatct us section, so that picture displays in full. 
     var a = $(".nav").offset().top;
     $(document).scroll(function(){
         if($(this).scrollTop() > 0){
-						
             $('.nav').css({"background":"rgba(255, 255, 255, 0.95)", "border-bottom":"1px solid #eeeeee","transition":"background-color 1s"});
             $('.text').css({ "color":"gray","transition":"color 0.9s"});
-					
         }else{
-				
             $('.nav').css({"background":"transparent","border":"none"});
             $('.text').css({"color":"white"});
 		}
     });
 </script>
+	
+<script>
+	
+	/*Credits: http://stackoverflow.com/questions/3898130/how-to-check-if-a-user-has-scrolled-to-the-bottom */
+	
+    $(window).scroll(function() {   
+      if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+          //alert("You are near the bottom!");
+          $('.nav').css({"background":"transparent","border":"none"});
+          $('.text').css({"color":"white","transition":"color 0.5s"});
+      }
+   });
+</script>	
+	
 </body>
 </html>
