@@ -336,6 +336,19 @@
 	text-align: center;
 }
 
+/** Donation page stuyling **/
+.donation {
+    background-image: url('../img/Pics on Namibia/Landscape-stock.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+   /* background-position: center;*/
+    height: 100vh;
+}
+
+.section-features {
+	margin-bottom: 30px;
+}
+
 
 /* -------------------------------------------------
 ----------------------------------------------------
