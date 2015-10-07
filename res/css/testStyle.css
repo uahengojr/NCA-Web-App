@@ -151,7 +151,7 @@
 .cd-form input.full-width {
     width: 100%;
 }
-.cd-form input.has-padding {
+.cd-form input.{
     padding: 12px 20px 12px 50px;
 }
 .cd-form input.has-border {
@@ -269,7 +269,7 @@
     .cd-form .fieldset:last-child {
         margin-bottom: 0;
     }
-    .cd-form input.has-padding {
+    .cd-form input.{
         padding: 16px 20px 16px 50px;
     }
     .cd-form input[type=submit] {
@@ -345,9 +345,43 @@
     height: 100vh;
 }
 
-.section-features {
-	margin-bottom: 30px;
+.donation-outer-div{
+	
+    position: relative;
+    /*top: 0;
+    left: 0;*/
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    overflow-y: auto;
+    cursor: pointer;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 0.3s 0, visibility 0 0.3s;
+    -moz-transition: opacity 0.3s 0, visibility 0 0.3s;
+    transition: opacity 0.3s 0, visibility 0 0.3s
 }
+
+.donation-inner-div{
+    width: 90%;
+    max-width: 600px;
+    background: #FFF;
+    margin: 3em auto 4em;
+    cursor: auto;
+    border-radius: 0.25em;
+    -webkit-transform: translateY(-30px);
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px);
+    -o-transform: translateY(-30px);
+    transform: translateY(-30px);
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+}
+	
 
 
 /* -------------------------------------------------
