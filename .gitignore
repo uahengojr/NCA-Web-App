@@ -1,5 +1,8 @@
 # Compliled source files #
 ###*Operolim's IDE generates file extensions that need to be places here. I will research this over the weekend.*###
+**https://intellij-support.jetbrains.com/hc/en-us/articles/206827587-How-to-manage-projects-under-Version-Control-Systems**
+worskspace.xml
+tasks.xml
 
 # Config File #
 config/*.js
