@@ -8,41 +8,66 @@
 </head>
 <body>
 	<section class="donation">
-		<div class="donation-outer-div" id="donation-outer-div" style="margin: auto;">
+		
+		<header>
+		    <nav class="header_nav" style="position:fixed; width: 100%;">
+		        <div class="nav">
+		            <ul class="header-nav">
+		                <li><a class="text contactExit" style="margin-left:40px;margin-right:20px;" href="#form-main">Contact us</a></li>
+		                <li><a class="text" href="./donations.html">Donation</a></li>
+		                <ul class="main-nav">
+		                    <li><a class="text cd-signup" href="#0">Sign up</a></li>
+		                    <li><a class="text cd-signin" href="#0">Login</a></li>
+		                </ul>
+		            </ul>
+				</div>
+		    </nav>
+		</header>
+		
+		<div class="donation-outer-div" id="donation-outer-div">
 			<div class="donation-inner-div" id="donation-inner-div" >
 				<form class="cd-form">
+					<h2>Donations to NCA<h2>
 					
 					<p class="fieldset">
 						<div style="display: inline; border: solid;  padding: 12px 20px 12px 20px;">
 							<i>$25</i>
-						</div>&nbsp; &nbsp;
+						</div>&nbsp; 
 						<div style="display: inline; border: solid; padding: 12px 20px 12px 20px;">
 							<i>$50</i>
-						</div>&nbsp; &nbsp;
-						<div style="display: inline; border-style: solid; border-width: 3px; padding: 12px 20px 12px 20px;">
+						</div>&nbsp; 
+						<div style="display: inline; border: solid; padding: 12px 20px 12px 20px;">
 							<i>$75</i>
-						</div>&nbsp; &nbsp;
-						<div style="display: inline; border-style: solid; border-width: 3px; padding: 12px 20px 12px 20px;">
-							<input type="text" placeholder= "Custom Amount" >
-						</div>
+						</div>&nbsp;
+						
+						<br><br><br>
+						
+						<input class="has-border has-padding" style="border: 3px solid #434343;" type="number" placeholder="Custom Amount">
             		</p>
 					
 					<p class="fieldset">
-						<select name="donation" style="" width="auto" required>
-							<option value ="none" selected>Choose on of our programs (optional)</option>
+						<select name="donation" class="has-border" style="background: transparent;
+						
+   					 		width: auto; padding: 5px; font-size: 16px; line-height: 1; 
+							
+							border: 1px solid #ccc; border-radius: 0; height: 34px;" required>
+							
+							<option value="none" selected>Choose on of our programs (optional)</option>
 							<option value="op">Buy OP some Coffee</option>
 							<option value="sam">Buy Sam some Coffee</option>
                 			<option value="gottlieb">Buy Gottlieb some Coffee</option>
                 		</select>
             		</p>
-			
-					<input type="checkbox" name="donation_Subscription" value="donation_Subscription"> Make this a recurring monthly donation. <br>
-					<input type="checkbox" name="nca_newsletter" value="nca_newsletter"> Keep me posted on the latest NCA news.
-			
-            		<p class="fieldset">
-						<input class="" type="submit" value="Pay via Credit Card">	
-						<input class="" type="submit" value="Pay via PayPal">
-            		</p>
+					
+					<input type="checkbox" name="recurring-donation" value="recurring-donation" style="display: inline;"> Make this a recurring...
+					<br>
+					<input type="checkbox" name="nca-newsletter" value="nca-newsletter" style="display:inline;"> Keep me posted...
+						
+					<p class="fieldset">
+						<button class="credit-card" style="background-color: #3498db; padding:16px; border: #fbfbfb solid 4px; color: white; font-weight: 700; font-size:24px; border-radius: 0; margin: 0;" type="button">Pay via Credit Card</button>
+						
+						<button class="credit-card" style="background-color: #3498db; padding:16px; border: #fbfbfb solid 4px; color: white; font-weight: 700; font-size:24px; border-radius: 0; margin: 0;" type="button">Pay via PayPal</button>
+					</p>
 					
 				</form>
 			</div>
