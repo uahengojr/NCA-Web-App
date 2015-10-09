@@ -1,0 +1,5 @@
+#Compliled source files#
+###*Operolim's IDE generates file extensions that need to be places here.*###
+
+#Config File#
+config/*.js
