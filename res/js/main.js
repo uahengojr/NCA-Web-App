@@ -10,6 +10,7 @@ jQuery(document).ready(function($){
         $tab_login = $form_modal_tab.children('li').eq(0).children('a'),
         $tab_signup = $form_modal_tab.children('li').eq(1).children('a'),
         $forgot_password_link = $form_login.find('.cd-form-bottom-message a'),
+		$already_have_account_link = $form_signup.find('.cd-form-bottom-message a'),
         $back_to_login_link = $form_forgot_password.find('.cd-form-bottom-message a'),
         $main_nav = $('.main-nav');
 
@@ -71,6 +72,12 @@ jQuery(document).ready(function($){
         event.preventDefault();
         login_selected();
     });
+	
+	//back to login form from signup form.
+	$already_have_account_link.on('click', function(event){
+		event.preventDefault();
+		login_selected();
+	});
 
     function login_selected(){
         $form_login.addClass('is-selected');
