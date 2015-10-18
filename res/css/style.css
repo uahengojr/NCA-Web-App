@@ -195,7 +195,6 @@ img.globe {
 /* CONTACT US SECTION.*/
 /*---------------------------------------*/
 
-
 .contact {
     background-image: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)),url('https://github.com/uahengojr/NCA-Web-App/blob/master/Pics%20on%20Namibia/Windhoek.jpg?raw=true');
     background-size: cover;
@@ -211,7 +210,6 @@ img.globe {
 
 #form-main{
     width:100%;
-    float:left;
     padding-top:0px;
 	margin-bottom: 0px;
 }
@@ -221,13 +219,10 @@ img.globe {
     padding-left:35px;
     padding-right:35px;
     padding-top:35px;
-    padding-bottom:50px;
+    padding-bottom:35px;
     width: 450px;
-    float: left;
-    left: 50%;
-    position: absolute;
-    margin-top:30px;
-    margin-left: -260px;
+	margin-left: auto;
+	margin-right: auto;
     -moz-border-radius: 7px;
     -webkit-border-radius: 7px;
 }
@@ -355,7 +350,7 @@ input:focus, textarea:focus {
     width:100%;
     background-color:white;
 }
-
+/*
 @media only screen and (max-width: 580px) {
     #form-div{
         left: 3%;
@@ -365,4 +360,5 @@ input:focus, textarea:focus {
         padding-left: 3%;
         padding-right: 3%;
     }
+*/
 }
