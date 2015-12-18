@@ -1,0 +1,19 @@
+{
+  "name": "NCA-Web-App",
+  "homepage": "https://github.com/uahengojr/NCA-Web-App",
+  "description": "A simple web app for Namibian Communities in the Americas.",
+  "main": "index.html",
+  "moduleType": [],
+  "authors": [
+    "Uahengo Jr."
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

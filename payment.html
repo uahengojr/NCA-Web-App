@@ -1,0 +1,265 @@
+<DOCTYPE!>
+<html lang="en">
+<head>
+	<!-- This is the logged in site of the site. All users that will view these code shall be autheticated registered users. -->
+	<!-- Bootstrap is used as a means of achiveing mobile "responsive-ness" | FOundations could be used alter... -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<!--  IDK how these shall conflict yet...
+    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    	<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+	-->
+	<link rel="stylesheet" href="res/css/backendStyle.css" type="text/css" media="screen">
+		
+	<title>Payment details | NCA</title>
+	
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	    <!--[if lt IE 9]>
+	      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+			
+			<!-- Card.js Styling -->
+			
+			<style>
+		        .demo-container {
+		            width: 100%;
+		            max-width: 350px;
+		        }	       
+		    </style>
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		         <span class="sr-only">Toggle navigation</span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		       </button>
+		  <a class="navbar-brand" href="#">
+	        <img alt="NCA-Logo" src="...">
+	      </a>
+	    </div>
+		
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="#">News <span class="sr-only">(current)</span></a></li>
+				<li><a href="#">Events</a></li>
+				<li><a href="#">Donations</a></li>
+				<li><a href="#">Gallery</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="#">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Inbox
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Uahengo Jr. <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#">Your Profile</a></li>
+						<li><a href="#">Subscrptions</a></li>
+						<li><a href="#">Billing</a></li>
+						<li><a href="#">Settings</a></li>
+						<li><a href="#">Help</a></li>
+						<li><a href="#">Privacy Policy</a></li> <!-- Maybe throw this in the footer -->
+				        <li role="separator" class="divider"></li>
+				        <li><a href="#">Log Out</a></li>
+				    </ul>
+				</li>
+			</ul>
+		  </div>
+	  </div>
+	</nav>
+	<!-- Set character limit to this-->
+	<aside class="aside-alerts" id-="aside-alerts"><p>These will be the announcment area for stuff that's coming up soon.</p></aside>
+	<main class="" id="">
+		<div class="container">
+			<div class="col-md-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					    <b>Personal settings</b>
+					  </div>
+						<a href="./editprofile.html" class="list-group-item">Edit profile</a>
+						<a href="./settings.html" class="list-group-item">Account Settings</a>
+						<a href="./subscriptions.html" class="list-group-item">Subscription</a>
+						<a href="./billing.html" class="list-group-item">Billing</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					    <h3 class="panel-title"><b>Billing / Payment details</b></h3>
+					  </div>
+					  <div class="panel-body">
+						  <p class="text-muted"><strong>Pay with:</strong></p>
+						  <div class="btn-group radio"  id="toggle" role="group" aria-label="...">
+							  <button type="button" class="btn btn-default special " href="#container-credit">
+								  <label class="active">
+									  <input checked type="radio" name="method" id="credit" autocomplete="off" value="credit-card">
+									  <strong>Credit card</strong>
+								  </label>
+							  </button>
+							  <button type="button" class="btn btn-default special " href="#container-debit">
+								  <label class="active">
+									  <input type="radio" name="method" id="debit" autocomplete="off" value="debit-card">
+									  <strong>Debit card</strong>
+								  </label>
+  					 	 	 </button>
+							 <button type="button" class="btn btn-default special " href="#paypal">
+								 <label class="active">
+									 <input type="radio" name="method" id="paypal" autocomplete="off" value="paypal">
+									 <strong>PayPal account</strong>
+  						  		 </label>
+  					 	 	</button>
+						</div>
+							<!-- Credit card form -->
+						    <div class="demo-container" id="container-credit">
+						        <div class="card-wrapper"></div>
+
+						        <div class="form-container active">
+						            <form action="">
+										<div class="form-group" style="margin-top:10px;">
+											<label for="number" class="text-muted">Credit card number</label>
+						                	<input class="form-control" type="text" name="number">
+										</div>
+										<div class="form-group">
+											<label for="name" class="text-muted">Name</label>
+						                	<input class="form-control" type="text" name="name">
+										</div>
+										<div class="form-group col-xs-4" style="padding-left: 0;">
+											<label for="expiry" class="text-muted">Expiration</label>
+						                	<input class="form-control" placeholder="MM/YY" type="text" name="expiry">
+										</div>
+										<div class="form-group col-xs-4">
+											<label for="cvc" class="text-muted">&nbsp;&nbsp;CVC</label> (?)
+						                	<input class="form-control" placeholder="CVC" type="text" name="cvc">
+										</div>
+										<div class="form-group col-xs-4" style="padding-right: 0;">
+											<label for="postal-code" class="text-muted">Postal code</label>
+						                	<input class="form-control" type="text" name="postal-code">
+										</div>
+										<div class="form-group">
+							  		    	<button type="submit" class="btn btn-success">
+												<strong>Update credit card</strong>
+											</button>
+											<button type="submit" class="btn btn-default">
+												<strong>Cancel</strong>
+											</button>
+										</div>
+						            </form>
+						        </div>
+						    </div>
+							
+							<!-- Debit card form -->
+						    <div class="demo-container" id="container-debit">
+						        <div class="card-wrapper"></div>
+
+						        <div class="form-container active">
+						            <form action="">
+										<div class="form-group" style="margin-top:10px;">
+											<label for="number" class="text-muted">Debit card number</label>
+						                	<input class="form-control" type="text" name="number">
+										</div>
+										<div class="form-group">
+											<label for="name" class="text-muted">Name</label>
+						                	<input class="form-control" type="text" name="name">
+										</div>
+										<div class="form-group col-xs-4" style="padding-left: 0;">
+											<label for="expiry" class="text-muted">Expiration</label>
+						                	<input class="form-control" placeholder="MM/YY" type="text" name="expiry">
+										</div>
+										<div class="form-group col-xs-4">
+											<label for="cvc" class="text-muted">&nbsp;&nbsp;CVC</label> (?)
+						                	<input class="form-control" placeholder="CVC" type="text" name="cvc">
+										</div>
+										<div class="form-group col-xs-4" style="padding-right: 0;">
+											<label for="postal-code" class="text-muted">Postal code</label>
+						                	<input class="form-control" type="text" name="postal-code">
+										</div>
+										<div class="form-group">
+							  		    	<button type="submit" class="btn btn-success">
+												<strong>Update debit card</strong>
+											</button>
+											<button type="submit" class="btn btn-default">
+												<strong>Cancel</strong>
+											</button>
+										</div>
+						            </form>
+						        </div>
+						    </div>
+							
+							<!-- PayPal form -->
+							<div id="paypal-container">
+								<p>PayPal redirect link coming soon...</p>
+							</div>
+						    <!-- PayPal form -->
+					  </div>
+				</div>
+	  		</div>
+		</div>
+	</main>
+	<footer class="" id="">
+		<div class="container">
+			<div class="col-md-12 footer">
+				<ul class="list-inline pull-right">
+					<li><a href="#">Security</a></li>
+					<li><a href="#">Shop</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+				<a href="#"><span class="" title=""></span></a>
+				<ul class="list-inline">
+				  <li>&copy; 2016 <span title="">NCA ORG</span></li>
+				  <li><a href="#">Terms</a></li>
+				  <li><a href="#">Privacy</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	
+	<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+	
+	<!-- card.js script-->
+    <script src="./card.js"></script>
+    <script>
+        new Card({
+            form: document.querySelector('form'),
+            container: '.card-wrapper'
+        });
+    </script>
+		
+	<script>	
+		$('#toggle > button').click(function() {
+	    	var ix = $(this).index();
+    
+	   	 	$('#container-credit').toggle( ix === 0 );
+	    	$('#container-debit').toggle( ix === 1 );
+			$('#paypal').toggle( ix === 2 );
+		});	
+	</script>
+		
+	<script type="text/javascript">
+	  braintree.setup("CLIENT-TOKEN-FROM-SERVER", "custom", {
+	    paypal: {
+	      container: "paypal-container",
+	    },
+	    onPaymentMethodReceived: function (obj) {
+	      doSomethingWithTheNonce(obj.nonce);
+	    }
+	  });
+	</script>
+		
+</body>
+</html>
