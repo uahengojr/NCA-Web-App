@@ -52,3 +52,7 @@
 #container-debit {
 	display: none;
 }
+
+.img-rounded{
+	border: 2.5px solid rgba(0, 0, 0, 0.3);
+}
