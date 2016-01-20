@@ -80,7 +80,7 @@ To feed the calendar with events you should use `events_source` parameter. It ma
 
 See [events.json.php](https://github.com/Serhioromano/bootstrap-calendar/blob/master/events.json.php) file for more details.
 
-`start` and `end` contain dates when event starts (inclusive) and ends (exclusive) in Unix timestamp. Classes are `event-important`, `event-success`, `event-warning`, `event-info`, `event-inverse` and `event-special`. This wil change the color of your event indicators.
+`start` and `end` contain dates when event starts (inclusive) and ends (exclusive) in Unix timestamp. Classes are `event-important`, `event-success`, `event-warning`, `event-info`, `event-inverse` and `event-special`. This will change the color of your event indicators.
 
 ### Feed URL
 
