@@ -1,0 +1,223 @@
+<DOCTYPE!>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="res/css/style.css">
+	
+    <script src="vendors/js/jquery.collagePlus.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+	
+</head>
+<body>
+	<section class="donation">
+		<header>
+		    <nav class="header_nav" style="position:fixed; width: 100%;">
+		        <div class="nav">
+		            <ul class="header-nav">
+		                <li><a class="text contactExit" style="margin-left:40px;margin-right:20px;" href="#form-main">Contact us</a></li>
+		                <li><a class="text" href="external_donations.html">Donation</a></li>
+		                <ul class="main-nav">
+		                    <li><a class="text cd-signup" href="#0">Sign up</a></li>
+		                    <li><a class="text cd-signin" href="#0">Login</a></li>
+		                </ul>
+		            </ul>
+				</div>
+		    </nav>
+		</header>
+		
+		<div class="donation-outer-div" id="donation-outer-div">
+			<div class="donation-inner-div" id="donation-inner-div" >
+				<form class="cd-form" style="text-align: center;">
+					<h2>Donations to NCA</h2>
+					
+					<p class="fieldset" >
+						<div style="display: inline; border: solid;  padding: 12px 20px 12px 20px;">
+							<i>$25</i>
+						</div>&nbsp; 
+						<div style="display: inline; border: solid; padding: 12px 20px 12px 20px;">
+							<i>$50</i>
+						</div>&nbsp; 
+						<div style="display: inline; border: solid; padding: 12px 20px 12px 20px;">
+							<i>$75</i>
+						</div>&nbsp;
+						
+						<br><br><br>
+						
+						<input class="has-border has-padding" style="border: 3px solid #434343;" type="number" placeholder="Custom Amount">
+            		</p>
+					
+					<p class="fieldset">
+						<select name="donation" class="has-border" style="background: transparent;
+						
+   					 		width: auto; padding: 5px; font-size: 16px; line-height: 1; 
+							
+							border: 1px solid #ccc; border-radius: 0; height: 34px;" required>
+							
+							<option value="none" selected>Choose on of our programs (optional)</option>
+							<option value="op">Buy OP some Coffee</option>
+							<option value="sam">Buy Sam some Coffee</option>
+                			<option value="gottlieb">Buy Gottlieb some Coffee</option>
+                		</select>
+            		</p>
+					
+					<input type="checkbox" name="recurring-donation" value="recurring-donation" style="display: inline;"> Make this a recurring payment.
+					<br>
+					<input type="checkbox" name="nca-newsletter" value="nca-newsletter" style="display:inline;"> Keep me posted about NCA news.
+						
+					<p class="fieldset">
+						<button class="credit-card" style="background-color: #3498db; padding:16px; border: #fbfbfb solid 4px; color: white; font-weight: 700; font-size:24px; border-radius: 0; margin: 0;" type="button">Pay via Credit Card</button>
+						
+						<button class="credit-card" style="background-color: #3498db; padding:16px; border: #fbfbfb solid 4px; color: white; font-weight: 700; font-size:24px; border-radius: 0; margin: 0;" type="button">Pay via PayPal</button>
+					</p>
+					
+				</form>
+			</div>
+		</div>
+	</section>
+	
+	<!-- The pop-up modal code is here. Ask Gottlieb.-->
+	<div class="cd-user-modal"> <!-- this is the entire modal form, inclusive of background -->
+	    <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+	        <ul class="cd-switcher">
+	            <li><a href="#0">Login</a></li>
+	            <li><a href="#0">Sign up</a></li>
+	        </ul>
+
+	        <div id="cd-login"> <!-- log in form -->
+	            <form class="cd-form">
+	                <p class="fieldset">
+	                    <label class="image-replace cd-email" for="signin-email">E-mail</label>
+	                    <input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail">
+	                    <span class="cd-error-message">Please enter a valid email!</span>
+	                </p>
+
+	                <p class="fieldset">
+	                    <label class="image-replace cd-password" for="signin-password">Password</label>
+	                    <input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Password">
+	                    <a href="#0" class="hide-password">Hide</a>
+	                    <span class="cd-error-message">Please enter the password!</span>
+	                </p>
+
+	                <p class="fieldset">
+	                    <input class="full-width" type="submit" value="Login">
+	                </p>
+				
+					<!-- The "OR" line code for the login. -->
+					<div style="text-align: center; margin-top: 20px; color: #808080; font-variant: small-caps;">
+						<hr style="margin-bottom: -20px; height: 0; border: 0; border-top: 1px solid #e6e6e6;">
+						<div style="display: inline-block; position: relative; padding: 10px; background-color: #fff;">OR</div>
+					</div>
+					<!-- The "OR" line code for the login. -->
+				
+				
+						<!-- FACEBOOK LOGIN -->
+					<p class="fieldset" style="text-align: center;">
+						<a href="#facebook-link" class="sc-btn sc--facebook">
+						  <span class="sc-icon">
+						      <svg viewBox="0 0 33 33" width="25" height="25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								  <g><path d="M 17.996,32L 12,32 L 12,16 l-4,0 l0-5.514 l 4-0.002l-0.006-3.248C 11.993,2.737, 13.213,0, 18.512,0l 4.412,0 l0,5.515 l-2.757,0 c-2.063,0-2.163,0.77-2.163,2.209l-0.008,2.76l 4.959,0 l-0.585,5.514L 18,16L 17.996,32z"></path>
+								  </g>
+							  </svg>
+						  </span>
+						  <span class="sc-text"><b>Login via Facebook</b></span> 
+						</a>
+					</p>
+					
+	            </form>
+
+	            <p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
+	            <!-- Hide close button, but look to incorporate once responsive design is complete. -->
+	            <!-- <a href="#0" class="cd-close-form">Close</a> -->
+	        </div> <!-- cd-login -->
+
+	        <div id="cd-signup"> <!-- sign up form -->
+	            <form class="cd-form">
+						<!-- FACEBOOK Registration -->
+					<p class="fieldset" style="text-align: center;">
+						<a href="#facebook-link" class="sc-btn sc--facebook">
+						  <span class="sc-icon">
+						      <svg viewBox="0 0 33 33" width="25" height="25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+								  <g><path d="M 17.996,32L 12,32 L 12,16 l-4,0 l0-5.514 l 4-0.002l-0.006-3.248C 11.993,2.737, 13.213,0, 18.512,0l 4.412,0 l0,5.515 l-2.757,0 c-2.063,0-2.163,0.77-2.163,2.209l-0.008,2.76l 4.959,0 l-0.585,5.514L 18,16L 17.996,32z"></path>
+								  </g>
+							  </svg>
+						  </span>
+						  <span class="sc-text"><b>Signup via Facebook</b></span> 
+						</a>
+					</p>
+			
+					<!-- The "OR" line code for the signup. -->
+					<div style="text-align: center; margin-top: 20px; color: #808080; font-variant: small-caps;">
+						<hr style="margin-bottom: -20px; height: 0; border: 0; border-top: 1px solid #e6e6e6;">
+						<div style="display: inline-block; position: relative; padding: 10px; background-color: #fff;">OR</div>
+					</div>
+					<!-- The "OR" line code for the signup. -->
+					
+	                <p class="fieldset">
+	                    <label class="image-replace cd-fullName" for="signup-fullName">First Name</label>
+	                    <input class="full-width has-padding has-border" id="signup-fullName" type="text" placeholder="Full Name">
+	                    <span class="cd-error-message">Error message here!</span>
+	                </p>
+              
+	                <p class="fieldset">
+	                    <label class="image-replace cd-email" for="signup-email">E-mail</label>
+	                    <input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail">
+	                    <span class="cd-error-message">Please enter a valid e-mail!</span>
+	                </p>
+
+	                <p class="fieldset">
+	                    <label class="image-replace cd-password" for="signup-password">Password</label>
+	                    <input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password">
+	                    <a href="#0" class="hide-password">Hide</a>
+	                    <span class="cd-error-message">Please enter a password. You'll need it!</span>
+	                </p>
+				
+					<p class="fieldset gender">
+						<input type="radio" name="sex" value="female"> Female
+						&nbsp; &nbsp;
+					    <input type="radio" name="sex" value="male">  Male
+					</p>
+
+	                <p class="fieldset terms">
+	                    <input type="checkbox" id="accept-terms">
+	                    <label for="accept-terms">I agree to the <a href="#0">Terms</a> of usage and <a href="#0">Privacy Policy</a>.</label>
+	                </p>
+
+	                <p class="fieldset">
+	                    <input class="full-width has-padding" type="submit" value="Create account">
+	                </p>
+	            </form>
+				<p class="cd-form-bottom-message"><a href="#0">Already have an account? Login</a></p>
+	            <!-- Hide close button, but look to incorporate once responsive design is complete. -->
+	            <!-- <a href="#0" class="cd-close-form">Close</a> -->
+	        </div> <!-- cd-signup -->
+
+	        <div id="cd-reset-password"> <!-- reset password form -->
+	            <p class="cd-form-message">Forgot your password? Please enter your email address. You will receive a link to reset your password.</p>
+
+	            <form class="cd-form">
+	                <p class="fieldset">
+	                    <label class="image-replace cd-email" for="reset-email">E-mail</label>
+	                    <input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
+	                    <span class="cd-error-message">Error message here!</span>
+	                </p>
+
+	                <p class="fieldset">
+	                    <input class="full-width has-padding" type="submit" value="Reset password">
+	                </p>
+	            </form>
+
+	            <p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
+	        </div> <!-- cd-reset-password -->
+	        <a href="#0" class="cd-close-form">Close</a>
+	    </div> <!-- cd-user-modal-container -->
+	</div> <!-- cd-user-modal -->
+	<!-- This is the end of pop-up modal code. Ask Gottlieb. -->
+
+	
+	<script src="vendors/js/modernizr.js"></script> <!-- Modernizr JS. Gottlieb addition. -->
+	<script src="res/js/main.js"></script> <!-- Gem jQuery. Gottlieb addition. -->
+	
+</body>
+</html>
