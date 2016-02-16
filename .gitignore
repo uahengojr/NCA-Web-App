@@ -6,6 +6,10 @@ tasks.xml
 
 # Config File #
 config/*.js
+config/*.json
+
+# Node Modules#
+node_modules
 
 # OS generated files #
 .DS_Store
