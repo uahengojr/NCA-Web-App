@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <title>{+title /}</title> --><title>NCA</title>
+    
+        <!-- <link rel="stylesheet" href="/css/app.css"> -->
+		
+	    <!--Gottlieb-->
+	    <script src="/js/jquery.collagePlus.min.js"></script>
+	    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+	    <link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	    <link rel="stylesheet" type="text/css" href="/css/grid.css">
+	    <link rel="stylesheet" type="text/css" href="/css/style.css">
+	    <link rel="stylesheet" type="text/css" href="/css/animate.min.css">
+	    <link rel="stylesheet" type="text/css" href="/css/ionicons.min.css">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+    
+    </head>
+    <body>
+
+        <div id="wrapper">
+            {+body /}
+        </div>
+
+<!-- ALL JS CODE BELOW IS FOR INTERACTIVELY -->
+    
+        <script src="/js/app.js"></script>
+    	
+		<!-- This comes from the index.html page -->
+		<!--??????????--><script src="js/wow.min.js"></script> <!-- Find out from OP what this is...-->
+		<script src="/js/modernizr.js"></script> <!-- Modernizr JS. Gottlieb addition. -->
+		<script src="/js/main.js"></script> <!-- Gem jQuery. Gottlieb addition. -->
+
+		<script>
+		    new WOW().init();
+		</script>
+			
+		<script>
+			// I would like to remove the "fixed" header tab once you reach the conatct us section, so that picture displays in full. 
+		    var a = $(".nav").offset().top;
+			
+		    $(document).scroll(function(){
+		        if($(this).scrollTop() > 0){
+		            $('.nav').css({"background":"rgba(255, 255, 255, 0.95)", "border-bottom":"1px solid #eeeeee","transition":"background-color 1s"});
+		            $('.text').css({ "color":"gray","transition":"color 0.9s"});
+		        }else{
+		            $('.nav').css({"background":"transparent","border":"none"});
+		            $('.text').css({"color":"white"});
+				}
+		    });
+		</script>
+	
+		<script>
+			/*Credits: http://stackoverflow.com/questions/3898130/how-to-check-if-a-user-has-scrolled-to-the-bottom */
+	
+		    $(window).scroll(function() {   
+		      if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+		          //alert("You are near the bottom!");
+		          $('.nav').css({"background":"transparent","border":"none"});
+		          $('.text').css({"color":"white","transition":"color 0.5s"});
+		      }
+		   });
+		</script>
+		   
+    </body>
+</html>

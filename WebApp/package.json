@@ -1,0 +1,30 @@
+{
+  "name": "webapp",
+  "version": "0.1.0",
+  "description": "A web appliaction for the Namibian diaspora community in the Americas.",
+  "author": "Uahengo Jr.",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test",
+    "build": "grunt build",
+    "all": "npm run build && npm run test"
+  },
+  "dependencies": {
+    "construx": "^1.0.0",
+    "construx-copier": "^1.0.0",
+    "construx-dustjs": "^1.1.0",
+    "construx-less": "^1.0.0",
+    "eslint": "^1.10.3",
+    "express": "^4.12.2",
+    "kraken-js": "^1.0.3",
+    "makara": "^2.0.3"
+  },
+  "devDependencies": {
+    "mocha": "^1.18.0",
+    "supertest": "^0.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uahengojr/NCA-Web-App.git"
+  }
+}

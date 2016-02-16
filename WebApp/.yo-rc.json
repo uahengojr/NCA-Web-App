@@ -1,0 +1,14 @@
+{
+  "generator-kraken": {
+    "taskModule": "grunt",
+    "lintModule": "eslint",
+    "description": "A web appliaction for the Namibian diaspora community in the Americas.",
+    "author": "Uahengo Jr.",
+    "templateModule": "makara",
+    "i18n": false,
+    "componentPackager": "bower",
+    "cssModule": "less",
+    "jsModule": false,
+    "useJson": null
+  }
+}

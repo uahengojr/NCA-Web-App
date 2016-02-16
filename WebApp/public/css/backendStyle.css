@@ -1,0 +1,58 @@
+
+.navbar{
+	margin-bottom: 0px;
+}
+
+.aside-alerts{
+	text-align: center;
+	background-color: green;
+	margin: 0;
+	padding: 0;
+}
+
+.footer{
+	position: relative;
+	margin-top: 40px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	font-size: 12px;
+	line-height: 1.5;
+	color: #767676;
+	border-top: 1px solid #eee;
+}
+
+.btn-delete{
+	color: #B90504;
+}
+
+.btn-delete:hover, .btn-delete:focus, .btn-delete:active{
+	    color: white;
+	    background-color: #B90504;
+	    border-color: #B90504; /*set the color you want here*/
+}
+
+.order, .order:hover, .order:focus, .order:active{
+	text-decoration: none;
+}
+
+.subscriptions{
+    max-height:300px;
+    overflow-y:auto; 
+}
+/*Overides the bootstrap btn class hover highlight on btn components*/
+.btn.special {
+    background-color: white;
+    color: #333333;
+    /*background-image: linear-gradient(to bottom, #FFFFFF, #E6E6E6);*/
+    text-decoration: none;
+    background-position: 0;
+    transition: none;
+}
+
+#container-debit {
+	display: none;
+}
+
+.img-rounded{
+	border: 2.5px solid rgba(0, 0, 0, 0.3);
+}
