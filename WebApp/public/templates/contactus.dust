@@ -1,11 +1,12 @@
 {>"layouts/master" /}
 
 {<body}
-	<header class="head">
+	<section class="contact">
+	<header>
 	    <nav class="header_nav" style="position:fixed; width: 100%;">
 	        <div class="nav">
 	            <ul class="header-nav">
-	                <li><a class="text contactExit" style="margin-left:40px;margin-right:20px;" href="#form-main">Contact us</a></li>
+	                <li><a class="text contactExit" style="margin-left:40px;margin-right:20px;" href="/contactus">Contact us</a></li>
 	                <li><a class="text" href="/external_donations">Donation</a></li>
 	                <ul class="main-nav">
 	                    <li><a class="text cd-signup" href="#0">Sign up</a></li>
@@ -14,63 +15,9 @@
 	            </ul>
 			</div>
 	    </nav>
-	    <div class="hero-text-box">
-	        <h1>Welcome to the Namibian Community in the Americas. <br>Welcome to your home away from home.</h1>
-	    </div>
 	</header>
-	<section class="section-features">
-	    <div class="rows">
-	        <h2>NCA as a community</h2>
-	        <p class="long-copy">The amount of Namibians entering the Americas has been growsing over the years, and with that has come a need for organization and unity amongst the countrymen and countrywomen.
-	            With the aim to unite us as individuals outside the motherland, the idea of an NCA group was born, with the following mission and objectives:
-	        </p>
-	    </div>
-	    <div class="rows" style="text-align: center">
-	        <div class="col span-1-of-3 box wow shake" data-wow-delay=".5s">
-	            <i class="fa fa-calendar fa-3x icon-big"></i>
-	            <h3>Annual Mettings</h3>
-	            <p>
-	                Convene annual get-together of Namibians in the Americas.  </p>
-	        </div>
-	        <div class="col span-1-of-3 box wow shake" data-wow-delay=".5s">
-	            <i class="icon-big fa fa-users fa-3x"></i>
-	            <h3>Community Communications</h3>
-	            <p>Maintain ongoing communication among one another</p>
-	        </div>
-	        <div class="col span-1-of-3 box wow shake" data-wow-delay=".5s">
-	            <i class="fa fa-globe fa-3x icon-big"></i>
-	            <h3>Home away from Home</h3>
-	            <p>Be positive and active participants in Namibia&#39s development, with the idea that Namibians are valuable to Namibia and Namibia is valuable to Namibians.</p>
-	        </div>
-	      <div>
-	          <br/>
-	        <p>The Mission of the Organization is to build community and a sense of unity among Namibians. It wishes to attract, manage and disburse resources that will contribute towards the development of Namibians.</p>
-	      </div>
-	    </div>
-	</section>
-	<section class="section-features" style="padding-bottom: 0;">
-	    <div class="clearfix ">
-	        <img src="/img/collage1.jpg" alt="Autumn pumpkin soup" style="max-width: 100%;height: auto;width: auto; padding-bottom: 0;">
-	    </div>
-	</section>
-	<section class="section-steps">
-	    <div class="rows">
-	        <h2>Namibia</h2>
-	    </div>
-	    <div class="rows">
-	        <p>
-	            Located in South-West Africa, nestled cozily against the chilly Atlantic Ocean, Namibia is a country with diverse cultures, landscapes, and wildlife. This hidden gem is home to the Big Five [Game]- Elephants,
-	            Lions, Rhinos, Water Buffalos, and Cheetahs; and approximately 2.1 million inhabitants. Even though it boasts an area of 825,615 km2/318,696sq mi, Namibia is one of the least densely populated countries in the world.
-	            With more than over 5 major ethnic groups, and over 10 languages and dialects, this country both enjoys and offers great cultural interaction as part of daily life. This infused cultural experience, set in an ever
-	            modernizing land, makes those from it proud to call in Home.
-	        </p>
-	    </div>
-	    <div style="margin-top: 40px">
-	        <img class="globe" src="https://upload.wikimedia.org/wikipedia/commons/3/31/Namibia_on_the_globe_%28Zambia_centered%29.svg" align="middle" alt="Namibia globe" style="width:304px;height:228px;">
-	    </div>
-	</section>
-	<section class="contact">
-	<div id="form-main">
+		
+	<div id="conatct-form-main" style="margin: 50px auto;">
 	        <h2 style="color: white">Contact us</h2>
 	    <div id="form-div">
 	        <form class="form" id="form1" style="background-color:black">
@@ -91,9 +38,9 @@
 	    </div>
 	</div>
 	</section>
-
+	
+	
 	<!-- The pop-up modal code is here. Ask Gottlieb.-->
-
 	<div class="cd-user-modal"> <!-- this is the entire modal form, inclusive of background -->
 	    <div class="cd-user-modal-container"> <!-- this is the container wrapper -->
 	        <ul class="cd-switcher">
@@ -149,7 +96,6 @@
 	        </div> <!-- cd-login -->
 
 	        <div id="cd-signup"> <!-- sign up form -->
-			
 	            <form class="cd-form">
 						<!-- FACEBOOK Registration -->
 					<p class="fieldset" style="text-align: center;">
@@ -170,8 +116,8 @@
 						<div style="display: inline-block; position: relative; padding: 10px; background-color: #fff;">OR</div>
 					</div>
 					<!-- The "OR" line code for the signup. -->
-				
-					<p class="fieldset">
+					
+	                <p class="fieldset">
 	                    <label class="image-replace cd-fullName" for="signup-fullName">First Name</label>
 	                    <input class="full-width has-padding has-border" id="signup-fullName" type="text" placeholder="Full Name">
 	                    <span class="cd-error-message">Error message here!</span>
@@ -195,7 +141,6 @@
 						&nbsp; &nbsp;
 					    <input type="radio" name="sex" value="male">  Male
 					</p>
-				
 
 	                <p class="fieldset terms">
 	                    <input type="checkbox" id="accept-terms">
@@ -206,7 +151,7 @@
 	                    <input class="full-width has-padding" type="submit" value="Create account">
 	                </p>
 	            </form>
-				 <p class="cd-form-bottom-message"><a href="#0">Already have an account? Login</a></p>
+				<p class="cd-form-bottom-message"><a href="#0">Already have an account? Login</a></p>
 	            <!-- Hide close button, but look to incorporate once responsive design is complete. -->
 	            <!-- <a href="#0" class="cd-close-form">Close</a> -->
 	        </div> <!-- cd-signup -->
@@ -231,5 +176,5 @@
 	        <a href="#0" class="cd-close-form">Close</a>
 	    </div> <!-- cd-user-modal-container -->
 	</div> <!-- cd-user-modal -->
-	<!-- This is the end of pop-up modal code. Ask Gottlieb. -->
+	
 {/body}
