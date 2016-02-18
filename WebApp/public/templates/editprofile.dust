@@ -1,0 +1,149 @@
+{>"layouts/master" /}
+
+{<body}
+    <!-- <h1>Hello, {name}</h1> -->
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		         <span class="sr-only">Toggle navigation</span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		       </button>
+		  <a class="navbar-brand" href="#">
+	        <img alt="NCA-Logo" src="...">
+	      </a>
+	    </div>
+		
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="/home">News <span class="sr-only">(current)</span></a></li>
+				<li><a href="/events">Events</a></li>
+				<li><a href="/donations">Donations</a></li>
+				<li><a href="/gallery">Gallery</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="/msgs">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Inbox
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Uahengo Jr. <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="/profile">My Profile</a></li>
+						<li><a href="/subscriptions">Subscriptions</a></li>
+						<li><a href="/billing">Billing</a></li>
+						<li><a href="/settings">Settings</a></li>
+						<li><a href="/help-page">Help</a></li>
+						<li><a href="/privacy-policy">Privacy Policy</a></li> <!-- Maybe throw this in the footer -->
+				        <li role="separator" class="divider"></li>
+				        <li><a href="#">Log Out</a></li>
+				    </ul>
+				</li>
+			</ul>
+		  </div>
+	  </div>
+	</nav>
+	<!-- Set character limit to this-->
+	<aside class="aside-alerts" id-="aside-alerts"><p>These will be the announcment area for stuff that's coming up soon.</p></aside>
+	<main class="" id="">
+		<div class="container">
+			<div class="col-md-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					    <b>Personal settings</b>
+					  </div>
+						<a href="/editprofile" class="list-group-item active">Edit profile</a>
+						<a href="/settings" class="list-group-item">Account Settings</a>
+						<a href="/subscriptions" class="list-group-item">Subscription</a>
+						<a href="/billing" class="list-group-item">Billing</a>
+				  </div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					    <h3 class="panel-title"><b>Public profile</b></h3>
+					  </div>
+					  <div class="panel-body">
+			  		  <form>
+  			  		    <div class="form-group col-md-9">
+						  <label class="text-muted">Profile picture</label><br>
+  			  		      <img src="../img/uahengojr.JPG" alt="..." class="img-rounded" width="140" height="140">
+						   &nbsp;
+						  <button type="submit" class="btn btn-default"><strong>Upload new picture</strong></button>
+  			  		    </div>
+						<!--You can also drag and drop a picture from your computer.-->
+			  		    <div class="form-group col-md-9">
+			  		      <label for="name" class="text-muted">Name</label>
+			  		      <input type="text" class="form-control" id="name" placeholder="John Daniel Smith">
+			  		    </div>
+			  		    <div class="form-group col-md-9">
+			  		      <label for="username" class="text-muted">Username</label>
+						  <div class="input-group">
+						  <span class="input-group-addon">@</span>
+			  		      <input type="text" class="form-control" id="username" placeholder="Username">
+					  </div>
+			  		    </div>
+			  		    <div class="form-group col-md-9">
+			  		      <label for="email" class="text-muted">E-mail</label>
+			  		      <input type="email" class="form-control" id="email" placeholder="you@example.com">
+			  		    </div>
+			  		    <div class="form-group col-md-9">
+			  		      <label for="number" class="text-muted">Contact number</label>
+			  		      <input type="text" class="form-control" id="number" placeholder="(555) 555-5555">
+			  		    </div>
+			  		    <div class="form-group col-md-9">
+			  		      <label for="address" class="text-muted">Address</label>
+			  		      <input type="text" class="form-control" id="address" placeholder="Street Address">
+			  		    </div>
+			  		    <div class="form-group col-md-9">
+			  		      <input type="text" class="form-control" id="address" placeholder="Street Address">
+			  		    </div>
+			  		    <div class="form-group col-md-9">
+						  <!--<label for="address">City</label>-->
+			  		      <input type="text" class="form-control" id="city" placeholder="City">
+			  		    </div>
+			  		    <div class="form-group col-md-9">
+						  <!--<label for="address">State</label>-->
+			  		      <input type="text" class="form-control" id="state" placeholder="State">
+			  		    </div>
+			  		    
+			  		    <div class="form-group col-md-9">
+			  		      <!--<label for="address">Zip Code</label>-->
+			  		      <input type="text" class="form-control" id="address" placeholder="Zip">
+			  		    </div>
+			  		    <div class="form-group col-md-9">
+			  		      <label for="country" class="text-muted">Country</label>
+			  		      <input type="text" class="form-control" id="country" placeholder="">
+			  		    </div>
+						<div class="form-group col-md-9">
+			  		    	<button type="submit" class="btn btn-success"><strong>Update profile</strong></button>
+						</div>
+			  		  </form>
+					  </div>
+				</div>
+	  		</div>
+		</div>
+	</main>
+	<footer class="" id="">
+		<div class="container">
+			<div class="col-md-12 footer">
+				<ul class="list-inline pull-right">
+					<li><a href="/help-page">Help</a></li>
+					<li><a href="#">Shop</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+				<a href="#"><span class="" title=""></span></a>
+				<ul class="list-inline">
+				  <li>&copy; 2016 <span title="">NCA ORG</span></li>
+				  <li><a href="#">Terms</a></li>
+				  <li><a href="/privacy-policy">Privacy</a></li>
+				  <li><a href="#">Security</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+{/body}
