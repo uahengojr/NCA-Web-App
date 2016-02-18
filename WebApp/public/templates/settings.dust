@@ -56,9 +56,9 @@
 					<div class="panel-heading">
 					    <b>Personal settings</b>
 					  </div>
-						<a href="./editprofile.html" class="list-group-item">Edit profile</a>
+						<a href="/editprofile" class="list-group-item">Edit profile</a>
 						<a href="/settings" class="list-group-item active">Account Settings</a>
-						<a href="./subscriptions.html" class="list-group-item">Subscription</a>
+						<a href="/subscriptions" class="list-group-item">Subscription</a>
 						<a href="/billing" class="list-group-item">Billing</a>
 				  </div>
 			</div>
