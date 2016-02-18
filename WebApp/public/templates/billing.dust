@@ -1,0 +1,244 @@
+{>"layouts/master" /}
+
+{<body}
+    <!-- <h1>Hello, {name}</h1> -->
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		         <span class="sr-only">Toggle navigation</span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		       </button>
+		  <a class="navbar-brand" href="#">
+	        <img alt="NCA-Logo" src="...">
+	      </a>
+	    </div>
+		
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="/home">News</a></li>
+				<li><a href="/events">Events</a></li>
+				<li><a href="/donations">Donations</a></li>
+				<li><a href="/gallery">Gallery</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="/msgs">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Inbox
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Uahengo Jr. <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="./profile.html">My Profile</a></li>
+						<li><a href="./subscriptions.html">Subscrptions</a></li>
+						<li><a href="/billing">Billing</a></li>
+						<li><a href="/settings">Settings</a></li>
+						<li><a href="/help-page">Help</a></li>
+						<li><a href="/privacy-policy">Privacy Policy</a></li> <!-- Maybe throw this in the footer -->
+				        <li role="separator" class="divider"></li>
+				        <li><a href="#">Log Out</a></li>
+				    </ul>
+				</li>
+			</ul>
+		  </div>
+	  </div>
+	</nav>
+	<!-- Set character limit to this-->
+	<aside class="aside-alerts" id-="aside-alerts"><p>These will be the announcment area for stuff that's coming up soon.</p></aside>
+	<main class="" id="">
+		<div class="container">
+			<div class="col-md-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					    <b>Personal settings</b>
+					  </div>
+						<a href="./editprofile.html" class="list-group-item">Edit profile</a>
+						<a href="/settings" class="list-group-item">Account Settings</a>
+						<a href="./subscriptions.html" class="list-group-item">Subscription</a>
+						<a href="/billing" class="list-group-item active">Billing</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					    <h3 class="panel-title"><b>Billing overview</b></h3>
+					  </div>
+					  <ul class="list-group">
+			  		  	<li class="list-group-item">
+							<div style="display:inline;">
+								<a href="./payment.html" class="btn btn-xs btn-default pull-right">
+									<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+									<strong> Add payment method</strong>
+								</a>
+							</div>
+							<div class="text-muted" style="display:inline;">Payment &nbsp;</div>
+							<div style="display:inline;">
+								<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+								<strong><small> No payment method on file.</small></strong>
+							</div>	
+									      
+			  		  	</li>
+						<li class="list-group-item">
+							<div style="display:inline;">
+								<a href="./editcard.html" class="btn btn-xs btn-default pull-right">
+									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+									<strong> Update information</strong>
+								</a>
+							</div>
+							<div class="text-muted" style="display:inline;">Manage credit card &nbsp;</div>
+						</li>
+						<li class="list-group-item" data-toggle="modal" data-target="#myModal">
+							<div style="display:inline;">
+								<a href="#" class="btn btn-xs btn-default pull-right">
+									<span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
+									<strong> Contact board</strong>
+								</a>
+							</div>
+							<div class="text-muted" style="display:inline;" data-toggle="modal" data-target="#myModal">
+								Billing support &nbsp;
+							</div>
+						</li>
+				  	  </ul>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					    <h3 class="panel-title"><p class="pull-right text-muted">Amounts shown in USD</p><b>Payment history</b></h3>
+					</div>
+				<!--
+					<ul class="list-group">
+						<li class="list-group-item">
+							<p class="text-muted">
+								<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+								You have not made any payments.
+							</p>
+						</li>
+					</ul>
+				-->
+					<!-- WHEN THE USER HAS MADE A PAYMENT -->
+   					 <div class="panel-body subscriptions">
+   						<div class="list-group">
+   							<li href="#" class="list-group-item">
+   								 <h4 class="list-group-item-heading"><a href="#" class="order">Order: UIGDVI-U317</a></h4>
+   								 <ul class="pager" style="display: inline;">
+   									 <li class="next pull-right">
+   										 <a href="#">Generate Invoice</a>
+   								  	 </li>
+   								 </ul>
+   							     <p class="list-group-item-text">Dec 15, 2015 - Total price $10.00</p>
+   							</li>
+   						</div>
+   						<div class="list-group">
+   							<li href="#" class="list-group-item">
+   								 <h4 class="list-group-item-heading"><a href="#" class="order">Order: UIGDVI-U317</a></h4>
+   								 <ul class="pager" style="display: inline;">
+   									 <li class="next pull-right">
+   										 <a href="#">Generate Invoice</a>
+   									 </li>
+   								 </ul>
+   							     <p class="list-group-item-text">Nov 15, 2015 - Total price $10.00</p>
+   							</li>
+   						</div>
+   						<div class="list-group">
+   							<li href="#" class="list-group-item">
+   								 <h4 class="list-group-item-heading"><a href="#" class="order">Order: UIGDVI-U317</a></h4>
+   								 <ul class="pager" style="display: inline;">
+   									 <li class="next pull-right">
+   										 <a href="#">Generate Invoice</a>
+   									 </li>
+   								 </ul>
+   							     <p class="list-group-item-text">Oct 15, 2015 - Total price $10.00</p>
+   							</li>
+   						</div>
+   						<div class="list-group">
+   							<li href="#" class="list-group-item">
+   								 <h4 class="list-group-item-heading"><a href="#" class="order">Order: UIGDVI-U317</a></h4>
+   								 <ul class="pager" style="display: inline;">
+   									 <li class="next pull-right">
+   										 <a href="#">Generate Invoice</a>
+   									 </li>
+   								 </ul>
+   							     <p class="list-group-item-text">Sept 15, 2015 - Total price $10.00</p>
+   							</li>
+   						</div>
+   						<div class="list-group">
+   							<li href="#" class="list-group-item">
+   								 <h4 class="list-group-item-heading"><a href="#" class="order">Order: UIGDVI-U317</a></h4>
+   								 <ul class="pager" style="display: inline;">
+   									 <li class="next pull-right">
+   										 <a href="#">Generate Invoice</a>
+   									 </li>
+   								 </ul>
+   							     <p class="list-group-item-text">Aug 15, 2015 - Total price $10.00</p>
+   							</li>
+   						</div>
+   						<div class="list-group">
+   							<li href="#" class="list-group-item">
+   								 <h4 class="list-group-item-heading"><a href="#" class="order">Order: UIGDVI-U317</a></h4>
+   								 <ul class="pager" style="display: inline;">
+   									 <li class="next pull-right">
+   										 <a href="#">Generate Invoice</a>
+   									 </li>
+   								 </ul>
+   							     <p class="list-group-item-text">Jul 15, 2015 - Total price $10.00</p>
+   							</li>
+   						</div>
+   					 </div>
+				</div>
+				
+	  		</div>
+		</div>
+	</main>
+	<footer class="" id="">
+		<div class="container">
+			<div class="col-md-12 footer">
+				<ul class="list-inline pull-right">
+					<li><a href="/help-page">Help</a></li>
+					<li><a href="#">Shop</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+				<a href="#"><span class="" title=""></span></a>
+				<ul class="list-inline">
+				  <li>&copy; 2016 <span title="">NCA ORG</span></li>
+				  <li><a href="#">Terms</a></li>
+				  <li><a href="/privacy-policy">Privacy</a></li>
+				  <li><a href="#">Security</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+	
+	<!-- Billing support popup modal-->
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel"><b>Billing Support</b></h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Inovoice can be generated online</p>
+			<p>Inovoice can be generated online</p>
+			<p>Inovoice can be generated online</p>
+			<p>Inovoice can be generated online</p>
+			<p>Inovoice can be generated online</p>
+			
+			<p>Inovoice can be generated online</p>
+			<p>Inovoice can be generated online</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">
+				<strong>Close</strong>
+			</button>
+	        <button type="button" class="btn btn-default">
+				<strong>Done</strong>
+			</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+{/body}

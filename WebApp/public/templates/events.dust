@@ -35,7 +35,7 @@
 				<ul class="dropdown-menu">
 					<li><a href="./profile.html">My Profile</a></li>
 					<li><a href="./subscriptions.html">Subscrptions</a></li>
-					<li><a href="./billing.html">Billing</a></li>
+					<li><a href="/billing">Billing</a></li>
 					<li><a href="/settings">Settings</a></li>
 					<li><a href="/help-page">Help</a></li>
 					<li><a href="/privacy-policy">Privacy Policy</a></li> <!-- Maybe throw this in the footer -->
