@@ -21,7 +21,7 @@
 				<li><a href="/home">News</a></li>
 				<li><a href="/events">Events</a></li>
 				<li><a href="/donations">Donations</a></li>
-				<li class="active"><a href="/gallery">Gallery <span class="sr-only">(current)</span></a></li>
+				<li><a href="/gallery">Gallery</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
@@ -53,7 +53,7 @@
 		<div class="container">
 			<!-- The community gallery will be here. -->
 			<center>
-				<h1>Gallery coming soon...</h1>
+				<h1>Coming soon... (User profile page)</h1>
 			</cneter>
 		</div>
 	</main>
