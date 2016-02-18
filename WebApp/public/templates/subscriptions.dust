@@ -18,14 +18,14 @@
 		
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li><a href="/home">News</a></li>
+				<li><a href=/home">News</a></li>
 				<li><a href="/events">Events</a></li>
-				<li class="active"><a href="/donations">Donations <span class="sr-only">(current)</span></a></li>
+				<li><a href="/donations">Donations</a></li>
 				<li><a href="/gallery">Gallery</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="/msgs">
+					<a href="#">
 						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Inbox
 					</a>
 				</li>
@@ -48,46 +48,55 @@
 	  </div>
 	</nav>
 	<!-- Set character limit to this-->
-	<aside class="aside-alerts" id-="aside-alerts"><p>These will be the announcment area for stuff that's coming up soon.</p></aside>
+	<aside class="aside-alerts" id-="aside-alerts">
+		<p>These will be the announcment area for stuff that's coming up soon.</p>
+	</aside>
 	<main class="" id="">
 		<div class="container">
-			<!-- Current donation promotions will be displayed here. -->
-			<div class="col-md-12">
+			<div class="col-md-3">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-					    <h3 class="panel-title"><b>Donations running</b></h3>
-					</div>
-					<div class="panel-body ">
-						
-						<div class="list-group">
-   							<li href="#popUpdoantionsModal" class="list-group-item">
-   								 <h4 class="list-group-item-heading">
-									 <a href="#popUpdoantionsModal" class="order">Academic Scholarships to Namibia</a>
-								 </h4>
-   								 <ul class="pager" style="display: inline;">
-   									 <li class="next">
-										 <a href="#">Donate <span aria-hidden="true">&rarr;</span></a>
-									 </li>
-   								 </ul>
-   							     <p class="list-group-item-text">Donations end: 06/15/2016</p>
-   							</li>
-						</div>
-						<div class="list-group">
-   							<li href="#popUpdoantionsModal" class="list-group-item">
-   								 <h4 class="list-group-item-heading">
-									 <a href="#popUpdoantionsModal" class="order">Relief Donations to Namibia</a>
-								 </h4>
-   								 <ul class="pager" style="display: inline;">
-   									 <li class="next">
-										 <a href="#">Donate <span aria-hidden="true">&rarr;</span></a>
-									 </li>
-   								 </ul>
-   							     <p class="list-group-item-text">Donations end: 06/15/2016</p>
-   							</li>
-						</div>
-					</div>
-				  </div>
+					    <b>Personal settings</b>
+					  </div>
+						<a href="./editprofile.html" class="list-group-item">Edit profile</a>
+						<a href="/settings" class="list-group-item">Account Settings</a>
+						<a href="/subscriptions" class="list-group-item active">Subscription</a>
+						<a href="/billing" class="list-group-item">Billing</a>
+				</div>
 			</div>
+			<div class="col-md-9">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					    <h3 class="panel-title"><b>Active subscriptions</b></h3>
+					  </div>
+					 <div class="panel-body subscription">
+						<div class="list-group">
+							<li href="#" class="list-group-item">
+								 <h4 class="list-group-item-heading"><a href="#" class="order">Annual Reunion</a></h4>
+								 <ul class="pager" style="display: inline;">
+									 <li class="next pull-right">
+										 <a href="#" style="margin-left:5px;">Subscribe</a>
+										 <a href="#">Cancel</a>
+								  	 </li>
+								 </ul>
+							     <p class="list-group-item-text"><i>Monthly payment of $10.00</i></p>
+							</li>
+						</div>
+						<div class="list-group">
+							<li href="#" class="list-group-item">
+								 <h4 class="list-group-item-heading"><a href="#" class="order">Academic Scholarship</a></h4>
+								 <ul class="pager" style="display: inline;">
+									 <li class="next pull-right">
+										 <a href="#" style="margin-left:5px;">Subscribe</a>
+										 <a href="#">Cancel</a>
+								  	 </li>
+								 </ul>
+							     <p class="list-group-item-text"><i>Monthly payment of $5.00</i></p>
+							</li>
+						</div>
+					 </div>
+				</div>		
+	  		</div>
 		</div>
 	</main>
 	<footer class="" id="">
