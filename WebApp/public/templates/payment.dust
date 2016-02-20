@@ -1,0 +1,205 @@
+{>"layouts/master" /}
+	<!-- Card.js Styling -->
+	
+	<style>
+        .demo-container {
+            width: 100%;
+            max-width: 350px;
+        }	       
+    </style>
+	
+{<body}
+
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+		  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		         <span class="sr-only">Toggle navigation</span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		         <span class="icon-bar"></span>
+		       </button>
+		  <a class="navbar-brand" href="#">
+	        <img alt="NCA-Logo" src="...">
+	      </a>
+	    </div>
+		
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				<li><a href="/home">News <span class="sr-only">(current)</span></a></li>
+				<li><a href="/events">Events</a></li>
+				<li><a href="/donations">Donations</a></li>
+				<li><a href="/gallery">Gallery</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="/msgs">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Inbox
+					</a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Uahengo Jr. <span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="/profile">My Profile</a></li>
+						<li><a href="/subscriptions">Subscriptions</a></li>
+						<li><a href="/billing">Billing</a></li>
+						<li><a href="/settings">Settings</a></li>
+						<li><a href="/help-page">Help</a></li>
+						<li><a href="/privacy-policy">Privacy Policy</a></li> <!-- Maybe throw this in the footer -->
+				        <li role="separator" class="divider"></li>
+				        <li><a href="#">Log Out</a></li>
+				    </ul>
+				</li>
+			</ul>
+		  </div>
+	  </div>
+	</nav>
+	<!-- Set character limit to this-->
+	<aside class="aside-alerts" id-="aside-alerts"><p>These will be the announcment area for stuff that's coming up soon.</p></aside>
+	<main class="" id="">
+		<div class="container">
+			<div class="col-md-3">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					    <b>Personal settings</b>
+					  </div>
+						<a href="/editprofile" class="list-group-item">Edit profile</a>
+						<a href="/settings" class="list-group-item">Account Settings</a>
+						<a href="/subscriptions" class="list-group-item">Subscription</a>
+						<a href="/billing" class="list-group-item">Billing</a>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+					    <h3 class="panel-title"><b>Billing / Payment details</b></h3>
+					  </div>
+					  <div class="panel-body">
+						  <p class="text-muted"><strong>Pay with:</strong></p>
+						  <div class="btn-group radio"  id="toggle" role="group" aria-label="...">
+							  <button type="button" class="btn btn-default special " href="#container-credit">
+								  <label class="active">
+									  <input checked type="radio" name="method" id="credit" autocomplete="off" value="credit-card">
+									  <strong>Credit card</strong>
+								  </label>
+							  </button>
+							  <button type="button" class="btn btn-default special " href="#container-debit">
+								  <label class="active">
+									  <input type="radio" name="method" id="debit" autocomplete="off" value="debit-card">
+									  <strong>Debit card</strong>
+								  </label>
+  					 	 	 </button>
+							 <button type="button" class="btn btn-default special " href="#paypal">
+								 <label class="active">
+									 <input type="radio" name="method" id="paypal" autocomplete="off" value="paypal">
+									 <strong>PayPal account</strong>
+  						  		 </label>
+  					 	 	</button>
+						</div>
+							<!-- Credit card form -->
+						    <div class="demo-container" id="container-credit">
+						        <div class="card-wrapper"></div>
+
+						        <div class="form-container active">
+						            <form action="">
+										<div class="form-group" style="margin-top:10px;">
+											<label for="number" class="text-muted">Credit card number</label>
+						                	<input class="form-control" type="text" name="number">
+										</div>
+										<div class="form-group">
+											<label for="name" class="text-muted">Name</label>
+						                	<input class="form-control" type="text" name="name">
+										</div>
+										<div class="form-group col-xs-4" style="padding-left: 0;">
+											<label for="expiry" class="text-muted">Expiration</label>
+						                	<input class="form-control" placeholder="MM/YY" type="text" name="expiry">
+										</div>
+										<div class="form-group col-xs-4">
+											<label for="cvc" class="text-muted">&nbsp;&nbsp;CVC</label> (?)
+						                	<input class="form-control" placeholder="CVC" type="text" name="cvc">
+										</div>
+										<div class="form-group col-xs-4" style="padding-right: 0;">
+											<label for="postal-code" class="text-muted">Postal code</label>
+						                	<input class="form-control" type="text" name="postal-code">
+										</div>
+										<div class="form-group">
+							  		    	<button type="submit" class="btn btn-success">
+												<strong>Add Credit Card</strong>
+											</button>
+											<button type="submit" class="btn btn-default">
+												<strong>Cancel</strong>
+											</button>
+										</div>
+						            </form>
+						        </div>
+						    </div>
+							
+							<!-- Debit card form -->
+						    <div class="demo-container" id="container-debit">
+						        <div class="card-wrapper"></div>
+
+						        <div class="form-container active">
+						            <form action="">
+										<div class="form-group" style="margin-top:10px;">
+											<label for="number" class="text-muted">Debit card number</label>
+						                	<input class="form-control" type="text" name="number">
+										</div>
+										<div class="form-group">
+											<label for="name" class="text-muted">Name</label>
+						                	<input class="form-control" type="text" name="name">
+										</div>
+										<div class="form-group col-xs-4" style="padding-left: 0;">
+											<label for="expiry" class="text-muted">Expiration</label>
+						                	<input class="form-control" placeholder="MM/YY" type="text" name="expiry">
+										</div>
+										<div class="form-group col-xs-4">
+											<label for="cvc" class="text-muted">&nbsp;&nbsp;CVC</label> (?)
+						                	<input class="form-control" placeholder="CVC" type="text" name="cvc">
+										</div>
+										<div class="form-group col-xs-4" style="padding-right: 0;">
+											<label for="postal-code" class="text-muted">Postal code</label>
+						                	<input class="form-control" type="text" name="postal-code">
+										</div>
+										<div class="form-group">
+							  		    	<button type="submit" class="btn btn-success">
+												<strong>Add Debit Card</strong>
+											</button>
+											<button type="submit" class="btn btn-default">
+												<strong>Cancel</strong>
+											</button>
+										</div>
+						            </form>
+						        </div>
+						    </div>
+							
+							<!-- PayPal form -->
+							<div id="paypal-container">
+								<p>PayPal redirect link coming soon...</p>
+							</div>
+						    <!-- PayPal form -->
+					  </div>
+				</div>
+	  		</div>
+		</div>
+	</main>
+	<footer class="" id="">
+		<div class="container">
+			<div class="col-md-12 footer">
+				<ul class="list-inline pull-right">
+					<li><a href="/help-page">Help</a></li>
+					<li><a href="#">Shop</a></li>
+					<li><a href="#">About</a></li>
+				</ul>
+				<a href="#"><span class="" title=""></span></a>
+				<ul class="list-inline">
+				  <li>&copy; 2016 <span title="">NCA ORG</span></li>
+				  <li><a href="#">Terms</a></li>
+				  <li><a href="/privacy-policy">Privacy</a></li>
+				  <li><a href="#">Security</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+    
+{/body}
