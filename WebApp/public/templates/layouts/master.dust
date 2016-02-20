@@ -80,6 +80,42 @@
 		      }
 		   });
 		</script>
+		
+		
+		
+		
+		<!-- Payments-->
+		<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+	
+		<!-- card.js script-->
+	    <script src="../../js/card.js"></script>
+	    <script>
+	        new Card({
+	            form: document.querySelector('form'),
+	            container: '.card-wrapper'
+	        });
+	    </script>
+		
+		<script>	
+			$('#toggle > button').click(function() {
+		    	var ix = $(this).index();
+    
+		   	 	$('#container-credit').toggle( ix === 0 );
+		    	$('#container-debit').toggle( ix === 1 );
+				$('#paypal').toggle( ix === 2 );
+			});	
+		</script>
+		
+		<script type="text/javascript">
+		  braintree.setup("CLIENT-TOKEN-FROM-SERVER", "custom", {
+		    paypal: {
+		      container: "paypal-container",
+		    },
+		    onPaymentMethodReceived: function (obj) {
+		      doSomethingWithTheNonce(obj.nonce);
+		    }
+		  });
+		</script>
 		   
     </body>
 </html>

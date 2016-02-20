@@ -70,7 +70,7 @@
 					  <ul class="list-group">
 			  		  	<li class="list-group-item">
 							<div style="display:inline;">
-								<a href="./payment.html" class="btn btn-xs btn-default pull-right">
+								<a href="/billing/payment" class="btn btn-xs btn-default pull-right">
 									<span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
 									<strong> Add payment method</strong>
 								</a>
@@ -84,7 +84,7 @@
 			  		  	</li>
 						<li class="list-group-item">
 							<div style="display:inline;">
-								<a href="./editcard.html" class="btn btn-xs btn-default pull-right">
+								<a href="/billing/editcard" class="btn btn-xs btn-default pull-right">
 									<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 									<strong> Update information</strong>
 								</a>

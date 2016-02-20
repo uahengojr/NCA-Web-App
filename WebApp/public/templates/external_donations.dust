@@ -1,5 +1,7 @@
 {>"layouts/master" /}
 
+<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen">
+
 {<body}
 	<section class="donation">
 		<header>

@@ -1,6 +1,9 @@
 {>"layouts/master" /}
 
+<!-- Figure out a better way to load index page css -->
 {<body}
+<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen">
+
 	<header class="head">
 	    <nav class="header_nav" style="position:fixed; width: 100%;">
 	        <div class="nav">

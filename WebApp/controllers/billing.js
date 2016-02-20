@@ -14,5 +14,21 @@ module.exports = function (router) {
         
         
     });
+	
+    router.get('/payment', function (req, res) {
+        
+        
+        res.render('payment');
+        
+        
+    });
+	
+    router.get('/editcard', function (req, res) {
+        
+        
+        res.render('editcard');
+        
+        
+    });
 
 };
