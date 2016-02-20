@@ -107,12 +107,7 @@
 									  <strong>Credit card</strong>
 								  </label>
 							  </button>
-							  <button type="button" class="btn btn-default special " href="#container-debit">
-								  <label class="active">
-									  <input type="radio" name="method" id="debit" autocomplete="off" value="debit-card">
-									  <strong>Debit card</strong>
-								  </label>
-  					 	 	 </button>
+							 
 							 <button type="button" class="btn btn-default special " href="#paypal">
 								 <label class="active">
 									 <input type="radio" name="method" id="paypal" autocomplete="off" value="paypal">
@@ -149,44 +144,6 @@
 										<div class="form-group">
 							  		    	<button type="submit" class="btn btn-success">
 												<strong>Add Credit Card</strong>
-											</button>
-											<button type="submit" class="btn btn-default">
-												<strong>Cancel</strong>
-											</button>
-										</div>
-						            </form>
-						        </div>
-						    </div>
-							
-							<!-- Debit card form -->
-						    <div class="demo-container" id="container-debit">
-						        <div class="card-wrapper"></div>
-
-						        <div class="form-container active">
-						            <form action="">
-										<div class="form-group" style="margin-top:10px;">
-											<label for="number" class="text-muted">Debit card number</label>
-						                	<input class="form-control" type="text" name="number">
-										</div>
-										<div class="form-group">
-											<label for="name" class="text-muted">Name</label>
-						                	<input class="form-control" type="text" name="name">
-										</div>
-										<div class="form-group col-xs-4" style="padding-left: 0;">
-											<label for="expiry" class="text-muted">Expiration</label>
-						                	<input class="form-control" placeholder="MM/YY" type="text" name="expiry">
-										</div>
-										<div class="form-group col-xs-4">
-											<label for="cvc" class="text-muted">&nbsp;&nbsp;CVC</label> (?)
-						                	<input class="form-control" placeholder="CVC" type="text" name="cvc">
-										</div>
-										<div class="form-group col-xs-4" style="padding-right: 0;">
-											<label for="postal-code" class="text-muted">Postal code</label>
-						                	<input class="form-control" type="text" name="postal-code">
-										</div>
-										<div class="form-group">
-							  		    	<button type="submit" class="btn btn-success">
-												<strong>Add Debit Card</strong>
 											</button>
 											<button type="submit" class="btn btn-default">
 												<strong>Cancel</strong>
@@ -246,8 +203,7 @@
 	    	var ix = $(this).index();
     
 	   	 	$('#container-credit').toggle( ix === 0 );
-	    	$('#container-debit').toggle( ix === 1 );
-			$('#paypal').toggle( ix === 2 );
+			$('#paypal').toggle( ix === 1 );
 		});	
 	</script>
 		

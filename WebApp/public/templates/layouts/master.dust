@@ -101,8 +101,7 @@
 		    	var ix = $(this).index();
     
 		   	 	$('#container-credit').toggle( ix === 0 );
-		    	$('#container-debit').toggle( ix === 1 );
-				$('#paypal').toggle( ix === 2 );
+				$('#paypal').toggle( ix === 1 );
 			});	
 		</script>
 		
