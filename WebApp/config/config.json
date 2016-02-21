@@ -27,7 +27,14 @@
         ]
     },
     
-
+	"databaseConfig": {
+	        "host": "localhost",
+	        "database": "nca-db"
+	},
+	
+	"bcrypt": {
+	        "difficulty": 8
+	},
     
 
     "specialization": {

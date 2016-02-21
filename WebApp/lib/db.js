@@ -2,7 +2,7 @@
 
 var mongoose = require('mongoose');
 
-var db = fucntion(){
+var db = function(){
 	return {
 		config: function(conf){
 			mongoose.connect('mongodb://' + conf.host + '/' + conf.database);

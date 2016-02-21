@@ -14,7 +14,7 @@ var crypto = function(){
 		
 	};
 	
-	this.setCryptoLevel = funtion(){
+	this.setCryptoLevel = function(level){
 		
 		if(cryptLevel === -1){
 			

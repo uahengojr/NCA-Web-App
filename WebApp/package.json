@@ -19,7 +19,9 @@
     "express": "^4.12.2",
     "kraken-js": "^1.0.3",
     "makara": "^2.0.3",
-    "mongoose": "^4.4.4"
+    "mongoose": "^4.4.4",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "mocha": "^1.18.0",

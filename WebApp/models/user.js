@@ -1,4 +1,5 @@
 'use strict';
+
 var mongoose = require('mongoose'),
 	bcrypt = require('bcrypt'),
 	crypto = require('../lib/crypto');
@@ -16,6 +17,7 @@ var user = function(){
 		email: {
 			type: String, unique: true
 		},
+		sex: String,
 		/*facebook:{
 			id:
 			token:
@@ -30,7 +32,7 @@ var user = function(){
 				city: String,
 				zip: String
 			},
-			billing:{ //Maybe don't store this ? Hmmmm....Check with Stripe & PayPal.
+		billing:{ //Maybe don't store this ? Hmmmm....Check with Stripe & PayPal.
 				address1: String,
 				address2: String,
 				city: String,
@@ -66,7 +68,6 @@ var user = function(){
 
 	
 	/* - Helper function that hashes passwords - */
-	 
 	userSchema.methods.hashPassword = bcypt.hash(user.password, crypto.getCryptoLevel(), function(err, hash){
 			user.password =  hash;
 		});
