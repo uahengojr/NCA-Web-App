@@ -7,6 +7,8 @@ var crypto = require('./lib/crypto');
 
 var passport = require('passport');
 
+var localStrategy = require('./lib/registration');//??
+
 var options, app;
 
 /*
@@ -24,6 +26,8 @@ options = {
          */
 		db.config(config.get('databaseConfig'));
 		
+		localStrategy(passport); //???
+		
 		var cryptConfig = config.get('bcrypt');
 		crypto.setCryptoLevel(cryptConfig.difficulty);
 		//userLib.addUsers();
@@ -33,7 +37,10 @@ options = {
 };
 
 app = module.exports = express();
+//
 app.use(passport.initialize());
+app.use(passport.session());
+//
 app.use(kraken(options));
 app.on('start', function () {
     console.log('Application ready to serve requests.');

@@ -12,8 +12,7 @@ module.exports = function (router) {
 	
 	
 
-	
-	router.post('/signup', passport.authenticate('local',{
+	router.post('/signup', passport.authenticate('local', {
         successRedirect : '/home', // redirect to the secure profile section
         failureRedirect : '/', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages

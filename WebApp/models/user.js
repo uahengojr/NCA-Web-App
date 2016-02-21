@@ -7,12 +7,12 @@ var mongoose = require('mongoose'),
 var user = function(){
 	
 	/* - Defines user schema - */
-	var userSchema = mongoose.Scehma({
+	var userSchema = mongoose.Schema({
 		name: {
 			first: String, last: String
 		},
 		username: {
-			type: String, unique: true
+			type: String, sparse: true, unique: true
 		},
 		email: {
 			type: String, unique: true
@@ -32,7 +32,7 @@ var user = function(){
 				city: String,
 				zip: String
 			},
-		billing:{ //Maybe don't store this ? Hmmmm....Check with Stripe & PayPal.
+			billing:{ //Maybe don't store this ? Hmmmm....Check with Stripe & PayPal.
 				address1: String,
 				address2: String,
 				city: String,
@@ -68,7 +68,7 @@ var user = function(){
 
 	
 	/* - Helper function that hashes passwords - */
-	userSchema.methods.hashPassword = bcypt.hash(user.password, crypto.getCryptoLevel(), function(err, hash){
+	userSchema.methods.hashPassword = bcrypt.hash(user.password, crypto.getCryptoLevel(), function(err, hash){
 			user.password =  hash;
 		});
 	
