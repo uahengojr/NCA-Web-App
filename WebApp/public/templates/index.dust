@@ -153,7 +153,7 @@
 
 	        <div id="cd-signup"> <!-- sign up form -->
 			
-	            <form class="cd-form">
+	            <form class="cd-form" action="/signup" method="post">
 						<!-- FACEBOOK Registration -->
 					<p class="fieldset" style="text-align: center;">
 						<a href="#facebook-link" class="sc-btn sc--facebook">
