@@ -12,7 +12,7 @@ var user = function(){
 			first: String, last: String
 		},
 		username: {
-			type: String, sparse: true, unique: true
+			type: String, sparse: true
 		},
 		email: {
 			type: String, unique: true
