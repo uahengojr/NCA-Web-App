@@ -19,5 +19,12 @@ module.exports = function (router) {
     }));
 
 
+	/*
+
+app.use(function (req,res) {
+    res.render('404', {url:req.url});
+});
+	*/
+
 	
 };
