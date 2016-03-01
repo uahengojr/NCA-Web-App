@@ -74,11 +74,13 @@ module.exports = function(passport){
 	
 	/*-----------------------------------------------End of local registration strategy.------------------------------------------------*/
 	
+	
+
 	/*-----------------------------------------------Begining of local sign-in strategy.------------------------------------------------*/
 	passport.use('local-sign-in', new LocalStrategy({
 		
-		usernameField : 'email',
-        passwordField : 'password',
+		usernameField : 'signin_email',
+        passwordField : 'signin_password',
         passReqToCallback : true 
 		
 		},function(req, email, password, done){
@@ -99,6 +101,7 @@ module.exports = function(passport){
 				}
 				
 				//If all is well, return succesful user.
+				console.log('User successfully signed into application!');
 				return done(null, user);
 			});
 		}
@@ -106,8 +109,13 @@ module.exports = function(passport){
 	/*-----------------------------------------------End of local sign-in strategy.------------------------------------------------*/
 	
 	
-	/*-----------------------------------------------Begining of Facebook registration strategy.------------------------------------------------*/
 	
+	/*-----------------------------------------------Begining of Facebook registration strategy.------------------------------------------------*/
+	/*
+	passport.use('facebook', new FacebookStrategy({
+		}, fucntion(){}
+	));
+	*/
 	/*-----------------------------------------------End of Facebook registration strategy.------------------------------------------------*/
 	
 };
