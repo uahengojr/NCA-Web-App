@@ -105,7 +105,7 @@
 	        </ul>
 
 	        <div id="cd-login"> <!-- log in form -->
-	            <form class="cd-form">
+	            <form class="cd-form" action="/signin" method="post">
 	                <p class="fieldset">
 	                    <label class="image-replace cd-email" for="signin_email">E-mail</label>
 	                    <input class="full-width has-padding has-border" id="signin_email" name="signin_email" type="email" placeholder="E-mail">
