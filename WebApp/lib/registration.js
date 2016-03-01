@@ -21,7 +21,7 @@ module.exports = function(passport){
         });
     });
 	
-	/*-----------------------------------------------Begining of local strategy.------------------------------------------------*/
+	/*-----------------------------------------------Begining of local registration strategy.------------------------------------------------*/
 	
 	passport.use('local', new LocalStrategy({
 		
@@ -32,7 +32,7 @@ module.exports = function(passport){
 	},
 		function(req, email, password, done){
 			
-			console.log(req.body);
+			//console.log(req.body);
 			
 			process.nextTick(function() {
 				User.findOne({email: email}, function(err, user){
@@ -72,11 +72,43 @@ module.exports = function(passport){
 		}
 	));
 	
-	/*-----------------------------------------------End of local strategy.------------------------------------------------*/
+	/*-----------------------------------------------End of local registration strategy.------------------------------------------------*/
 	
-	/*-----------------------------------------------Begining of Facebook strategy.------------------------------------------------*/
+	/*-----------------------------------------------Begining of local sign-in strategy.------------------------------------------------*/
+	passport.use('local-sign-in', new LocalStrategy({
+		
+		usernameField : 'email',
+        passwordField : 'password',
+        passReqToCallback : true 
+		
+		},function(req, email, password, done){
+		User.findOne({'email': email /*|| username: email || phone_number: email*/}, function(err, user){
+				//If any errors, return the error prior to anything else.
+				if(err){
+					return done(err);
+				}
+				
+				//If no user is found, return login failed message.
+				if(!user){
+					return done(null, false, req.flash('loginMessage','No user found.'));
+				}
+				
+				//If user is found, but incorrect password. return login faile message.
+				if(!user.isValidPassword(password)){
+					return done(null, false, req.flash('loginMessage','Opps! Wrong password.'))
+				}
+				
+				//If all is well, return succesful user.
+				return done(null, user);
+			});
+		}
+	));
+	/*-----------------------------------------------End of local sign-in strategy.------------------------------------------------*/
 	
-	/*-----------------------------------------------End of Facebook strategy.------------------------------------------------*/
+	
+	/*-----------------------------------------------Begining of Facebook registration strategy.------------------------------------------------*/
+	
+	/*-----------------------------------------------End of Facebook registration strategy.------------------------------------------------*/
 	
 };
 
