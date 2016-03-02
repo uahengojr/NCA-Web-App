@@ -52,13 +52,13 @@ var user = function(){
 		var user = this;
 		
 	/* - If the password has not been modified since last operation, leave it alone (this avoids doublw hashing.) - */
-		if(!user.isModified('passowrd')){
+		if(!user.isModified('password')){
 			next();
 			return;	
 		}
 		
 	/* - Encrypt the password using bcrypt. An async method is used insted of sync. - */
-		bcypt.hash(user.password, crypto.getCryptoLevel(), function(err, hash){
+		bcrypt.hash(user.password, crypto.getCryptoLevel(), function(err, hash){
 			user.password =  hash;
 		});
 		
@@ -68,16 +68,38 @@ var user = function(){
 
 	
 	/* - Helper function that hashes passwords - */
-	userSchema.methods.hashPassword = bcrypt.hash(user.password, crypto.getCryptoLevel(), function(err, hash){
-			user.password =  hash;
+	
+	// Asynchronously hash the user password.
+	/*
+	userSchema.methods.createAsyncHash = function(password){
+		var user = this;
+		bcrypt.genSalt(10, function(err, salt) {
+			bcrypt.hash(password, salt, function(err, hash){
+				//console.log(hash);
+				user.password = hash;
+				return hash;
+			});
 		});
+	};
+	*/
+	// Synchronously hash the user password.
+	userSchema.methods.createSyncHash = function(password){
+		return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+	};
 	
 	/* - Helper function comparing plaintext password and comparing it against the user's hashed password - */
 	userSchema.methods.isValidPassword = function(plainText){
 		var user = this;
-		return bcrypt.compare(plainText, user.password);
+		return bcrypt.compareSync(plainText, user.password);
 	};
-	
+	/*
+	userSchema.methods.aSyncIsValidPassword = function(plainText){
+		var user = this;
+		bcrypt.compare(plainText, user.password, function(err, res){
+			return res;
+		});
+	};
+	*/
 	return mongoose.model('User', userSchema);
 	
 }

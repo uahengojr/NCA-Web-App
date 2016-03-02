@@ -47,8 +47,8 @@ module.exports = function(passport){
 						//If there's no registeres user with this email, create a user.
 						var newUser = new User();
 						
-						newUser.email = req.body.signup_email;
-						newUser.password = req.body.signup_password; //!!!!!!!!
+						newUser.email = email; //req.body.signup_email;
+						newUser.password = newUser.createSyncHash(password); //req.body.signup_password;
 						newUser.name.first = req.body.signup_fullname;
 						//newUser.name.last = req.body.signup_fullname;
 						//newUser.date_created; //Instatiate date of creation. 
@@ -58,6 +58,7 @@ module.exports = function(passport){
 						//Save the newly created user.
 						newUser.save(function(err){
 							if(err){
+								console.log("Error saving the new user: " + err);
 								throw err;
 							}
 							console.log('A new user was registered succesfully...');
@@ -92,12 +93,12 @@ module.exports = function(passport){
 				
 				//If no user is found, return login failed message.
 				if(!user){
-					return done(null, false, req.flash('loginMessage','No user found.'));
+				return done(null, false/*, req.flash('loginMessage','No user found.')*/);
 				}
 				
 				//If user is found, but incorrect password. return login faile message.
 				if(!user.isValidPassword(password)){
-					return done(null, false, req.flash('loginMessage','Opps! Wrong password.'))
+					return done(null, false/*, req.flash('loginMessage','Opps! Wrong password.')*/);
 				}
 				
 				//If all is well, return succesful user.
