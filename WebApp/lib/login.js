@@ -41,11 +41,24 @@ module.exports = function(passport){
 				
 				//If user is found, but incorrect password. return login faile message.
 				if(!user.isValidPassword(password)){
-					return done(null, false, req.flash('loginMessage','Opps! Wrong password.'))
+					return done(null, false, req.flash('loginMessage','Opps! Wrong password.'));
 				}
 				
 				//If all is well, return succesful user.
 				return done(null, user);
+				
+				/*
+				user.aSyncIsValidPassword(password, function(err, bool){
+					if(err){throw err;}
+					
+					if(bool){
+						console.log("Async baby....");
+						return done(null, user);
+					}else{
+						return done(null, false, req.flash('loginMessage','Opps! Wrong password.'));
+					}
+				});
+				*/
 			});
 		}
 	));
