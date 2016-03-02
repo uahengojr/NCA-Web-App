@@ -48,7 +48,7 @@ module.exports = function(passport){
 						var newUser = new User();
 						
 						newUser.email = email; //req.body.signup_email;
-						newUser.password = newUser.createSyncHash(password); //req.body.signup_password;
+						newUser.password = password; //req.body.signup_password;
 						newUser.name.first = req.body.signup_fullname;
 						//newUser.name.last = req.body.signup_fullname;
 						//newUser.date_created; //Instatiate date of creation. 
