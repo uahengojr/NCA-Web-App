@@ -100,10 +100,24 @@ module.exports = function(passport){
 				if(!user.isValidPassword(password)){
 					return done(null, false/*, req.flash('loginMessage','Opps! Wrong password.')*/);
 				}
+
 				
 				//If all is well, return succesful user.
 				console.log('User successfully signed into application!');
 				return done(null, user);
+
+/*				// - Async password comparison - //
+				user.aSyncIsValidPassword(password, function(err, bool){
+					if(err){throw err;}
+					
+					if(bool){
+						console.log("Async baby....");
+						return done(null, user);
+					}else{
+						return done(null, false, req.flash('loginMessage','Opps! Wrong password.'));
+					}
+				});
+*/				
 			});
 		}
 	));
