@@ -70,7 +70,6 @@ var user = function(){
 	
 	});
 	
-	
 	/* - Helper function that hashes user password synchronously - */
 	userSchema.methods.createSyncHash = function(password){
 		return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
@@ -83,7 +82,7 @@ var user = function(){
 	};
 	
 	/* - An async helper function comparing plaintext passwords against user's hashed password - */
-/*	userSchema.methods.aSyncIsValidPassword = function(plainText, callback){
+	userSchema.methods.aSyncIsValidPassword = function(plainText, callback){
 		var user = this;
 		bcrypt.compare(plainText, user.password, function(err, res){
 			if(err){
@@ -92,7 +91,7 @@ var user = function(){
 			callback(null, res);
 		});
 	};
-*/
+
 	return mongoose.model('User', userSchema);
 	
 }
