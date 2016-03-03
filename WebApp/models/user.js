@@ -64,7 +64,7 @@ var user = function(){
 			
 			user.password = hash;
 			
-			//Continue onto the save opeation. ??????
+			//Continue onto the save opeation.
 			next();
 		});
 	
@@ -81,7 +81,7 @@ var user = function(){
 		return bcrypt.compareSync(plainText, user.password);
 	};
 	
-	/* - An async helper function comparing plaintext passwords against user's hashed password - */
+	/* - Async helper function comparing plaintext passwords against user's hashed password - */
 	userSchema.methods.aSyncIsValidPassword = function(plainText, callback){
 		var user = this;
 		bcrypt.compare(plainText, user.password, function(err, res){

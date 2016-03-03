@@ -18,7 +18,7 @@ module.exports = function (router) {
 	
 	router.post('/signin', passport.authenticate('local-sign-in', {
         successRedirect : '/profile', // redirect to the secure home section
-        failureRedirect : '/msgs', // redirect back to the signup page if there is an error
+        failureRedirect : '/', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
 
