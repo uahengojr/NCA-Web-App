@@ -15,4 +15,9 @@ module.exports = function (router) {
         
     });
 
+/*
+	router.get('/user/12345', function(req, res){
+		res.render('profile', model);	
+	});
+*/
 };
