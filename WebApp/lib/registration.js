@@ -17,7 +17,7 @@ module.exports = function(passport){
     // This is used to deserialize the user.
     passport.deserializeUser(function(id, done) {
         User.findById(id, function(err, user) {
-            done(err, user);
+            done(err, user); //done(null, user);
         });
     });
 	
@@ -51,7 +51,6 @@ module.exports = function(passport){
 						newUser.password = password; //req.body.signup_password;
 						newUser.name.first = req.body.signup_fullname;
 						//newUser.name.last = req.body.signup_fullname;
-						//newUser.date_created; //Instatiate date of creation. 
 						newUser.sex = req.body.sex;
 						newUser.role = 'user';
 						
@@ -88,6 +87,7 @@ module.exports = function(passport){
 		User.findOne({'email': email /*|| username: email || phone_number: email*/}, function(err, user){
 				//If any errors, return the error prior to anything else.
 				if(err){
+					//Server exceptions...
 					return done(err);
 				}
 				

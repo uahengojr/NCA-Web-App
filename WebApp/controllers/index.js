@@ -27,15 +27,12 @@ module.exports = function (router) {
 	
 	router.get('/logout', function(req, res){
 	  //logic to clear session cookies and all info before exit.
-	//req.session = delete??? - Something about deleting the user session prior to logging out. 
+	  req.session.reset();
 	  req.logout();
 	  res.redirect('/');
 	});
 
-	
-
-	// - This is a catch-all for requeste dpages taht don't exist. - //
-	
+	// - This is a catch-all for requested pages that don't exist. - //
 	router.use(function (req,res) {
     	res.render('errors/404', {url:req.url});
 	});
