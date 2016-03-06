@@ -85,7 +85,6 @@
 						"path":"/",
 						"httpOnly": true,
 						"secure": false,
-						"ephemeral": true, 
 						"maxAge": null
 					},
 					"resave": true,

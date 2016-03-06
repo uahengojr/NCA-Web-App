@@ -10,7 +10,6 @@ module.exports = function (router) {
 
     router.get('/', auth.injectUser(), function (req, res) {
        
-		console.log(req.session);
 	   
         res.render('home', model);
         
