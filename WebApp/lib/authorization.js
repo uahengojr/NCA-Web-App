@@ -5,13 +5,15 @@ exports.isAuthorized = function(){
 	
 	return function(req, res, next){
 		//Site access map.
-		
+		/*
 		if(){}
-		else if(){}
-		else if(){}
+		else if(){
+		}
+		else if(){
+		}
 		else{
 			next();
-		}
+		}*/
 	};
 };
 
