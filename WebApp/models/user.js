@@ -32,7 +32,7 @@ var user = function(){
 				city: String,
 				zip: String
 			},
-			billing:{ //Maybe don't store this ? Hmmmm....Check with Stripe & PayPal.
+			billing:{ //Maybe don't store this? Hmmmm....Check with Stripe & PayPal.
 				address1: String,
 				address2: String,
 				city: String,

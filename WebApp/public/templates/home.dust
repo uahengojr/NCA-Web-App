@@ -54,6 +54,11 @@
 			<!-- The community gallery will be here. -->
 			<center>
 				<h1>Coming soon...</h1>
+				{?user}
+					{#user}
+						<p>Hello, {.email}</p>
+					{/user}
+				{/user}
 			</cneter>
 		</div>
 	</main>

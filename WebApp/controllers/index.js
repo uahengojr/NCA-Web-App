@@ -28,20 +28,14 @@ module.exports = function (router) {
 	function(req, res) {
 		//If this function gets called, this means authentication was successful. 
 		//The 'req.user' contains the autheicated user.
+		delete req.user;
+		//Deleted to avoid user information leak and to mantain normailized user data within application.
 		
-		console.log(req.session);
-		console.log();
-		console.log("This is the user below:");
-		console.log(req.user);
-		console.log();
-		
-		// - The session object contains the user db id - //
-		req.session.passport.user;
-		req.user.passport.destroy();
-//		res.locals.user = req.user;
+		//console.log(req.session);
+		//console.log();
 
 		res.redirect('/home'); //req.user.username;
-	
+			
 	});
 	
 	// - Logout route from application. - //
