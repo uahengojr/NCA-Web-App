@@ -2,15 +2,16 @@
 
 var HomeModel = require('../models/home'); //Add event data via some external json url like or file. 
 
+var auth = require('../lib/authorization');
 
 module.exports = function (router) {
 
     var model = new HomeModel();
 
-    router.get('/', function (req, res) {
+    router.get('/', auth.injectUser(), function (req, res) {
        
-		res.locals.user = req.session.passport.user;
-
+		console.log(req.session);
+	   
         res.render('home', model);
         
         

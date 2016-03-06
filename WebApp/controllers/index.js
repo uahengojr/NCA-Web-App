@@ -5,7 +5,7 @@ var passport = require('passport');
 module.exports = function (router) {
 
     router.get('/', function (req, res) {
-		console.log(req.session);
+		
         res.render('index');
         
     });
@@ -28,10 +28,9 @@ module.exports = function (router) {
 	function(req, res) {
 		//If this function gets called, this means authentication was successful. 
 		//The 'req.user' contains the autheicated user.
+		//delete req.user.password; 
 		delete req.user;
 		//Deleted to avoid user information leak and to mantain normailized user data within application.
-
-		//res.locals.user = req.session.passport.user;
 		
 		//console.log(req.session);
 		//console.log();
@@ -43,8 +42,8 @@ module.exports = function (router) {
 	// - Logout route from application. - //
 	router.get('/logout', function(req, res){
 	  //logic to clear session cookies and all info before exit.
-	  req.session.destroy();
-	  req.logout();
+		req.session.destroy(); //OR - delete req.session;
+	  //req.logout();
 	  res.redirect('/');
 	});
 

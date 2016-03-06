@@ -79,17 +79,33 @@
 		"session":{
 			"module":{
 				"arguments": [{
+					"cookieName": "ncaSession",
 					"secret":"HelloNamibiaLyetu",
 					"cookie": {
 						"path":"/",
 						"httpOnly": true,
 						"secure": false,
+						"ephemeral": true, 
 						"maxAge": null
 					},
 					"resave": true,
 					"saveUninitialized": true,
 					"proxy": false
 				}]
+			}
+		},
+		
+		"isAuthorized":{
+			"module" : {
+				"name": "path:./lib/authorization",
+				"method": "isAuthorized"
+			}
+		},
+		
+		"injectUser" :{
+			"module": {
+				"name": "path:./lib/authorization",
+				"method": "injectUser"
 			}
 		}
 
