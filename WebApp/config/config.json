@@ -57,18 +57,41 @@
             }
         },
         
-
         "static": {
             "module": {
                 "arguments": [ "path:./.build" ]
             }
         },
+		
 
         "router": {
             "module": {
                 "arguments": [{ "directory": "path:./controllers" }]
             }
-        }
+        },
+		
+		"cookieParser":{
+			"module":{
+				"arguments":["HelloNamibiaLyetu"]
+			}
+		},
+	
+		"session":{
+			"module":{
+				"arguments": [{
+					"secret":"HelloNamibiaLyetu",
+					"cookie": {
+						"path":"/",
+						"httpOnly": true,
+						"secure": false,
+						"maxAge": null
+					},
+					"resave": true,
+					"saveUninitialized": true,
+					"proxy": false
+				}]
+			}
+		}
 
     }
 }

@@ -5,7 +5,7 @@ var passport = require('passport');
 module.exports = function (router) {
 
     router.get('/', function (req, res) {
-        
+		console.log(req.session);
         res.render('index');
         
     });
@@ -30,6 +30,8 @@ module.exports = function (router) {
 		//The 'req.user' contains the autheicated user.
 		delete req.user;
 		//Deleted to avoid user information leak and to mantain normailized user data within application.
+
+		//res.locals.user = req.session.passport.user;
 		
 		//console.log(req.session);
 		//console.log();
@@ -39,16 +41,18 @@ module.exports = function (router) {
 	});
 	
 	// - Logout route from application. - //
-/*	router.get('/logout', function(req, res){
+	router.get('/logout', function(req, res){
 	  //logic to clear session cookies and all info before exit.
 	  req.session.destroy();
 	  req.logout();
 	  res.redirect('/');
 	});
-*/
+
+/* THIS CAUSES PROBLEMS FOR SOME OF THE PAGES LOADING...
 	// - This is a catch-all for requested pages that don't exist. - //
 	router.use(function (req,res) {
     	res.render('errors/404', {url:req.url});
 	});
-	
+*/	
 };
+	
