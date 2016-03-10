@@ -36,7 +36,7 @@ module.exports = function(passport){
 			//console.log(req.body);
 			
 			process.nextTick(function() {
-				User.findOne({email: email}, function(err, user){
+				User.findOne({'email': email}, function(err, user){
 					//If any error occur. Return error. Hanndle this better in future!
 					if(err){
 						return done(err);
@@ -62,7 +62,7 @@ module.exports = function(passport){
 								throw err;
 							}
 							console.log('A new user was registered succesfully...');
-							return done(null, newUser);
+							return done(null, newUser, req.flash('signUpMessage','Welcome to NCA the community!');
 							
 							//REDIRECT THE USER TO A PAGE TO SET UP THEIR INFORMATION.
 						
