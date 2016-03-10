@@ -94,18 +94,18 @@ module.exports = function(passport){
 				
 				//If no user is found, return login failed message.
 				if(!user){
-				return done(null, false/*, req.flash('loginMessage','No user found.')*/);
+					return done(null, false, {loginMessage:'No user found.'});
 				}
 				
 				//If user is found, but incorrect password. return login faile message.
 				if(!user.isValidPassword(password)){
-					return done(null, false/*, req.flash('loginMessage','Oops! Wrong password.')*/);
+					return done(null, false, {loginMessage:'Oops! Wrong password.'});
 				}
 
 				
 				//If all is well, return succesful user.
 				console.log('User successfully signed into application!');
-				return done(null, user);
+				return done(null, user); //Maybe a flsi
 
 /*				// - Async password comparison - //
 				user.aSyncIsValidPassword(password, function(err, bool){
