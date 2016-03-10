@@ -16,11 +16,27 @@ module.exports = function (router) {
         failureFlash : true // allow flash messages
     }));
 /*	
-	router.post('/signin', passport.authenticate('local-sign-in', {
-        successRedirect : '/home', // redirect to the secure home section
-        failureRedirect : '/', // redirect back to the signup page if there is an error
-        failureFlash : true // allow flash messages
-    }));
+	router.post('/signin', function(req, res, next){
+		passport.authenticate('signIn', function(err, user, info){
+			if(err){
+				return next(err);
+			}
+			
+			if(!user){
+				console.log(info);
+				return res.render('/', {message: info.signInMsg });// Back to homepage on failure.
+			}
+			
+			req.logIn(user, function(err) {
+				if(err) { 
+					return next(err);
+				}
+				
+				//return res.redirect('/users/' + user.username);
+				return res.redirect('/home');
+			});
+		})(req, res, next);
+	});
 */	
 	// - Sign-in route handler for sign - //
 	router.post('/signin', 
@@ -38,6 +54,9 @@ module.exports = function (router) {
 		res.redirect('/home'); //req.user.username;
 			
 	});
+
+
+
 	
 	// - Logout route from application. - //
 	router.get('/logout', function(req, res){
@@ -46,6 +65,8 @@ module.exports = function (router) {
 	  //req.logout();
 	  res.redirect('/');
 	});
+
+
 
 /* THIS CAUSES PROBLEMS FOR SOME OF THE PAGES LOADING...
 	// - This is a catch-all for requested pages that don't exist. - //
