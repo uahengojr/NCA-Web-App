@@ -15,7 +15,7 @@ module.exports = function (router) {
         failureRedirect : '/', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
     }));
-/*	
+
 	router.post('/signin', function(req, res, next){
 		passport.authenticate('signIn', function(err, user, info){
 			if(err){
@@ -24,7 +24,7 @@ module.exports = function (router) {
 			
 			if(!user){
 				console.log(info);
-				return res.render('/', {message: info.signInMsg });// Back to homepage on failure.
+				return res.render('/', {message: info.loginMessage });// Back to homepage on failure.
 			}
 			
 			req.logIn(user, function(err) {
@@ -37,23 +37,8 @@ module.exports = function (router) {
 			});
 		})(req, res, next);
 	});
-*/	
-	// - Sign-in route handler for sign - //
-	router.post('/signin', 
-	passport.authenticate('local-sign-in'),
-	function(req, res) {
-		//If this function gets called, this means authentication was successful. 
-		//The 'req.user' contains the autheicated user.
-		//delete req.user.password; 
-		delete req.user;
-		//Deleted to avoid user information leak and to mantain normailized user data within application.
-		
-		//console.log(req.session);
-		//console.log();
 
-		res.redirect('/home'); //req.user.username;
-			
-	});
+
 
 
 
