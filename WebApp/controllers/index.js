@@ -1,7 +1,7 @@
 'use strict';
 
 var passport = require('passport');
-
+//Dynamicroute should eb explored.
 module.exports = function (router) {
 
     router.get('/', function (req, res) {
@@ -40,15 +40,17 @@ module.exports = function (router) {
 
 
 
-
-
-	
 	// - Logout route from application. - //
 	router.get('/logout', function(req, res){
-	  //logic to clear session cookies and all info before exit.
-		req.session.destroy(); //OR - delete req.session;
-	  //req.logout();
-	  res.redirect('/');
+		
+		req.session.destroy(function(err) {
+  		  	// cannot access session here
+			console.log('Session deleted...');
+		});
+		
+		req.logout();
+	    res.redirect('/');
+	
 	});
 
 
