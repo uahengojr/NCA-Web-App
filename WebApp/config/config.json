@@ -76,22 +76,30 @@
 			}
 		},
 	
-		"session":{
-			"module":{
-				"arguments": [{
-					"cookieName": "ncaSession",
-					"secret":"HelloNamibiaLyetu",
-					"cookie": {
-						"path":"/",
-						"httpOnly": true,
-						"secure": false,
-						"maxAge": null
+		"session": {
+			"module": {
+				"name": "path:./lib/session",
+				"arguments": [
+					//express-session configuration
+					{
+						"secret": "helloNamibia",
+						"cookie": {
+							"path":"/",
+							"httpOnly": true,
+							"secure": false,
+							"maxAge": null
+							},
+						"resave": true,
+						"saveUninitialized": false,
+						"store": null //NB: this will be overlaid by the session module.
 					},
-					"resave": true,
-					"saveUninitialized": true,
-					"proxy": false
-				}]
-			}
+					// connect-mongo configuration
+					{
+						"host": "localhost",
+						"db": "sessionStore"
+					}
+				]
+			}	
 		},
 		
 		"isAuthorized":{
@@ -110,3 +118,4 @@
 
     }
 }
+
