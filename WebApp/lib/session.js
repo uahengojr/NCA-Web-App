@@ -1,12 +1,12 @@
 'use strict';
 
 var session = require('express-session'),
-	mongoStore = require('connect-mongodb-session');
+	MongoDBStore = require('connect-mongodb-session')(session);
 
 module.exports = function(sessionConfig, dbConfig){
-
-		var store = new mongoStore({
-        	uri: 'mongodb://' + dbConfig.host + '/' + dbConfig.db,
+	
+		var store = new MongoDBStore({
+        	uri: 'mongodb://' + dbConfig.host + '/' + dbConfig.database,
         	collection: 'mySessions'
 		});
     	
@@ -16,6 +16,7 @@ module.exports = function(sessionConfig, dbConfig){
       	  	assert.ifError(error);
       		assert.ok(false);
     	});
+		
 		
 		sessionConfig.store;
 		
