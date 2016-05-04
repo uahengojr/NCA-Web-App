@@ -17,7 +17,7 @@ module.exports = function (router) {
     }));
 
 	router.post('/signin', function(req, res, next){
-		passport.authenticate('signIn', function(err, user, info){
+		passport.authenticate('local-sign-in', function(err, user, info){
 			if(err){
 				return next(err);
 			}
