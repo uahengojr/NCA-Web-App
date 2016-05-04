@@ -9,7 +9,7 @@ var crypto = require('./lib/crypto');
 var passport = require('passport');
 
 var signUpStrategy= require('./lib/registration');//??
-//var signInStrategy = require('./lib/login');
+var signInStrategy = require('./lib/login');
 
 var options, app;
 
@@ -29,7 +29,7 @@ options = {
 		db.config(config.get('databaseConfig'));
 		
 		signUpStrategy(passport); //???
-		//signInStrategy(passport);
+		signInStrategy(passport);
 		
 		var cryptConfig = config.get('bcrypt');
 		crypto.setCryptoLevel(cryptConfig.difficulty);

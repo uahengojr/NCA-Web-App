@@ -76,56 +76,6 @@ module.exports = function(passport){
 	/*-----------------------------------------------End of local registration strategy.------------------------------------------------*/
 	
 	
-
-	/*-----------------------------------------------Begining of local sign-in strategy.------------------------------------------------*/
-	passport.use('local-sign-in', new LocalStrategy({
-		
-		usernameField : 'signin_email',
-        passwordField : 'signin_password',
-        passReqToCallback : true 
-		
-		},function(req, email, password, done){
-		User.findOne({'email': email /*|| username: email || phone_number: email*/}, function(err, user){
-				//If any errors, return the error prior to anything else.
-				if(err){
-					//Server exceptions...
-					return done(err);
-				}
-				
-				//If no user is found, return login failed message.
-				if(!user){
-					return done(null, false, {loginMessage:'No user found.'});
-				}
-				
-				//If user is found, but incorrect password. return login faile message.
-				if(!user.isValidPassword(password)){
-					return done(null, false, {loginMessage:'Oops! Wrong password.'});
-				}
-
-				
-				//If all is well, return succesful user.
-				console.log('User successfully signed into application!');
-				return done(null, user); //Maybe a flsi
-
-/*				// - Async password comparison - //
-				user.aSyncIsValidPassword(password, function(err, bool){
-					if(err){throw err;}
-					
-					if(bool){
-						console.log("Async baby....");
-						return done(null, user);
-					}else{
-						return done(null, false, req.flash('loginMessage','Opps! Wrong password.'));
-					}
-				});
-*/				
-			});
-		}
-	));
-	/*-----------------------------------------------End of local sign-in strategy.------------------------------------------------*/
-	
-	
-	
 	/*-----------------------------------------------Begining of Facebook registration strategy.------------------------------------------------*/
 	/*
 	passport.use('facebook', new FacebookStrategy({

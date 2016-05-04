@@ -20,7 +20,7 @@ module.exports = function(passport){
         });
     });
 	
-	/*-----------------------------------------------Begining of local sign-in strategy.------------------------------------------------*/
+	/*-----------------------------------------------Begining of local Sign-In strategy.------------------------------------------------*/
 	passport.use('local-sign-in', new LocalStrategy({
 		
 		usernameField : 'signin_email',
@@ -41,7 +41,7 @@ module.exports = function(passport){
 				
 				//If user is found, but incorrect password. return login faile message.
 				if(!user.isValidPassword(password)){
-					return done(null, false,  {loginMessage:'Oops! Wrong password.'}););
+					return done(null, false,  {loginMessage:'Oops! Wrong password.'});
 				}
 				
 				//If all is well, return successful user.
@@ -62,16 +62,16 @@ module.exports = function(passport){
 			});
 		}
 	));
-	/*-----------------------------------------------End of local sign-in strategy.------------------------------------------------*/
+	/*-----------------------------------------------End of local Sign-In strategy.------------------------------------------------*/
 	
 	
 	
-	/*-----------------------------------------------Begining of Facebook registration strategy.------------------------------------------------*/
+	/*-----------------------------------------------Begining of Facebook Sign-In strategy.------------------------------------------------*/
 	/*
 	passport.use('facebook', new FacebookStrategy({
 		}, fucntion(){}
 	));
 	*/
-	/*-----------------------------------------------End of Facebook registration strategy.------------------------------------------------*/
+	/*-----------------------------------------------End of Facebook Sign-In strategy.------------------------------------------------*/
 	
 };
