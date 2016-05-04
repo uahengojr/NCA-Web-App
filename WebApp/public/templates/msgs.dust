@@ -26,7 +26,7 @@
 		<ul class="nav navbar-nav navbar-right">
 			<li class="active">
 				<a href="/msgs">
-					<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Inbox
+					<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Messaging
 					<span class="sr-only">(current)</span>
 				</a>
 			</li>

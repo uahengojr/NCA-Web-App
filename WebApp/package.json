@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "bcrypt": "^0.8.5",
+    "connect-flash": "^0.1.1",
     "connect-mongodb-session": "^1.1.1",
     "construx": "^1.0.0",
     "construx-copier": "^1.0.0",
@@ -20,6 +21,7 @@
     "express": "^4.12.2",
     "express-session": "^1.13.0",
     "express-sessions": "^1.0.5",
+    "flash": "^1.1.0",
     "kraken-js": "^1.0.3",
     "makara": "^2.0.3",
     "mongoose": "^4.4.4",

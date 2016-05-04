@@ -3,7 +3,7 @@
 var LocalStrategy = require('passport-local').Strategy,
 	FacebookStrategy = require('passport-facebook').Strategy,
 	User = require('../models/user');
-	
+		
 module.exports = function(passport){
 	
     /* - Passport session setup - */
@@ -62,7 +62,7 @@ module.exports = function(passport){
 								throw err;
 							}
 							console.log('A new user was registered succesfully...');
-							return done(null, newUser, req.flash('signUpMessage','Welcome to NCA the community!');
+							return done(null, newUser, req.flash('signUpMessage','Welcome to NCA the community!'));
 							
 							//REDIRECT THE USER TO A PAGE TO SET UP THEIR INFORMATION.
 						

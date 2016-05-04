@@ -1,6 +1,7 @@
 'use strict';
 
 var express = require('express');
+var flash = require('connect-flash');
 var kraken = require('kraken-js');
 var db = require('./lib/db');
 var crypto = require('./lib/crypto');
@@ -42,6 +43,8 @@ app = module.exports = express();
 //
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
+
 //
 app.use(kraken(options));
 app.on('start', function () {

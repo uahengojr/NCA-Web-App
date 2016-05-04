@@ -8,11 +8,9 @@ module.exports = function (router) {
 
     var model = new HomeModel();
 
-    router.get('/', auth.injectUser(), function (req, res) {
-       
+    router.get('/', function (req, res) {
 	   
         res.render('home', model);
-        
         
     });
 

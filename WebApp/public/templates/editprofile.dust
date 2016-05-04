@@ -26,7 +26,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li>
 					<a href="/msgs">
-						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Inbox
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Messaging
 					</a>
 				</li>
 				<li class="dropdown">
@@ -76,17 +76,22 @@
 						  <button type="submit" class="btn btn-default"><strong>Upload new picture</strong></button>
   			  		    </div>
 						<!--You can also drag and drop a picture from your computer.-->
-			  		    <div class="form-group col-md-9">
-			  		      <label for="name" class="text-muted">Name</label>
-			  		      <input type="text" class="form-control" id="name" placeholder="John Daniel Smith">
-			  		    </div>
-			  		    <div class="form-group col-md-9">
-			  		      <label for="username" class="text-muted">Username</label>
-						  <div class="input-group">
-						  <span class="input-group-addon">@</span>
-			  		      <input type="text" class="form-control" id="username" placeholder="Username">
-					  </div>
-			  		    </div>
+			  		    
+		  		    	<div class="form-group col-md-9">
+		  		     	  	 <label for="firstName" class="text-muted">First Name</label>
+		  		     	 	 <input type="text" class="form-control" id="firstName" name="firstName" placeholder="John Daniel Smith">
+		  		    	</div>
+					
+		  		    	<div class="form-group col-md-9">
+		  		      	  	<label for="middleName" class="text-muted">Middle Name</label>
+		  		     	 	<input type="text" class="form-control" id="middleName" name="middleName" placeholder="John Daniel Smith">
+		  		    	</div>
+					
+						<div class="form-group col-md-9">
+		  		      	  <label for="lastName" class="text-muted">Last Name</label>
+		  		      		<input type="text" class="form-control" id="lastName" name="lastName" placeholder="John Daniel Smith">
+		  		    	</div>
+					   
 			  		    <div class="form-group col-md-9">
 			  		      <label for="email" class="text-muted">E-mail</label>
 			  		      <input type="email" class="form-control" id="email" placeholder="you@example.com">

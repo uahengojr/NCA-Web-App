@@ -75,7 +75,7 @@
 				"arguments":["HelloNamibiaLyetu"]
 			}
 		},
-	
+
 		"session": {
 			"module": {
 				"name": "path:./lib/session",
@@ -101,6 +101,7 @@
 				]
 			}	
 		},
+		
 		
 		"isAuthorized":{
 			"module" : {

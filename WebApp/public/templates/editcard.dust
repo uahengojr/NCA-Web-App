@@ -32,7 +32,7 @@
 			<ul class="nav navbar-nav navbar-right">
 				<li>
 					<a href="/msgs">
-						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Inbox
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Messaging
 					</a>
 				</li>
 				<li class="dropdown">
