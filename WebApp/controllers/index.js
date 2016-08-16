@@ -1,7 +1,7 @@
 'use strict';
 
 var passport = require('passport');
-//Dynamicroute should eb explored.
+//Dynamic route should eb explored.
 module.exports = function (router) {
 
     router.get('/', function (req, res) {
