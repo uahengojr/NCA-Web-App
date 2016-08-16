@@ -53,9 +53,115 @@
 <main class="" id="">
 	<div class="container">
 		<!-- The users messages/inbox will be displayed here. -->
-		<center>
-			<h1>Messiging coming soon...</h1>
-		</cneter>
+		<div class="panel panel-default">
+			
+		  <div class="panel-heading">
+		    <h3 class="panel-title">Inbox</h3>
+		  </div>
+		  
+		  <div class="panel-body">
+			<div class="col-md-4">
+			<div class="list-group" style="max-height:600px; overflow-y:auto;">
+				<li href="#" class="list-group-item active">
+					<h4 class="list-group-item-heading">Sam Simataa</h4>
+					<p class="list-group-item-text">
+						Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+					</p>
+				</li>
+				<li href="#" class="list-group-item">
+					<h4 class="list-group-item-heading">Operolim Marcellino</h4>
+					<p class="list-group-item-text">
+						Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+					</p>
+				</li>
+				<li href="#" class="list-group-item">
+					<h4 class="list-group-item-heading">Sam Okeke</h4>
+					<p class="list-group-item-text">
+						Bain Captial?
+					</p>
+				</li>
+				<li href="#" class="list-group-item">
+					<h4 class="list-group-item-heading">John Doeng</h4>
+					<p class="list-group-item-text">
+						Summer pool party?
+					</p>
+				</li>
+				<li href="#" class="list-group-item">
+					<h4 class="list-group-item-heading">Nigel Boateng</h4>
+					<p class="list-group-item-text">
+						Love the new place.
+					</p>
+				</li>
+				<li href="#" class="list-group-item">
+					<h4 class="list-group-item-heading">Jay-Z</h4>
+					<p class="list-group-item-text">
+						You coming?
+					</p>
+				</li>
+				<li href="#" class="list-group-item">
+					<h4 class="list-group-item-heading">Oprah Winfrey</h4>
+					<p class="list-group-item-text">
+						How are you?
+					</p>
+				</li>
+				<li href="#" class="list-group-item">
+					<h4 class="list-group-item-heading">Fabregas Cesc</h4>
+					<p class="list-group-item-text">
+						What's up?
+					</p>
+				</li>
+				<li href="#" class="list-group-item">
+					<h4 class="list-group-item-heading">Henry Thierry</h4>
+					<p class="list-group-item-text">
+						Long time man. Where you been at these days?
+					</p>
+				</li>
+				</div>
+			</div>
+		
+		<div class="col-md-8">
+			<div class="panel panel-default" style="max-height:450px; overflow-y:auto;">
+			  <div class="panel-body">
+				<div class="alert alert-info" role="alert">
+					<span class="text-muted">Sam Simataa</span>
+					<p>Hey boo Maecenas sed diam eget risus varius blandit</p>
+				</div>
+				<div class="alert alert-success" role="alert">
+					<span class="text-muted">Uahengo Jr.</span>
+					<p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				</div>
+				<div class="alert alert-info" role="alert">
+					<span class="text-muted">Sam Simataa</span>
+					<p>What's wrong with you today. You're so spicy.</p>
+				</div>
+				<div class="alert alert-success" role="alert">
+					<span class="text-muted">Uahengo Jr.</span>
+					<p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				</div>
+				<div class="alert alert-info" role="alert">
+					<span class="text-muted">Sam Simataa</span>
+					<p>Why do you ask?</p>
+					<p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				</div>
+				<div class="alert alert-success" role="alert">
+					<span class="text-muted">Uahengo Jr.</span>
+					
+					<p>Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+				</div>
+			  </div>
+			</div>
+			
+			<!-- Textarea -->
+			<form accept-charset="UTF-8" action="" method="POST">
+				<textarea class="form-control" name="message" placeholder="Type in your message" rows="5" style="margin-bottom:10px;"></textarea>
+			     <button class="btn btn-info pull-right" type="submit">Send</button>
+			 </form>
+			
+		</div>
+		
+		  </div>
+		
+		</div>
 	</div>
 </main>
 <footer class="" id="">
