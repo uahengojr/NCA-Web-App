@@ -55,17 +55,25 @@ module.exports = function(passport){
 						newUser.sex = req.body.sex;
 						newUser.role = 'user';
 						
+						
 						//Save the newly created user.
 						newUser.save(function(err){
 							if(err){
 								console.log("Error saving the new user: " + err);
 								throw err;
 							}
-							console.log('A new user was registered succesfully...');
-							return done(null, newUser, req.flash('signUpMessage','Welcome to NCA the community!'));
 							
-							//REDIRECT THE USER TO A PAGE TO SET UP THEIR INFORMATION.
-						
+							newUser.addRole('member', function(err){
+								if(err){
+									consoel.error(err);
+								}else{
+									console.log("role succesfully added!");
+									
+									console.log('A new user was registered succesfully...');
+									return done(null, newUser, req.flash('signUpMessage','Welcome to NCA the community!'));
+									
+								}
+							});					
 						});
 					}
 				});
