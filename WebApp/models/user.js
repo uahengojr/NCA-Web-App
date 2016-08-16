@@ -1,6 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose'),
+	rbac = require('mongoose-rbac'),
 	bcrypt = require('bcrypt'),
 	crypto = require('../lib/crypto');
 
@@ -91,6 +92,8 @@ var user = function(){
 			callback(null, res);
 		});
 	};
+	
+	userSchema.plugin(rbac.plugin);
 
 	return mongoose.model('User', userSchema);
 	
