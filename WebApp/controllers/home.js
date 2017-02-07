@@ -9,8 +9,10 @@ module.exports = function (router) {
     var model = new HomeModel();
 
     router.get('/', function (req, res) {
-	   
-        res.render('home', model);
+	  	
+		console.log(req.session.id);
+		
+        res.render('home' , model);
         
     });
 

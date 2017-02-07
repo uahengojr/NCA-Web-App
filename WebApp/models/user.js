@@ -1,10 +1,9 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-	rbac = require('mongoose-rbac'),
 	bcrypt = require('bcrypt'),
 	crypto = require('../lib/crypto');
-
+	
 var user = function(){
 	
 	/* - Defines user schema - */
@@ -46,8 +45,7 @@ var user = function(){
 		/*hidden: Boolean, */
 		role: String
 	});
-	
-	
+		
 	/* - Helper function that hooks into the 'save' method replacing a plain-text password with a hashed version. - */
 	userSchema.pre('save', function(next){
 		var user = this;
@@ -93,8 +91,6 @@ var user = function(){
 		});
 	};
 	
-	userSchema.plugin(rbac.plugin);
-
 	return mongoose.model('User', userSchema);
 	
 }

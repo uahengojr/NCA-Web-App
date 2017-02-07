@@ -96,7 +96,7 @@
 					// connect-mongo configuration
 					{
 						"host": "localhost",
-						"db": "sessionStore"
+						"db": "Non_Functional_Session_Store"
 					}
 				]
 			}	

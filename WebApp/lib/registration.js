@@ -11,8 +11,7 @@ module.exports = function(passport){
 	
     // This is used to serialize the user for the session.
     passport.serializeUser(function(user, done) {
-		var sessionUser = {id: user.id, username: user.username, email: user.email};
-        done(null, sessionUser);
+		 done(null, user.id);
     });
 
     // This is used to deserialize the user.
@@ -41,21 +40,22 @@ module.exports = function(passport){
 					if(err){
 						return done(err);
 					}
+					
 					if(user){
 						//Check to see if there is already a user with this email.
-						return done(null, false, req.flash('signUpMessage','That email is already taken.'));
+						return done(null, false, req.flash('signUpMessage', 'That email is already taken.'));
 					}else{
 						//If there's no registeres user with this email, create a user.
 						var newUser = new User();
-						
+												
 						newUser.email = email; //req.body.signup_email;
 						newUser.password = password; //req.body.signup_password;
 						newUser.name.first = req.body.signup_fullname;
 						//newUser.name.last = req.body.signup_fullname;
 						newUser.sex = req.body.sex;
-						newUser.role = 'user';
 						
-						
+						newUser.role = 'user'; //Make this an array of unverfied & verified users.
+						 
 						//Save the newly created user.
 						newUser.save(function(err){
 							if(err){
@@ -63,18 +63,11 @@ module.exports = function(passport){
 								throw err;
 							}
 							
-							newUser.addRole('member', function(err){
-								if(err){
-									consoel.error(err);
-								}else{
-									console.log("role succesfully added!");
+							console.log('A new user was registered succesfully...');
+							return done(null, newUser, req.flash('signUpMessage','Welcome to NCA the community!'));
 									
-									console.log('A new user was registered succesfully...');
-									return done(null, newUser, req.flash('signUpMessage','Welcome to NCA the community!'));
-									
-								}
-							});					
 						});
+						
 					}
 				});
 			});

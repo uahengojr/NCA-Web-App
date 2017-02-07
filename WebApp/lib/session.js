@@ -6,8 +6,8 @@ var session = require('express-session'),
 module.exports = function(sessionConfig, dbConfig){
 	
 		var store = new MongoDBStore({
-        	uri: 'mongodb://' + dbConfig.host + '/' + dbConfig.database,
-        	collection: 'mySessions'
+        	uri: 'mongodb://' + dbConfig.host + '/' + dbConfig.db,
+        	collection: 'No_Fucntional_NCA_Sessions'
 		});
     	
 		// Catch errors
@@ -19,6 +19,6 @@ module.exports = function(sessionConfig, dbConfig){
 		
 		
 		sessionConfig.store;
-		
+
 		return session(sessionConfig);
 };

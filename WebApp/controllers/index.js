@@ -43,13 +43,13 @@ module.exports = function (router) {
 	// - Logout route from application. - //
 	router.get('/logout', function(req, res){
 		
-		req.session.destroy(function(err) {
-  		  	// cannot access session here
-			console.log('Session deleted...');
+		req.session.logout(function(err) {
+  		  	if(!err){
+  		  		//Here we have logged-out the session
+				console.log('Session deleted...');
+			    res.redirect('/');
+  		  	} //Should possible include an error handler here.
 		});
-		
-		req.logout();
-	    res.redirect('/');
 	
 	});
 
