@@ -2,4 +2,5 @@
 
 {<body}
     <h1>Hello, {name}</h1>
+	<p>Certified Admin, if you're on this page. Power of the mind, is not a JOKE!</p>
 {/body}
