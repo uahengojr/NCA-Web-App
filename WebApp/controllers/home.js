@@ -11,7 +11,7 @@ module.exports = function (router) {
     router.get('/', function (req, res) {
 	  	
 		console.log(req.session.id);
-		
+				
         res.render('home' , model);
         
     });
