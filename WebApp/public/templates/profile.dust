@@ -54,7 +54,16 @@
 			<!-- The community gallery will be here. -->
 			<center>
 				<h1>Coming soon... (User profile page)</h1>
-			</cneter>
+				{?ownr}
+					{#ownr}
+				
+					<h3> Welcome to your profile, {name.first} {name.last}</h3>
+				
+					{/ownr}
+					{:else}
+					<h3>Somthing went terribly wrong. No one's claiming ownership here.</h3>
+				{/ownr}
+			</center>
 		</div>
 	</main>
 	<footer class="" id="">
