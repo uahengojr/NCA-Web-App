@@ -75,33 +75,6 @@
 				"arguments":["HelloNamibiaLyetu"]
 			}
 		},
-
-		"session": {
-			"module": {
-				"name": "path:./lib/session",
-				"arguments": [
-					//express-session configuration
-					{
-						"secret": "helloNamibia",
-						"cookie": {
-							"path":"/",
-							"httpOnly": true,
-							"secure": false,
-							"maxAge": null
-							},
-						"resave": true,
-						"saveUninitialized": false,
-						"store": null //NB: this will be overlaid by the session module.
-					},
-					// connect-mongo configuration
-					{
-						"host": "localhost",
-						"db": "Non_Functional_Session_Store"
-					}
-				]
-			}	
-		},
-		
 		
 		"isAuthorized":{
 			"module" : {
