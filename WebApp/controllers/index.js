@@ -36,12 +36,14 @@ module.exports = function (router) {
 								
 				req.session.login(function(err){
 					if(!err){
+						
 						//Logged in session created here.
 						req.session.userID = user.id;
 						req.session.setRole(user.role);
-	   				 	
 						
-						return res.redirect('/profile/users/');
+						//Check here to re-route board members and admins accordingly. --> FUTURE!!!
+						
+						return res.redirect('/profile/users/' + user.id);
 					}
 					
 				});
