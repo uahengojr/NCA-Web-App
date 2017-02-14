@@ -17,6 +17,26 @@ var MongoDBStore = require('connect-mongodb-session')(session);
 var easySession = require('easy-session'); // Require the module : line 1
 //
 
+
+var rbac = {
+  user: { // Role name
+    can: ['account', 'post:add', { // list of allowed operations
+      name: 'post:save',
+      when: function (params, callback) {
+        setImmediate(callback, null, params.userId === params.ownerId);
+      }}
+    ]
+  },
+  manager: {
+    can: ['post:save', 'post:delete'],
+    inherits: ['user']
+  },
+  admin: {
+    can: ['rule the server'],
+    inherits: ['manager']
+  }
+}
+
 var options, app;
 
 /*
@@ -49,9 +69,18 @@ app = module.exports = express();
 
 var store = new MongoDBStore({
 	uri: 'mongodb://localhost:27017/NCA_Session_Store',
-	collection: 'NCA_Sessions'
+	collection: 'NCA_Sessions',
+	function(err){
+		console.log(err);
+	}
 });
-
+/*
+// Catch MONGO CONNECTION errors
+store.on('error', function(error) {
+    assert.ifError(error);
+    assert.ok(false);
+});
+*/
 app.use(session({
     secret: 'keyboard cat',
 	cookie: {
@@ -59,17 +88,22 @@ app.use(session({
 	}, 
 	store: store,
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: false
 }));
 
 //
+app.use(easySession.main(session, {
+	ipCheck: true, 
+	uaCheck: true, 
+	rbac: rbac
+})); // Bind the module : line 2
+//
+
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-//
-app.use(easySession.main(session)); // Bind the module : line 2
-//
 
 app.use(kraken(options));
 app.on('start', function () {
