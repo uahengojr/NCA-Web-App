@@ -32,13 +32,23 @@ module.exports = function (router) {
 					return next(err);
 				}
 				
-				//return res.redirect('/users/' + user.username);
-				return res.redirect('/home');
+				//console.log(user);
+								
+				req.session.login(function(err){
+					if(!err){
+						//Logged in session created here.
+						req.session.userID = user.id;
+						req.session.setRole(user.role);
+	   				 	
+						
+						return res.redirect('/profile/users/');
+					}
+					
+				});
+				
 			});
 		})(req, res, next);
 	});
-
-
 
 	// - Logout route from application. - //
 	router.get('/logout', function(req, res){
