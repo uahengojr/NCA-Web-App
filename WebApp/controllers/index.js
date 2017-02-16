@@ -33,23 +33,46 @@ module.exports = function (router) {
 				}
 				
 				//console.log(user);
-								
-				req.session.login(function(err){
-					if(!err){
+				
+				if(user.role === 'admin'){
+					req.session.login(function(err){
 						
-						//Logged in session created here.
-						req.session.userID = user.id;
-						req.session.setRole(user.role);
+						if(err){
+							console.error(err); //Deal with this better later
+						}
 						
-						//Check here to re-route board members and admins accordingly. --> FUTURE!!!
+						if(!err){
+							req.session.userID = user.id;
+							req.session.setRole(user.role);
+							
+							res.redirect('/admin/' + user.id);
+							return;
+						}
 						
-						return res.redirect('/profile/users/' + user.id);
-					}
+					});
 					
-				});
+				}
+				
+				if(user.role === 'user'){
+					
+					req.session.login(function(err){
+						if(!err){
+						
+							//Logged in session created here.
+							req.session.userID = user.id;
+							req.session.setRole(user.role);
+													
+							res.redirect('/profile/users/' + user.id);
+							return;
+						}
+					
+					});
+				}
 				
 			});
+			
 		})(req, res, next);
+		
 	});
 
 	// - Logout route from application. - //
@@ -69,7 +92,7 @@ module.exports = function (router) {
 
 /* THIS CAUSES PROBLEMS FOR SOME OF THE PAGES LOADING...
 	// - This is a catch-all for requested pages that don't exist. - //
-	router.use(function (req,res) {
+	router.use(function (req, res) {
     	res.render('errors/404', {url:req.url});
 	});
 */	
