@@ -32,7 +32,7 @@ var rbac = {
     inherits: ['user']
   },
   admin: {
-    can: ['rule the server'],
+    can: ['rule the server', 'view:dashboard'],
     inherits: ['manager']
   }
 }
