@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Dashboard</title>
+    <link href="css/application.min.css" rel="stylesheet">
+    <!-- as of IE9 cannot parse css files with more that 4K classes separating in two files -->
+    <!--[if IE 9]>
+        <link href="css/application-ie9-part2.css" rel="stylesheet">
+    <![endif]-->
+    <link rel="shortcut icon" href="img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script>
+        /* yeah we need this empty stylesheet here. It's cool chrome & chromium fix
+         chrome fix https://code.google.com/p/chromium/issues/detail?id=167083
+         https://code.google.com/p/chromium/issues/detail?id=332189
+         */
+    </script>
+</head>
+<body>
+<!--
+  Main sidebar seen on the left. may be static or collapsing depending on selected state.
+
+    * Collapsing - navigation automatically collapse when mouse leaves it and expand when enters.
+    * Static - stays always open.
+-->
+<nav id="sidebar" class="sidebar" role="navigation">
+    <!-- need this .js class to initiate slimscroll -->
+    <div class="js-sidebar-content">
+        <header class="logo hidden-xs">
+            <a href="index.html">NCA</a>
+        </header>
+        <!-- seems like lots of recent admin template have this feature of user info in the sidebar.
+             looks good, so adding it and enhancing with notifications -->
+        <div class="sidebar-status visible-xs">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="thumb-sm avatar pull-right">
+                    <img class="img-circle" src="img/people/a5.jpg" alt="...">
+                </span>
+                <!-- .circle is a pretty cool way to add a bit of beauty to raw data.
+                     should be used with bg-* and text-* classes for colors -->
+                <span class="circle bg-warning fw-bold text-gray-dark">
+                    15
+                </span>
+                &nbsp;
+                Sam <strong>Simataa</strong>
+                <b class="caret"></b>
+            </a>
+            <!-- #notifications-dropdown-menu goes here when screen collapsed to xs or sm -->
+        </div>
+        <!-- main notification links are placed inside of .sidebar-nav -->
+        <ul class="sidebar-nav">
+            <li class="active">
+                <!-- an example of nested submenu. basic bootstrap collapse component -->
+                <a href="./adminDashboard.html">
+                    <span class="icon">
+                        <i class="glyphicon glyphicon-dashboard"></i>
+                    </span>
+                    Dashboard
+                </a>
+               
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <i class="fa fa-newspaper-o"></i>
+                    </span>
+                    News
+                </a>
+            </li>
+			<li>
+                <a href="./adminEvents.html">
+                    <span class="icon">
+                        <i class="fa fa-map-marker"></i>
+                    </span>
+                    Events
+                </a>
+			</li>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <i class="fa fa-info"></i>
+                    </span>
+                    Information
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <i class="glyphicon glyphicon-usd"></i>
+                    </span>
+                    Finances
+                </a>
+            </li>
+        </ul>
+		
+        <!-- every .sidebar-nav may have a title -->
+        <h5 class="sidebar-nav-title">Statistics<a class="action-link" href="#"><i class="glyphicon glyphicon-stats"></i></a></h5>
+        <ul class="sidebar-nav">
+            <li>
+                <!-- an example of nested submenu. basic bootstrap collapse component -->
+                <a class="collapsed" href="#sidebar-forms" data-toggle="collapse" data-parent="#sidebar">
+                    <span class="icon">
+                        <i class="glyphicon glyphicon-align-right"></i>
+                    </span>
+                    Users
+                    <i class="toggle fa fa-angle-down"></i>
+                </a>
+                <ul id="sidebar-forms" class="collapse">
+					<li><a href="form_elements.html">All User</a></li>
+                    <li><a href="form_elements.html">Billing Status</a></li>
+                </ul>
+            </li>
+        </ul>
+        <h5 class="sidebar-nav-title">TODO LIST <a class="action-link" href="#"><i class="glyphicon glyphicon-plus"></i></a></h5>
+        <!-- some styled links in sidebar. ready to use as links to email folders, projects, groups, etc -->
+        <ul class="sidebar-labels">
+            <li>
+                <a href="#">
+                    <!-- yep, .circle again -->
+                    <i class="fa fa-circle text-warning mr-xs"></i>
+                    <span class="label-name">List Event</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-circle text-gray mr-xs"></i>
+                    <span class="label-name">Pay Hotel Bill</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-circle text-danger mr-xs"></i>
+                    <span class="label-name">Call President</span>
+                </a>
+            </li>
+        </ul>
+      
+    </div>
+</nav>
+<!-- This is the white navigation bar seen on the top. A bit enhanced BS navbar. See .page-controls in _base.scss. -->
+<nav class="page-controls navbar navbar-default">
+    <div class="container-fluid">
+        <!-- .navbar-header contains links seen on xs & sm screens -->
+        <div class="navbar-header">
+            <ul class="nav navbar-nav">
+                <li>
+                    <!-- whether to automatically collapse sidebar on mouseleave. If activated acts more like usual admin templates -->
+                    <a class="hidden-sm hidden-xs" id="nav-state-toggle" href="#" title="Turn on/off sidebar collapsing" data-placement="bottom">
+                        <i class="fa fa-bars fa-lg"></i>
+                    </a>
+                    <!-- shown on xs & sm screen. collapses and expands navigation -->
+                    <a class="visible-sm visible-xs" id="nav-collapse-toggle" href="#" title="Show/hide sidebar" data-placement="bottom">
+                        <span class="rounded rounded-lg bg-gray text-white visible-xs"><i class="fa fa-bars fa-lg"></i></span>
+                        <i class="fa fa-bars fa-lg hidden-xs"></i>
+                    </a>
+                </li>
+                <li class="ml-sm mr-n-xs hidden-xs"><a href="#"><i class="fa fa-refresh fa-lg"></i></a></li>
+                <li class="ml-n-xs hidden-xs"><a href="#"><i class="fa fa-times fa-lg"></i></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right visible-xs">
+                <li>
+                    <!-- toggles chat -->
+                    <a href="#" data-toggle="chat-sidebar">
+                        <span class="rounded rounded-lg bg-gray text-white"><i class="fa fa-globe fa-lg"></i></span>
+                    </a>
+                </li>
+            </ul>
+            <!-- xs & sm screen logo -->
+            <a class="navbar-brand visible-xs" href="index.html">
+                <i class="fa fa-circle text-gray mr-n-sm"></i>
+                <i class="fa fa-circle text-warning"></i>
+                &nbsp;
+                NCA
+                &nbsp;
+                <i class="fa fa-circle text-warning mr-n-sm"></i>
+                <i class="fa fa-circle text-gray"></i>
+            </a>
+        </div>
+
+        <!-- this part is hidden for xs screens -->
+        <div class="collapse navbar-collapse">
+            <!-- search form! link it to your search server -->
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <div class="input-group input-group-no-border">
+                        <span class="input-group-addon">
+                            <i class="fa fa-search"></i>
+                        </span>
+                        <input class="form-control" type="text" placeholder="Search Dashboard">
+                    </div>
+                </div>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+					<a href="#">
+						<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Inbox
+						 &nbsp;                        <span class="circle bg-info fw-bold">
+                            15
+                        </span>
+
+					</a>
+                    
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="thumb-sm avatar pull-left">
+                            <img class="img-circle" src="img/people/a5.jpg" alt="...">
+                        </span>
+                        &nbsp;
+                        Sam <strong>Simataa</strong>&nbsp;
+                        
+                        <b class="caret"></b></a>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="glyphicon glyphicon-user"></i> &nbsp; My Profile</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Admin Dashboard</a></li>
+						<li><a href="#">My Account</a></li>
+						<li><a href="#">Settings</a></li>
+						<li><a href="#">Help</a></li>
+						<li><a href="#">Privacy Policy</a></li>
+                        <li class="divider"></li>
+                        <li><a href="login.html"><i class="fa fa-sign-out"></i> &nbsp; Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="content-wrap">
+    <!-- main page content. the place to put widgets in. usually consists of .row > .col-md-* > .widget.  -->
+    <main id="content" class="content" role="main">
+        <!--<ol class="breadcrumb">-->
+        <!--<li>YOU ARE HERE</li>-->
+        <!--<li class="active">Widgets</li>-->
+        <!--</ol>-->
+        <!--<h1 class="page-title">Widgets - <span class="fw-semi-bold">Options</span></h1>-->
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <section class="widget bg-primary text-white">
+                    <div class="widget-body clearfix">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <span class="widget-icon">
+                                    <i class="glyphicon glyphicon-globe"></i>
+                                </span>
+                            </div>
+                            <div class="col-xs-9">
+                                <h5 class="no-margin">USERS GROWTH</h5>
+                                <p class="h2 no-margin fw-normal">4,332</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5 class="no-margin">Registrations</h5>
+                                <p class="value4">+830</p>
+                            </div>
+                            <div class="col-xs-6">
+                                <h5 class="no-margin">Bounce Rate</h5>
+                                <p class="value4">4.5%</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <section class="widget bg-info text-white">
+                    <div class="widget-body clearfix">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <span class="widget-icon">
+                                    <i class=" glyphicon glyphicon-user"></i>
+                                </span>
+                            </div>
+                            <div class="col-xs-9">
+                                <div class="live-tile" data-mode="carousel" data-speed="750" data-delay="3000" data-height="57">
+                                    <div>
+                                        <h5 class="no-margin">VISITS TODAY</h5>
+                                        <p class="h2 no-margin fw-normal">12,324</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="no-margin">VISITS YESTERDAY</h5>
+                                        <p class="h2 no-margin fw-normal">11,885</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5 class="no-margin">New Visitors</h5>
+                                <div class="live-tile" data-mode="carousel" data-speed="750" data-delay="3000" data-height="25">
+                                    <div>
+                                        <p class="value4">1,332</p>
+                                    </div>
+                                    <div>
+                                        <p class="value4">20.1%</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <h5 class="no-margin">Bounce Rate</h5>
+                                <div class="live-tile" data-mode="carousel" data-speed="750" data-delay="3000" data-height="26">
+                                    <div>
+                                        <p class="value4">217</p>
+                                    </div>
+                                    <div>
+                                        <p class="value4">2.3%</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <section class="widget bg-gray text-white">
+                    <div class="widget-body clearfix">
+                        <div class="live-tile" data-mode="fade" data-speed="750" data-delay="4000" data-height="100">
+                            <div class="bg-gray">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <span class="widget-icon">
+                                            <i class="glyphicon glyphicon-globe"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-xs-9">
+                                        <h5 class="no-margin">ORDERS</h5>
+                                        <p class="h2 no-margin fw-normal">82,765</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <h5 class="no-margin">Avg. Time</h5>
+                                        <p class="value4">2:56</p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h5 class="no-margin">Last Week</h5>
+                                        <p class="value4">374</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <span class="widget-icon">
+                                            <i class="glyphicon glyphicon-certificate"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-xs-9">
+                                        <h5 class="no-margin">PICKED ORDERS</h5>
+                                        <p class="h2 no-margin fw-normal">13.8%</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <h5 class="no-margin">Basic</h5>
+                                        <p class="value4">3,692</p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <h5 class="no-margin">Advanced</h5>
+                                        <p class="value4">1,441</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <section class="widget bg-success text-white">
+                    <div class="widget-body clearfix">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <span class="widget-icon">
+                                    <i class="glyphicon glyphicon-usd"></i>
+                                </span>
+                            </div>
+                            <div class="col-xs-9">
+                                <h5 class="no-margin">TOTAL PROFIT</h5>
+                                <p class="h2 no-margin fw-normal">$7,448</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5 class="no-margin">Last Month</h5>
+                                <p class="value4">$83,541</p>
+                            </div>
+                            <div class="col-xs-6">
+                                <h5 class="no-margin">Last Week</h5>
+                                <p class="value4">$17,926</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        
+        <div class="row">
+            <div class="col-md-6">
+                <section class="widget">
+                    <div class="widget-image text-white">
+                        <img src="img/18.jpg">
+                        <h3 class="title">
+                            <span class="fw-normal">San Diego</span>, CA
+                        </h3>
+                        <div class="info text-align-right">
+                            <i class="fa fa-map-marker h1 no-margin mr-xs"></i>
+                            <h6 class="no-margin mt-xs">Califronia, USA</h6>
+                            <p class="fs-sm">9:41 am</p>
+                        </div>
+                        <div class="forecast">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-4">
+                                    <div class="row mt-xs">
+                                        <div class="col-xs-6 no-padding">
+                                            <canvas id="clear-day" width="40" height="40"></canvas>
+                                            <p class="no-margin fw-normal mt-n-xs">sunny</p>
+                                        </div>
+                                        <div class="col-xs-6 no-padding">
+                                            <h5 class="fw-semi-bold no-margin">SUNDAY</h5>
+                                            <p class="value1 ">29&deg;</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 no-padding">
+                                    <h6 class="no-margin">TOMMOROW</h6>
+                                    <canvas class="mt-xs" id="partly-cloudy-day" width="28" height="28"></canvas>
+                                    <p class="no-margin fw-semi-bold">32&deg;</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 no-padding">
+                                    <h6 class="no-margin">TUE</h6>
+                                    <canvas class="mt-xs" id="rain" width="28" height="28"></canvas>
+                                    <p class="no-margin fw-semi-bold">25&deg;</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 no-padding">
+                                    <h6 class="no-margin">WED</h6>
+                                    <canvas class="mt-xs" id="clear-day-3" width="28" height="28"></canvas>
+                                    <p class="no-margin fw-semi-bold">28&deg;</p>
+                                </div>
+                                <div class="col-xs-3 col-sm-2 no-padding">
+                                    <h6 class="no-margin">THU</h6>
+                                    <canvas class="mt-xs" id="partly-cloudy-day-3" width="28" height="28"></canvas>
+                                    <p class="no-margin fw-semi-bold">17&deg;</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <section class="widget no-padding text-align-center">
+                            <div class="row no-margin">
+                                <div class="col-xs-5 bg-danger btlr bblr">
+                                    <canvas class="mt" id="clear-day-1" width="62" height="62"></canvas>
+                                    <h5 class="text-white display-inline-block fw-normal">FRIDAY</h5>
+                                </div>
+                                <div class="col-xs-7">
+                                    <p class="value0 text-danger mt-n-xs mr-n-xs">
+                                        33&deg;
+                                    </p>
+                                    <p class="mt-n-sm mb-xs fw-normal fs-sm text-muted">WINDY</p>
+                                    <div class="row">
+                                        <div class="col-xs-6 no-padding">
+                                            <canvas id="wind-1" width="20" height="20"></canvas>
+                                            <div class="display-inline-block">
+                                                <p class="value5">4</p>
+                                                <p class="fs-sm no-margin mt-n-xs text-muted fw-normal">MPS</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 no-padding">
+                                            <canvas id="rain-1" width="20" height="20"></canvas>
+                                            <div class="display-inline-block">
+                                                <p class="value5">52</p>
+                                                <p class="fs-sm no-margin mt-n-xs text-muted fw-normal">MM</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-sm-6">
+                        <section class="widget no-padding text-align-center">
+                            <div class="row no-margin">
+                                <div class="col-xs-7 bg-success btlr bblr">
+                                    <p class="value0 text-white mt-sm mr-n-xs mb-n-xs">
+                                        20&deg;
+                                    </p>
+                                    <p class="text-white display-inline-block fw-normal display-inline-block mb">SUNDAY</p>
+                                </div>
+                                <div class="col-xs-5">
+                                    <canvas class="mt" id="partly-cloudy-day-1" width="60" height="60"></canvas>
+                                    <p class="fw-normal fs-sm text-muted">WINDY</p>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <section class="widget">
+                    <header class="bb">
+                        <h5>Recent <span class="fw-semi-bold">Chats</span></h5>
+                    </header>
+                    <div class="widget-body">
+                        <div class="widget-middle-overflow">
+                            <ul class="list-group widget-chat-list-group">
+                                <li class="list-group-item">
+                                <span class="thumb">
+                                    <img class="img-circle" src="img/people/a6.jpg" alt="...">
+                                </span>
+                                    <time class="time">10 sec ago</time>
+                                    <h5 class="sender">Chris Gray</h5>
+                                    <p class="body">Hey! What's up? So much time since we saw each other there</p>
+                                </li>
+                                <li class="list-group-item on-right">
+                                <span class="thumb">
+                                    <img class="img-circle" src="img/avatar.png" alt="...">
+                                </span>
+                                    <time class="time">10 sec ago</time>
+                                    <h5 class="sender">John Doe</h5>
+                                    <p class="body">True! Totally makes sense. But how do we find that?</p>
+                                </li>
+                                <li class="list-group-item">
+                                <span class="thumb">
+                                    <img class="img-circle" src="img/people/a6.jpg" alt="...">
+                                </span>
+                                    <time class="time">10 sec ago</time>
+                                    <h5 class="sender">Chris Gray</h5>
+                                    <p class="body">OK, but so now what? What should we do now? Not sure actually.</p>
+                                </li>
+                                <li class="list-group-item on-right">
+                                <span class="thumb">
+                                    <img class="img-circle" src="img/avatar.png" alt="...">
+                                </span>
+                                    <time class="time">10 sec ago</time>
+                                    <h5 class="sender">John Doe</h5>
+                                    <p class="body">Hey guys, didn't you notice this conversation is sort of jubberish?</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <footer class="bg-body-light bt">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" placeholder="Your message">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default">
+                                    Send
+                                </button>
+                            </span>
+                        </div>
+                    </footer>
+                </section>
+            </div>
+            
+        </div>
+        <div class="row">
+           <!-- <div class="col-md-4">
+                
+				
+				
+            </div>
+			   -->
+            <div class="col-md-4">
+                <section class="widget">
+                    <header class="bb">
+                        <h5>Recent <span class="fw-semi-bold">Chats</span></h5>
+                    </header>
+                    <div class="widget-body">
+                        <div class="widget-middle-overflow">
+                            <ul class="list-group widget-chat-list-group">
+                                <li class="list-group-item">
+                                <span class="thumb">
+                                    <img class="img-circle" src="img/people/a6.jpg" alt="...">
+                                </span>
+                                    <time class="time">10 sec ago</time>
+                                    <h5 class="sender">Chris Gray</h5>
+                                    <p class="body">Hey! What's up? So much time since we saw each other there</p>
+                                </li>
+                                <li class="list-group-item on-right">
+                                <span class="thumb">
+                                    <img class="img-circle" src="img/avatar.png" alt="...">
+                                </span>
+                                    <time class="time">10 sec ago</time>
+                                    <h5 class="sender">John Doe</h5>
+                                    <p class="body">True! Totally makes sense. But how do we find that?</p>
+                                </li>
+                                <li class="list-group-item">
+                                <span class="thumb">
+                                    <img class="img-circle" src="img/people/a6.jpg" alt="...">
+                                </span>
+                                    <time class="time">10 sec ago</time>
+                                    <h5 class="sender">Chris Gray</h5>
+                                    <p class="body">OK, but so now what? What should we do now? Not sure actually.</p>
+                                </li>
+                                <li class="list-group-item on-right">
+                                <span class="thumb">
+                                    <img class="img-circle" src="img/avatar.png" alt="...">
+                                </span>
+                                    <time class="time">10 sec ago</time>
+                                    <h5 class="sender">John Doe</h5>
+                                    <p class="body">Hey guys, didn't you notice this conversation is sort of jubberish?</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <footer class="bg-body-light bt">
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control" placeholder="Your message">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default">
+                                    Send
+                                </button>
+                            </span>
+                        </div>
+                    </footer>
+                </section>
+            </div>
+        <!--    <div class="col-md-4">
+				
+				
+				
+            </div> -->
+        </div>
+    </main>
+</div>
+<!-- The Loader. Is shown when pjax happens -->
+<div class="loader-wrap hiding hide">
+    <i class="fa fa-circle-o-notch fa-spin-fast"></i>
+</div>
+
+<!-- common libraries. required for every page-->
+<script src="vendor/jquery/dist/jquery.min.js"></script>
+<script src="vendor/jquery-pjax/jquery.pjax.js"></script>
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+<script src="vendor/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+<script src="vendor/slimScroll/jquery.slimscroll.min.js"></script>
+<script src="vendor/widgster/widgster.js"></script>
+<script src="vendor/pace.js/pace.js" data-pace-options='{ "target": ".content-wrap", "ghostTime": 1000 }'></script>
+<script src="vendor/jquery-touchswipe/jquery.touchSwipe.js"></script>
+
+<!-- common app js -->
+<script src="js/settings.js"></script>
+<script src="js/app.js"></script>
+
+<!-- page specific libs -->
+<script src="vendor/underscore/underscore.js"></script>
+<script src="vendor/jquery.sparkline/index.js"></script>
+<script src="vendor/d3/d3.min.js"></script>
+<script src="vendor/rickshaw/rickshaw.min.js"></script>
+<script src="vendor/raphael/raphael-min.js"></script>
+<script src="vendor/jQuery-Mapael/js/jquery.mapael.js"></script>
+<script src="vendor/jQuery-Mapael/js/maps/usa_states.js"></script>
+<script src="vendor/jQuery-Mapael/js/maps/world_countries.js"></script>
+<script src="vendor/flot/jquery.flot.js"></script>
+<script src="vendor/MetroJS/release/MetroJs.Full/MetroJs.js"></script>
+<script src="vendor/skycons/skycons.js"></script>
+
+<!-- page specific js -->
+<script src="demo/js/_fake-world-data.js"></script>
+<script src="js/widgets.js"></script>
+
+</body>
+</html>
