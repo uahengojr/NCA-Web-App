@@ -7,12 +7,11 @@ var easySession = require('easy-session'),
 var User = require('../models/user');
 var Events = require('../models/events');
 
-var AdminModel = require('../models/admin');
-
+//var AdminModel = require('../models/admin');
 
 module.exports = function (router) {
 
-    var model = new AdminModel();
+    //var model = new AdminModel();
 
     router.get('/:id*?', easySession.isLoggedIn(), easySession.checkRole('admin'), function (req, res) {
         
@@ -26,7 +25,6 @@ module.exports = function (router) {
 				var model = {admins: admin}; 
 			
 				res.render('admin', model);
-				return;
 			
 			});
 			
@@ -40,7 +38,6 @@ module.exports = function (router) {
 			req.session.can('view:dashboard', params, function(err, has){
 				if(err || !has){
 					res.sendStatus(403);
-					return;
 				}
 				
 				User.find({_id: params.adminID}, function(err, admin){
@@ -55,7 +52,6 @@ module.exports = function (router) {
 					var model = {admins: admin}; 
 			
 					res.render('admin', model);
-					return;
 			
 				});
 				
@@ -65,7 +61,7 @@ module.exports = function (router) {
 
     });
 	
-	
+/*	
 	//Route handlers for posting/editing/delete news on the site.
 	router.get('/news', function(req, res){
 		res.render('news');
@@ -74,7 +70,9 @@ module.exports = function (router) {
 	}).put('edit_news', function(req, res){
 		res.render('news');
 	});
-	
+*/
+
+/*
 	//Route handlers for posting/editing/deleting events on the site.
 	router.get('/events', easySession.isLoggedIn(), easySession.checkRole('admin'), function(req, res){
 		
@@ -103,7 +101,7 @@ module.exports = function (router) {
 		newEvent.phoneNumber2 = req.body.phoneNum2;
 		newEvent.eMail1 = req.body.email1;
 		newEvent.eMail2 = req.body.email2;
-		newEvent.date = req.body.eventDate;
+		newEvent.eventDate = req.body.eventDate;
 		
 		newEvent.location.description = req.body.eventLocationDescription;
 		newEvent.location.address = req.body.eventAddress;
@@ -121,8 +119,7 @@ module.exports = function (router) {
 			res.redirect('/admin/events');
 			
 		});
-		
-		
+			
 	}).put('edit_event', function(req, res){
 		res.render('event');
 	}).delete('delete_event', function(req, res){
@@ -139,5 +136,6 @@ module.exports = function (router) {
 	}).delete('delete_donations', function(req, res){
 		res.render('donation');
 	});
-
+*/
+	
 };

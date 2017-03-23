@@ -63,7 +63,7 @@ var user = function(){
 			
 			user.password = hash;
 			
-			//Continue onto the save opeation.
+			//Continue onto the save operation.
 			next();
 		});
 	

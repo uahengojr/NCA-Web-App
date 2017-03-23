@@ -29,13 +29,13 @@ var event = function(){
 			type: Date, default: Date.now
 		}, 
 		published: {
-			type: Boolean defaults: true
+			type: Boolean, default: true
 		}
 	
 	});
 	
 	/*
-	eventSchema.methods.publish('save', function(next){
+	eventSchema.methods.publish(function(next){
 		var creator = this;
 	});
 	*/
