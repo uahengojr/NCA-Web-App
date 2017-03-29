@@ -56,7 +56,45 @@
                 ]
             }
         },
-        
+		
+        "flash": {
+            "priority": 99,
+            "enabled": true,
+            "module": {
+                "name":"connect-flash",
+                "method": "flash"
+            }
+        },
+		
+		"session": {
+            "priority": 100,
+            "enabled": true,
+			"module": {
+				// use our own module instead
+				"name": "path:./lib/session",
+		        "arguments": [
+					// express-session configuration
+					{
+					    "secret": "keyboard cat",
+						"cookie": {
+							"path": "/",
+							"httpOnly": true,
+							"maxAge": null
+						},
+						"resave": true,
+						"saveUninitialized": false,
+						"store": null  //NB: This will br overlaid in our redis-session module.
+					},
+					//connect-mongoDB configuration
+					{
+						"host": "localhost:27017",
+						"db": "NCA_Sessions",
+						"collection": "NCA_Sess"
+					}
+				]
+		    }
+		},
+		
         "static": {
             "module": {
                 "arguments": [ "path:./.build" ]
@@ -72,21 +110,7 @@
 		
 		"cookieParser":{
 			"module":{
-				"arguments":["HelloNamibiaLyetu"]
-			}
-		},
-		
-		"isAuthorized":{
-			"module" : {
-				"name": "path:./lib/authorization",
-				"method": "isAuthorized"
-			}
-		},
-		
-		"injectUser" :{
-			"module": {
-				"name": "path:./lib/authorization",
-				"method": "injectUser"
+				"arguments":[""]
 			}
 		}
 
