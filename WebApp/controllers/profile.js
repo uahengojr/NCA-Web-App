@@ -24,13 +24,13 @@ module.exports = function (router) {
 				if(err){
 					throw err; //Handle better later...
 				}
+				
 				console.log("Hello One");
 				console.log(req.params.userID);
 				var model = {ownr: owner}; 
-				//console.log(owner);
-				
+								
 				res.render('profile', model);	
-				return;
+
 			}).limit(1);
 			
 		}else{

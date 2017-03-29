@@ -46,12 +46,13 @@ module.exports = function (router) {
 							req.session.setRole(user.role);
 							
 							res.redirect('/admin/' + user.id);
-							return;
 						}
 						
 					});
 					
 				}
+				
+				/*if(user.role === 'board'){}*/
 				
 				if(user.role === 'user'){
 					
@@ -63,7 +64,6 @@ module.exports = function (router) {
 							req.session.setRole(user.role);
 													
 							res.redirect('/profile/users/' + user.id);
-							return;
 						}
 					
 					});

@@ -1,13 +1,13 @@
 'use strict';
 
 var BillingModel = require('../models/billing');
-
+var easySession = require('easy-session');
 
 module.exports = function (router) {
 
     var model = new BillingModel();
 
-    router.get('/', function (req, res) {
+    router.get('/', easySession.isLoggedIn(), function (req, res) {
         
         
         res.render('billing', model);
@@ -15,7 +15,7 @@ module.exports = function (router) {
         
     });
 	
-    router.get('/payment', function (req, res) {
+    router.get('/payment', easySession.isLoggedIn(), function (req, res) {
         
         
         res.render('payment');
@@ -23,7 +23,7 @@ module.exports = function (router) {
         
     });
 	
-    router.get('/editcard', function (req, res) {
+    router.get('/editcard', easySession.isLoggedIn(), function (req, res) {
         
         
         res.render('editcard');

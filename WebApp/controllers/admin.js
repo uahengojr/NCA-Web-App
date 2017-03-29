@@ -19,7 +19,7 @@ module.exports = function (router) {
 			
 			User.find({_id: req.session.userID}, function(err, admin){
 				if(err){
-					console.error(err); //Handle better later...
+					console.error(err); //Handle errors better later...
 				}
 			
 				var model = {admins: admin}; 
@@ -42,11 +42,10 @@ module.exports = function (router) {
 				
 				User.find({_id: params.adminID}, function(err, admin){
 					if(err){
-						console.error(err); //Handle better later...
+						console.error(err); //Handle errors better later...
 					}
 			
 			/*admin[0]._id*/
-			
 			
 			
 					var model = {admins: admin}; 

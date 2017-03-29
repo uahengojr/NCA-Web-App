@@ -2,13 +2,13 @@
 
 var HomeModel = require('../models/home'); //Add event data via some external json url like or file. 
 
-var auth = require('../lib/authorization');
+var easySession = require('easy-session');
 
 module.exports = function (router) {
 
     var model = new HomeModel();
 
-    router.get('/', function (req, res) {
+    router.get('/', easySession.isLoggedIn(), function (req, res) {
 	  	
 		console.log(req.session.id);
 				
