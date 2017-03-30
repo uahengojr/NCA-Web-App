@@ -21,10 +21,10 @@ var access_control = function(){
 		  },
 		  admin: {
 		    can: ['rule the server'],
-		    inherits: ['manager']
+		    inherits: ['board']
 		  }
 	}
 	
 };
 
-module.exports = access_control();
+module.exports = new access_control();
