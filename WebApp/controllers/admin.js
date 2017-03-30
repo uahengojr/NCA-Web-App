@@ -6,6 +6,8 @@ var easySession = require('easy-session'),
 //Models
 var User = require('../models/user');
 var Events = require('../models/events');
+var SubscriptionsModel = require('../models/subscriptions');
+
 
 //var AdminModel = require('../models/admin');
 
@@ -37,7 +39,7 @@ module.exports = function (router) {
 			
 			req.session.can('view:dashboard', params, function(err, has){
 				if(err || !has){
-					res.sendStatus(403);
+					return res.sendStatus(403);
 				}
 				
 				User.find({_id: params.adminID}, function(err, admin){
@@ -45,7 +47,7 @@ module.exports = function (router) {
 						console.error(err); //Handle errors better later...
 					}
 			
-			/*admin[0]._id*/
+					/*admin[0]._id*/
 			
 			
 					var model = {admins: admin}; 
