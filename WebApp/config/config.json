@@ -82,7 +82,7 @@
 							"maxAge": null
 						},
 						"resave": true,
-						"saveUninitialized": false,
+						"saveUninitialized": true,
 						"store": null  //NB: This will br overlaid in our redis-session module.
 					},
 					//connect-mongoDB configuration
