@@ -1,18 +1,18 @@
 'use strict';
 
 var express = require('express');
-var flash = require('connect-flash');
 var kraken = require('kraken-js');
 var db = require('./lib/db');
 var crypto = require('./lib/crypto');
 
-var session = require('express-session'); //Run -> npm install
-var easySession = require('easy-session'); //Run -> npm install
+var session = require('express-session');
+var easySession = require('easy-session');
 var passport = require('passport');
+var flash = require('connect-flash');
 
 var signUpStrategy= require('./lib/registration');
 var signInStrategy = require('./lib/login');
-var access_rights = require('./lib/ac');
+var ac = require('./lib/ac');
 
 var options, app;
 
@@ -25,13 +25,13 @@ var options, app;
 options = function spec(app){
 	
 	app.on('middleware:after:session', function configPassport(eventargs){
-		
-		app.use(easySession.main(session,{
+	/*
+		app.use(easySession.main(session, {
 			ipCheck: true,
 			uaCheck: true,
-			rbace: access_rights
+			rbace: ac
 		}));
-		
+	*/
 		//
 		signUpStrategy(passport); 
 		signInStrategy(passport);
@@ -41,12 +41,19 @@ options = function spec(app){
 		app.use(passport.session());
 		app.use(flash());
 		
+		app.use(easySession.main(session, {
+			ipCheck: true,
+			uaCheck: true,
+			rbac: ac
+		}));
+		
+	
 		//
 		app.use(function(req, res, next) {
 		  res.locals.messages = req.flash();
 		  next();
 		});
-		
+	
 	});
 	
 	return {
@@ -55,7 +62,6 @@ options = function spec(app){
 	         * Add any additional config setup or overrides here. `config` is an initialized
 	         * `confit` (https://github.com/krakenjs/confit/) configuration object.
 	         */
-		
 		
 			db.config(config.get('databaseConfig'));
 			var cryptConfig = config.get('bcrypt');
@@ -70,7 +76,7 @@ options = function spec(app){
 
 app = module.exports = express();
 
-app.use(kraken(options));
+app.use(kraken(options(app)));
 
 app.on('start', function () {
     console.log('Application ready to serve requests.');
