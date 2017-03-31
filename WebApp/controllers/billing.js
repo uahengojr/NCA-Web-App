@@ -5,8 +5,6 @@ var easySession = require('easy-session');
 
 module.exports = function (router) {
 
-    var model = new BillingModel();
-
     router.get('/', easySession.isLoggedIn(), function (req, res) {
         
 		if(req.session.hasRole(['admin', 'board', 'user'])) {
