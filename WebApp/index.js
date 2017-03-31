@@ -14,6 +14,9 @@ var signUpStrategy= require('./lib/registration');
 var signInStrategy = require('./lib/login');
 var ac = require('./lib/ac');
 
+//Dummy data for development only -> delete before production
+var testData = require('./lib/testData')();
+
 var options, app;
 
 /*
@@ -25,29 +28,36 @@ var options, app;
 options = function spec(app){
 	
 	app.on('middleware:after:session', function configPassport(eventargs){
-	/*
-		app.use(easySession.main(session, {
-			ipCheck: true,
-			uaCheck: true,
-			rbace: ac
-		}));
-	*/
-		//
-		signUpStrategy(passport); 
-		signInStrategy(passport);
-		
-		//
-		app.use(passport.initialize());
-		app.use(passport.session());
-		app.use(flash());
-		
+	
 		app.use(easySession.main(session, {
 			ipCheck: true,
 			uaCheck: true,
 			rbac: ac
 		}));
-		
 	
+		//
+		signUpStrategy(passport); 
+		signInStrategy(passport);
+		
+		/********************  - Dummy data serialization - *******************/	
+		
+		//Test user
+		passport.serializeUser(testData.UserSerialize);
+		passport.deserializeUser(testData.Userdeserialize);
+		//Test subscription
+		passport.serializeUser(testData.subscriptionSerialize);
+		passport.deserializeUser(testData.subscriptionDeserialize);
+		//Test donation
+		passport.serializeUser(testData.donationSerialize);
+		passport.deserializeUser(testData.donationDeserialize);
+
+		/**********************************************************************/	
+			
+		//
+		app.use(passport.initialize());
+		app.use(passport.session());
+		app.use(flash());
+		
 		//
 		app.use(function(req, res, next) {
 		  res.locals.messages = req.flash();
@@ -66,7 +76,10 @@ options = function spec(app){
 			db.config(config.get('databaseConfig'));
 			var cryptConfig = config.get('bcrypt');
 			crypto.setCryptoLevel(cryptConfig.difficulty);
-		
+			
+			testData.addUsers();
+			testData.addSubscriptions();
+			testData.addDonations();
 
 			next(null, config);
 	    }
