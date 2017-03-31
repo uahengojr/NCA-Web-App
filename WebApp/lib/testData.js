@@ -21,10 +21,10 @@ var testData = function(){
 			
 			u1.save();
 		},
-        UserSerialize: function(user, done) {
+        userSerialize: function(user, done) {
             done(null, user.id);
         },
-        Userdeserialize: function(id, done) {
+        userDeserialize: function(id, done) {
             User.findOne({
                 _id: id
             }, function(err, user) {
@@ -43,7 +43,6 @@ var testData = function(){
 			
 			s1.save();
 		},
-		
         subscriptionSerialize: function(subscription, done) {
             done(null, subscription.id);
         },
@@ -57,9 +56,10 @@ var testData = function(){
 		
 		//Donations test data
 		addDonations: function() {
-			var d1 = new Donations({
-				name: 'Drought Relief Funds',
-				description: new Buffer('<p><b>Testing: Drought relief aid.</b></p>', 'utf8').toString()
+			var d1 = new Donation({
+				name: 'Efundja Relief Funds',
+				description: new Buffer('<p><b>Testing: Drought relief aid.</b></p>', 'utf8').toString(),
+				expiry_date: new Date("December 31, 2017")
 			});
 			
 			d1.save();

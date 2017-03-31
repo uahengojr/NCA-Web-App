@@ -39,20 +39,6 @@ options = function spec(app){
 		signUpStrategy(passport); 
 		signInStrategy(passport);
 		
-		/********************  - Dummy data serialization - *******************/	
-		
-		//Test user
-		passport.serializeUser(testData.UserSerialize);
-		passport.deserializeUser(testData.Userdeserialize);
-		//Test subscription
-		passport.serializeUser(testData.subscriptionSerialize);
-		passport.deserializeUser(testData.subscriptionDeserialize);
-		//Test donation
-		passport.serializeUser(testData.donationSerialize);
-		passport.deserializeUser(testData.donationDeserialize);
-
-		/**********************************************************************/	
-			
 		//
 		app.use(passport.initialize());
 		app.use(passport.session());
@@ -77,10 +63,13 @@ options = function spec(app){
 			var cryptConfig = config.get('bcrypt');
 			crypto.setCryptoLevel(cryptConfig.difficulty);
 			
-			testData.addUsers();
-			testData.addSubscriptions();
+			/*** Dummy Data ***/
 			testData.addDonations();
-
+			testData.addSubscriptions();
+			testData.addUsers();
+			
+			/*** *** *** *** ***/
+			
 			next(null, config);
 	    }
 	};
