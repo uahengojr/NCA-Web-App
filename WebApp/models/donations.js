@@ -9,7 +9,7 @@ var Donations = function() {
 		num_of_donations: {type: Number, default: 0}, //If the server crashes, does MongoDb restart from defaults(0)?
 		total_donations_revenue: {type: Number, default: 0, required: true},
 		expiry_date: {type: Date, required:true},
-		//date_created: {type: Date, default: Date.now},
+		date_created: {type: Date, default: Date.now},
 		hidden: {type: Boolean, default: false, required: true}
 	
 	});
