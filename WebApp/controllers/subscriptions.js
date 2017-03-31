@@ -1,7 +1,7 @@
 'use strict';
 
-var User = require('../model/user'),
-	Subscription = require('../model/subscription');
+var User = require('../models/user'),
+	Subscription = require('../models/subscriptions');
 
 var easySession = require('easy-session');
 
@@ -11,27 +11,27 @@ module.exports = function (router) {
 		
 		if(req.session.hasRole(['admin', 'board', 'user'])) {
 			
-			User.find({_id:req.session.userID}, function(err, owner){
+			User.find({_id: req.session.userID}, function(err, owner){
 			
 				if(err){
 					return console.error(err); //Send yourself some for info about this error?
 				}
 			/*
 				var model = {
-					subscriptions: subs
+					subscriptions: subscriptions
 				};
 				
 				var params = {
 					visitorID: req.session.userID,
 					ownerID: owner[0]._id
 				};
-			*/
-				req.session.can('account',/* params,*/ function(err, has){
+			*/		
+				req.session.can('account', /*params,*/ function(err, has){
 				
 					if(err || !has){
 						return res.sendStatus(403);
 					}
-				
+					
 					return res.render('subscriptions');
 				
 				});
