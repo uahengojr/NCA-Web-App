@@ -67,7 +67,6 @@ options = function spec(app){
 			testData.addDonations();
 			testData.addSubscriptions();
 			testData.addUsers();
-			
 			/*** *** *** *** ***/
 			
 			next(null, config);
