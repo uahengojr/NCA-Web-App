@@ -3,9 +3,12 @@
 var BillingModel = require('../models/billing');
 var easySession = require('easy-session');
 
+//Middleware
+var auth = require('../lib/auth');
+
 module.exports = function (router) {
 
-    router.get('/', easySession.isLoggedIn(), function (req, res) {
+    router.get('/', auth(), easySession.isLoggedIn(), function (req, res) {
         
 		if(req.session.hasRole(['admin', 'board', 'user'])) {
 			
@@ -44,7 +47,7 @@ module.exports = function (router) {
         
     });
 	
-    router.get('/payment', easySession.isLoggedIn(), function (req, res) {
+    router.get('/payment', auth(), easySession.isLoggedIn(), function (req, res) {
         
         if(req.session.hasRole(['admin', 'board', 'user'])){
         	
@@ -82,7 +85,7 @@ module.exports = function (router) {
 		       
     });
 	
-    router.get('/editcard', easySession.isLoggedIn(), function (req, res) {
+    router.get('/editcard', auth(), easySession.isLoggedIn(), function (req, res) {
         
         if(req.session.hasRole(['admin', 'board', 'user'])){
         	

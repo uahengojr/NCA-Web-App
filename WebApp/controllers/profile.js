@@ -5,17 +5,20 @@
 var User = require('../models/user');
 var easySession = require('easy-session');
 
+//Middleware
+var auth = require('../lib/auth');
+
 module.exports = function (router) {
 
     //var model = new ProfileModel();
 
-    router.get('/', easySession.isLoggedIn(), function (req, res) {
+    router.get('/', auth(), easySession.isLoggedIn(), function (req, res) {
         
         res.render('profile', model);
         
     });
 
-	router.get('/users/:id*?', easySession.isLoggedIn(), function(req, res){
+	router.get('/users/:id*?', auth(), easySession.isLoggedIn(), function(req, res){
 		
 		if(!req.params.id){ 
 			//Use session varibale instead of get variable

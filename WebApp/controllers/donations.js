@@ -3,9 +3,12 @@
 var Donation = require('../models/donations');
 var easySession = require('easy-session');
 
+//Middleware
+var auth = require('../lib/auth');
+
 module.exports = function (router) {
 
-    router.get('/', easySession.isLoggedIn(), function (req, res) {
+    router.get('/', auht(), easySession.isLoggedIn(), function (req, res) {
         
         if(req.session.hasRole(['admin','board', 'user'])){
 			
@@ -27,7 +30,7 @@ module.exports = function (router) {
 			
         }
         
-    }).post('/:donationID', easySession.isLoggedIn(), function(req, res){
+    }).post('/:donationID', auth(), easySession.isLoggedIn(), function(req, res){
 		
 		if(req.session.hasRole(['admin','board', 'user'])){
     			

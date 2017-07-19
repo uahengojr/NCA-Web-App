@@ -7,9 +7,10 @@ var easySession = require('easy-session'),
 var User = require('../models/user');
 var Events = require('../models/events');
 var SubscriptionsModel = require('../models/subscriptions');
-
-
 //var AdminModel = require('../models/admin');
+
+//Middleware
+var auth = require('../lib/auth');
 
 module.exports = function (router) {
 

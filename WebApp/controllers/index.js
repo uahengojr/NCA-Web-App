@@ -1,6 +1,7 @@
 'use strict';
 
 var passport = require('passport');
+var auth = require('../lib/auth');
 
 //Dynamic route should be explored.
 module.exports = function (router) {
@@ -104,7 +105,7 @@ module.exports = function (router) {
 	});
 
 	// - Logout route from application. - //
-	router.get('/logout', function(req, res){
+	router.get('/logout', auth(), function(req, res){
 		
 		req.session.logout(function(err) {
   		  	if(!err){

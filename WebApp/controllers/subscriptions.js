@@ -5,9 +5,12 @@ var User = require('../models/user'),
 
 var easySession = require('easy-session');
 
+//Middleware
+var auth = require('../lib/auth');
+
 module.exports = function (router) {
 
-    router.get('/', easySession.isLoggedIn(), function (req, res) {
+    router.get('/', auth(), easySession.isLoggedIn(), function (req, res) {
 		
 		if(req.session.hasRole(['admin', 'board', 'user'])) {
 			
@@ -44,7 +47,7 @@ module.exports = function (router) {
 			
 		}
         
-    }).post('/:id', easySession.isLoggedIn(), function(req, res){
+    }).post('/:id', auth(), easySession.isLoggedIn(), function(req, res){
     	
 		if(req.session.hasRole(['admin', 'board', 'user'])){
 						
