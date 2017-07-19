@@ -9,7 +9,7 @@ module.exports = function (router) {
         
         if(req.session.hasRole(['admin','board', 'user'])){
 			
-			Donation.find({}, function(err, donations){
+			Donation.find(function(err, donations){
 				
 				if(err){
 					return console.error(err);
