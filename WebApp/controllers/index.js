@@ -1,7 +1,8 @@
 'use strict';
 
 var passport = require('passport');
-//Dynamic route should eb explored.
+
+//Dynamic route should be explored.
 module.exports = function (router) {
 
     router.get('/', function (req, res) {
@@ -24,52 +25,79 @@ module.exports = function (router) {
 			
 			if(!user){
 				console.log(info);
-				return res.render('/', {message: info.loginMessage });// Back to homepage on failure.
+				return res.render('/', { message: info.loginMessage });// Back to homepage on failure.
 			}
 			
-			req.logIn(user, function(err) {
-				if(err) { 
-					return next(err);
-				}
-				
 				//console.log(user);
 				
-				if(user.role === 'admin'){
-					req.session.login(function(err){
+			if(user.role === 'board' || user.role === 'user'){
+				req.session.login(function(err){
+					
+					if(err){
+						console.error(err); //Deal with this better later
+					}
+					
+					if(!err){
+					
+						//Delete user some key-value pairs.
+						delete user.password;
 						
-						if(err){
-							console.error(err); //Deal with this better later
-						}
+						//Set the session
+						req.session.userID = user.id;
+						req.session.setRole(user.role);
 						
-						if(!err){
-							req.session.userID = user.id;
-							req.session.setRole(user.role);
+						req.logIn(user,function(err){
+							if(err){
+								return next(err);
+							}
+							
+							res.redirect('/profile/users/' + user.id);
+							
+						});
+					}
+				
+				});
+				
+			}else{
+		 		//What now??
+			 		//We really don't know you, dude...
+				return res.redirect('/');
+			}
+			
+			if(user.role === 'admin'){
+				req.session.login(function(err){
+					
+					if(err){
+						console.error(err); //Deal with this better later
+					}
+					
+					if(!err){
+						
+						//Delete user some key-value pairs.
+						delete user.password;
+						
+						//Set the session
+						req.session.userID = user.id;
+						req.session.setRole(user.role);
+						
+						req.logIn(user, function(err) {
+							if(err) { 
+								return next(err);
+							}
 							
 							res.redirect('/admin/' + user.id);
-						}
+							
+						});
 						
-					});
+					}
 					
-				}
+				});
 				
-				/*if(user.role === 'board'){}*/
-				
-				if(user.role === 'user'){
-					
-					req.session.login(function(err){
-						if(!err){
-						
-							//Logged in session created here.
-							req.session.userID = user.id;
-							req.session.setRole(user.role);
-													
-							res.redirect('/profile/users/' + user.id);
-						}
-					
-					});
-				}
-				
-			});
+			}else{
+		 		//What now??
+			 		//We really don't know you, dude...
+				return res.redirect('/');
+			}
 			
 		})(req, res, next);
 		
