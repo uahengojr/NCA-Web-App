@@ -31,7 +31,7 @@ module.exports = function (router) {
 			
 				//console.log(user);
 				
-			if(user.role === 'user' /*|| user.role === 'board'*/){
+				if(user.role === 'user' || user.role === 'board'){
 				req.session.login(function(err){
 					
 					if(err){
@@ -52,7 +52,7 @@ module.exports = function (router) {
 								return next(err);
 							}
 							
-							res.redirect('/profile/users/' + user.id);
+							res.redirect('/profile/' + user.id);
 							
 						});
 					}

@@ -12,31 +12,26 @@ module.exports = function (router) {
 
     //var model = new ProfileModel();
 
-    router.get('/', auth(), easySession.isLoggedIn(), function (req, res) {
-        
-        res.render('profile', model);
-        
-    });
-
-	router.get('/users/:id*?', auth(), easySession.isLoggedIn(), function(req, res){
+	router.get('/:id*?', auth(), easySession.isLoggedIn(), function(req, res){
 		
 		if(!req.params.id){ 
 			//Use session varibale instead of get variable
-			User.find({_id: req.session.userID}, function(err, owner){
+			User.find({_id: req.session.userID}, {role: 1, name: 1, _id: 0}, function(err, owner){
 				
 				if(err){
 					throw err; //Handle better later...
 				}
 				
 				console.log("Hello One");
-				console.log(req.params.userID);
 				var model = {ownr: owner}; 
 								
 				res.render('profile', model);	
 
 			}).limit(1);
 			
-		}else{
+		}
+		
+		if(req.session.userID === req.params.id || req.session.role === 'admin' ){
 	
 			var params = {
 				userID: req.session.userID,
@@ -48,7 +43,7 @@ module.exports = function (router) {
 					return res.sendStatus(403);
 				}
 			
-		        User.find({_id:req.session.userID}, function(err, owner){
+		        User.find({_id: params.ownerID}, {role: 1, name: 1, _id: 0}, function(err, owner){
 					if(err){
 						console.error(err);
 						throw err;
@@ -57,7 +52,6 @@ module.exports = function (router) {
 					var model = {ownr: owner};  
 				
 					console.log("Hello Two");
-					console.log("\n");
 					console.log(owner);
 		
 					res.render('profile', model);
