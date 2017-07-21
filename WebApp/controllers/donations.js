@@ -8,7 +8,7 @@ var auth = require('../lib/auth');
 
 module.exports = function (router) {
 
-    router.get('/', auht(), easySession.isLoggedIn(), function (req, res) {
+    router.get('/', auth(), easySession.isLoggedIn(), function (req, res) {
         
         if(req.session.hasRole(['admin','board', 'user'])){
 			

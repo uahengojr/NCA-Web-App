@@ -5,10 +5,10 @@ var kraken = require('kraken-js');
 var db = require('./lib/db');
 var crypto = require('./lib/crypto');
 
+var flash = require('connect-flash');
+var passport = require('passport');
 var session = require('express-session');
 var easySession = require('easy-session');
-var passport = require('passport');
-var flash = require('connect-flash');
 
 var signUpStrategy= require('./lib/registration');
 var signInStrategy = require('./lib/login');
