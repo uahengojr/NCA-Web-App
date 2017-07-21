@@ -31,7 +31,7 @@ module.exports = function (router) {
 			
 				//console.log(user);
 				
-			if(user.role === 'board' || user.role === 'user'){
+			if(user.role === 'user' /*|| user.role === 'board'*/){
 				req.session.login(function(err){
 					
 					if(err){
@@ -62,7 +62,7 @@ module.exports = function (router) {
 			}else{
 		 		//What now??
 			 		//We really don't know you, dude...
-				return res.redirect('/');
+				
 			}
 			
 			if(user.role === 'admin'){
@@ -97,7 +97,7 @@ module.exports = function (router) {
 			}else{
 		 		//What now??
 			 		//We really don't know you, dude...
-				return res.redirect('/');
+				
 			}
 			
 		})(req, res, next);
