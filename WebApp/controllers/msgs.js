@@ -1,42 +1,48 @@
 'use strict';
 
-var MsgsModel = require('../models/msgs');
+var User = require('../models/user');
 var easySession = require('easy-session');
 
-module.exports = function (router) {
+//Middleware
+var auth = require('../lib/auth');
+var resourceCheck = require('../lib/resourceCheck');
 
-    var model = new MsgsModel();
+
+module.exports = function (router) {
 	
 	///Figure out how to best handle message!!!
-	
-    router.get('/', easySession.isLoggedIn(), function(req, res) {
+    router.get('/', auth(), easySession.isLoggedIn(), function(req, res) {
         
-		if(req.session.hasRole(['board', 'admin', 'user'])) {
+		if(req.session.hasRole(['board', 'user']) && req.session.userID){
 			
-			console.log(req.session.userID);
-			
-			req.session.can('account', function(err, has){
-				if(err || !has){
-					res.sendStatus(403);
+			User.find({_id: req.session.userID}, function(err, msgs){
+				if(err){
+					console.error(err);
+					return;
 				}
 				
-				Msgs.find({_id: req.session.userID}, function(err, msgs){
-					if(err){
-						console.error(err);
-					}
-					
-					//Check if ther ar ethe owner of the messages again here???
-					var model = {msgs: msgs};
-					
-					res.render('msgs', model);
-					
-				});
-			});
+				var params = {
+					userID: req.session.userID,
+					ownerID: msgs.id
+				};				
 			
+				if(new resourceCheck(req, params)){
+				
+					var model = {msgs: msgs};
+					res.render('msgs', model);
+				
+				}
+			
+				if(!(new resourceCheck(req, params))){
+					return res.sendStatus(403);
+				}
+				
+			});
+
+		}else{
+			return res.render('errors/404', {url:req.url});
 		}
-		
-		//else redirect them to login??
-        
+		        
     });
 
 };
