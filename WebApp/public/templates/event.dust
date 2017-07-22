@@ -1,0 +1,4 @@
+{>"layouts/master" /}
+{<body}
+	<p>This is the page for a single event.</p>
+{/body}
