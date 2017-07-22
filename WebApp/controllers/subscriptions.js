@@ -12,33 +12,31 @@ module.exports = function (router) {
 
     router.get('/', auth(), easySession.isLoggedIn(), function (req, res) {
 		
-		if(req.session.hasRole(['admin', 'board', 'user'])) {
+		if(req.session.hasRole(['board', 'user'])) {
 			
-			User.find({_id: req.session.userID}, function(err, owner){
+			User.find({_id: req.session.userID}, function(err, subscrip){
 			
 				if(err){
 					return console.error(err); //Send yourself some for info about this error?
 				}
-			/*
-				var model = {
-					subscriptions: subscriptions
-				};
 				
 				var params = {
-					visitorID: req.session.userID,
-					ownerID: owner[0]._id
-				};
-			*/		
-				req.session.can('account', /*params,*/ function(err, has){
-				
-					if(err || !has){
-						return res.sendStatus(403);
-					}
-					
-					return res.render('subscriptions');
-				
-				});
+					userID: req.session.userID,
+					ownerID: subscrip.id
+				};				
+		
+				if(new resourceCheck(req, params)){
 			
+					var model = {user: subscrip};
+					
+					res.render('subscriptions', model);
+			
+				}
+		
+				if(!(new resourceCheck(req, params))){
+					return res.sendStatus(403);
+				}
+				
 			});
 			
 		}else{
@@ -49,7 +47,7 @@ module.exports = function (router) {
         
     }).post('/:id', auth(), easySession.isLoggedIn(), function(req, res){
     	
-		if(req.session.hasRole(['admin', 'board', 'user'])){
+		if(req.session.hasRole(['board', 'user'])){
 						
 			Subscription.update({_id:req.params.subscripitonID}, function(err, subscription){
 				
@@ -59,7 +57,13 @@ module.exports = function (router) {
 				
 				req.session.can('account', function(err, has){
 					
-					if(err || !has){
+					if(err){
+						//erro occured. Handle it...
+						return res.sendStatus(403);
+					}
+					
+					if(!has){
+						//Not allowed
 						return res.sendStatus(403);
 					}
 					
@@ -72,7 +76,8 @@ module.exports = function (router) {
 					subscription.new_subscription(newSubscriber); //Tally subscriber number.
 					subscription.addAmount(newSubscriber[amount]); //Tally total revenue received to date.
 					
-					return res.send('success'/* - Some req.flash message here - */);
+					//Send the user an email.
+					return res.send('success', req.flash('success', 'You have succeffuly subscribed. Check you emial for confirmation.');
 					
 				});
 				
