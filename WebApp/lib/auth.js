@@ -8,8 +8,9 @@ var reqRoute = function() {
 		if(req.session.isLoggedIn()) {
 			
 			if(req.session.hasRole(['user', 'board', 'admin'])){
-				console.log('User is logged in & has a defined role.');
+
 				next();
+				
 			}else{
 				//You have a different role, if you reach this...
 			}
