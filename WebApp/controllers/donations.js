@@ -10,7 +10,7 @@ module.exports = function (router) {
 
     router.get('/', auth(), easySession.isLoggedIn(), function (req, res) {
         
-        if(req.session.hasRole(['admin','board', 'user'])){
+        if(req.session.hasRole(['board', 'user']) && req.session.userID){
 			
 			Donation.find(function(err, donations){
 				
@@ -32,31 +32,24 @@ module.exports = function (router) {
         
     }).post('/:donationID', auth(), easySession.isLoggedIn(), function(req, res){
 		
-		if(req.session.hasRole(['admin','board', 'user'])){
+		if(req.session.hasRole(['board', 'user'])){
     			
 			Donation.updateOne({_id: req.params.donationID}, function(err, donation){
 				
 				if(err){
 					return console.error(err);
 				}
-				req.session.can('account', function(err, has){
-					
-					if(err || !has){
-						return res.sendStatus(403);
-					}
-					
-					
-					var donor = {
-						ID: req.session.userID,
-						amount: req.body.amount
-					};
-					
-					donation.addDonor(donor); 
-					donation.addRevenue(donor[amount]);
-					
-					return res.send('Success' /*Some flash message here...*/);
-					
-				});
+				//Perhaps add some resource check here later...
+				var donor = {
+					ID: req.session.userID,
+					amount: req.body.amount
+				};
+				
+				donation.addDonor(donor); 
+				donation.addRevenue(donor[amount]);
+				
+				//Send an email to the user as well.
+				return res.send('Success', req.flash('success', 'Thank you! You donation has been recieved.'));
 				
 			});
 			
