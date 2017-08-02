@@ -7,7 +7,8 @@
   "scripts": {
     "test": "grunt test",
     "build": "grunt build",
-    "all": "npm run build && npm run test"
+    "all": "npm run build && npm run test",
+	"lint": "jshint"
   },
   "dependencies": {
     "bcrypt": "^0.8.5",
@@ -32,6 +33,7 @@
   },
   "devDependencies": {
     "grunt": "^1.0.1",
+    "jshint": "^2.9.5",
     "mocha": "^1.21.5",
     "should": "^11.2.1",
     "supertest": "^0.9.0"
