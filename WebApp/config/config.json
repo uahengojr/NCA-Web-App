@@ -75,7 +75,7 @@
 		        "arguments": [
 					// express-session configuration
 					{
-					    "secret": "keyboard cat",
+					    "secret": "keyboard cat", //Use a stronger secret
 						"cookie": {
 							"path": "/",
 							"httpOnly": true,
@@ -87,9 +87,9 @@
 					},
 					//connect-mongoDB configuration
 					{
-						"host": "localhost:27017",
-						"db": "NCA_Sessions",
-						"collection": "NCA_Sess"
+						"host": "localhost:27017", //This should be altered in production
+						"db": "NCA_Sessions", //Change this to your own naming
+						"collection": "NCA_Sess"  //Change this to your own naming
 					}
 				]
 		    }
