@@ -58,7 +58,7 @@ var testData = function(){
 		addDonations: function() {
 			var d1 = new Donation({
 				name: 'Efundja Relief Funds',
-				description: new Buffer('<p><b>Testing: Drought relief aid.</b></p>', 'utf8').toString(),
+				description: new Buffer('<p><b>Testing: Drought Relief Aid.</b></p>', 'utf8').toString(),
 				expiry_date: new Date("December 31, 2017")
 			});
 			

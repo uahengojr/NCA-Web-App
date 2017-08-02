@@ -16,9 +16,11 @@ var reqRoute = function() {
 			}
 			
 		}else{
+			
 			req.session.goingTo = req.url;
 			req.flash('error', 'Please sign-in to view the requested page.');
 			res.redirect('/signIn');
+			
 		}
 	};
 };
