@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var User = require('../models/user'),
 	Subscription = require('../models/subscriptions');
@@ -77,7 +77,7 @@ module.exports = function (router) {
 					subscription.addAmount(newSubscriber[amount]); //Tally total revenue received to date.
 					
 					//Send the user an email.
-					return res.send('success', req.flash('success', 'You have succeffuly subscribed. Check you emial for confirmation.');
+					return res.send('success', req.flash('success', 'You have succeffuly subscribed. Check you emial for confirmation.'));
 					
 				});
 				

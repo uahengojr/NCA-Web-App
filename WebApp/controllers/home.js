@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var Home = require('../models/home'); //Add event data via some external json url like or file. 
 var easySession = require('easy-session');
@@ -19,7 +19,7 @@ module.exports = function (router) {
 			
 				var model = {details: details};
 			
-				res.render('home' , model);
+				res.render('home', model);
 			
 	  		});
 		

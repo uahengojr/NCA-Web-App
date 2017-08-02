@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var ExternalDonationsModel = require('../models/external_donations');
 

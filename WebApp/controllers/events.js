@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var Event = require('../models/events');
 var easySession = require('easy-session');
@@ -50,7 +50,7 @@ module.exports = function (router) {
 		}else{
 			
 			
-			return res.render('errors/404', {url:req.url});
+			return res.render('errors/404', {url: req.url});
 			
 		}
 		
@@ -79,7 +79,9 @@ module.exports = function (router) {
 						return console.error(err);
 					}
 					
-					return res.redirect('events/:' + event.id, req.flash('success','Welcome to NCA the community!'));
+					req.flash('success','Welcome to NCA the community!');
+					
+					return res.redirect('events/:' + event.id);
 					
 				});
     		});
@@ -90,6 +92,6 @@ module.exports = function (router) {
 			
     	}
 		
-    }).put().delete();
+    });
 
 };

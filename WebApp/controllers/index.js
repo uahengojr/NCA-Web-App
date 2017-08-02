@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var passport = require('passport');
 var auth = require('../lib/auth');
@@ -26,36 +26,39 @@ module.exports = function (router) {
 			
 			if(!user){
 				console.log(info);
-				return res.render('/', { message: info.loginMessage });// Back to homepage on failure.
+				return res.render('/', {message: info.loginMessage}); // Back to homepage on failure.
 			}
 			
 				//console.log(user);
 				
 				if(user.role === 'user' || user.role === 'board'){
-				req.session.login(function(err){
 					
-					if(err){
-						console.error(err); //Deal with this better later
-					}
+					req.session.login(function(err){
 					
-					if(!err){
+						if(err){
+							console.error(err); //Deal with this better later
+						}
 					
-						//Delete user some key-value pairs.
-						delete user.password;
+						if(!err){
+					
+							//Delete user some key-value pairs.
+							delete user.password;
 						
-						//Set the session
-						req.session.userID = user.id;
-						req.session.setRole(user.role);
+							//Set the session
+							req.session.userID = user.id;
+							req.session.setRole(user.role);
 						
-						req.logIn(user,function(err){
-							if(err){
+							req.logIn(user, function(err){
+								if(err){
+									
 								return next(err);
-							}
+								
+								}
 							
-							res.redirect('/profile/' + user.id);
+								return res.redirect('/profile/' + user.id);
 							
-						});
-					}
+							});
+						}
 				
 				});
 				
@@ -74,7 +77,7 @@ module.exports = function (router) {
 					
 					if(!err){
 						
-						//Delete user some key-value pairs.
+						//Delete user password.
 						delete user.password;
 						
 						//Set the session
@@ -104,20 +107,16 @@ module.exports = function (router) {
 		
 	});
 
-	// - Logout route from application. - //
+	// - Application Log Out Route - //
 	router.get('/logout', auth(), function(req, res){
 		
 		req.session.logout(function(err) {
   		  	if(!err){
-  		  		//Here we have logged-out the session
-				console.log('Session deleted...');
 			    res.redirect('/');
-  		  	} //Should possible include an error handler here.
+  		  	} 
 		});
 	
 	});
-
-
 
 /* THIS CAUSES PROBLEMS FOR SOME OF THE PAGES LOADING...
 	// - This is a catch-all for requested pages that don't exist. - //

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var easySession = require('easy-session'),
 	fs = require('fs');
@@ -7,16 +7,13 @@ var easySession = require('easy-session'),
 var User = require('../models/user');
 var Events = require('../models/events');
 var SubscriptionsModel = require('../models/subscriptions');
-//var AdminModel = require('../models/admin');
 
 //Middleware
 var auth = require('../lib/auth');
 
 module.exports = function (router) {
 
-    //var model = new AdminModel();
-
-    router.get('/:id*?', easySession.isLoggedIn(), easySession.checkRole('admin'), function (req, res) {
+    router.get('/:id*?', easySession.isLoggedIn(), easySession.checkRole('admin'), function (req, res){
         
 		if(!req.params.id){
 			
@@ -34,7 +31,7 @@ module.exports = function (router) {
 		}else{
 			
 			var params = {
-				adminID: req.session.userID,
+				userID: req.session.userID,
 				ownerId: req.params.id //Owner of the object?	
 			};
 			
@@ -43,7 +40,7 @@ module.exports = function (router) {
 					return res.sendStatus(403);
 				}
 				
-				User.find({_id: params.adminID}, function(err, admin){
+				User.find({_id: params.userID}, function(err, admin){
 					if(err){
 						console.error(err); //Handle errors better later...
 					}

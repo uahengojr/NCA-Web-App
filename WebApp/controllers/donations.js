@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var Donation = require('../models/donations');
 var easySession = require('easy-session');

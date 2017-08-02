@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var BillingModel = require('../models/billing');
 var easySession = require('easy-session');
@@ -19,7 +19,7 @@ module.exports = function (router) {
 				}
 				var params = {
 					userID: req.session.userID,
-					ownderID: billing._id
+					ownerID: billing._id
 				};
 				
 				if(new resourceCheck(req, params)){
@@ -76,33 +76,37 @@ module.exports = function (router) {
 	
     router.get('/payment', auth(), easySession.isLoggedIn(), function (req, res) {
         
+	
+        
         if(req.session.hasRole(['board', 'user'])){
-        	
+		
 			User.findOne({_id: req.session.userID}, function(err, payment){
 				
 				if(err){
 					return console.error(err);
 				}
+		
 				var params = {
 					userID: req.session.userID,
 					ownderID: payment._id
 				};
-				
+		
 				if(new resourceCheck(req, params)){
 					var model = {user: payment};  
 					return res.render('payment', model);
 					
 				}
-				
+		
 				if(!(new resourceCheck(req, params))){
 					return res.sendStatus(403);
 				}
 			
-        }else{
-        	
-			return res.render('errors/404', {url:req.url});
+			});
 			
-        }
+		}else{
+			return res.render('errors/404', {url:req.url});
+		}
+
 		       
     });
 	

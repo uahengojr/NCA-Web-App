@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var PrivacyPolicyModel = require('../models/privacy-policy');
 

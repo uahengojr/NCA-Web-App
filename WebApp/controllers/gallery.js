@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var Gallery = require('../models/gallery');
 var easySession = require('easy-session');

@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 var User = require('../models/user');
 var easySession = require('easy-session');
